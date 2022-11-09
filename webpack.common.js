@@ -4,7 +4,9 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    app: path.resolve(__dirname, 'src/script/index.js'),
+    admin: path.resolve(__dirname, 'src/script/admin.js'),
+    seller: path.resolve(__dirname, 'src/script/seller.js'),
+    buyer: path.resolve(__dirname, 'src/script/buyer.js'),
   },
   output: {
     filename: '[name].bundle.js',
@@ -28,20 +30,23 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'admin/index.html',
-      template: path.resolve(__dirname, 'src/templates/admin/index.html'),
-    }),
-    new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.resolve(__dirname, 'src/templates/index.html'),
     }),
     new HtmlWebpackPlugin({
+      filename: 'admin/index.html',
+      template: path.resolve(__dirname, 'src/templates/admin/index.html'),
+      chunks: ['admin'],
+    }),
+    new HtmlWebpackPlugin({
       filename: 'seller/index.html',
       template: path.resolve(__dirname, 'src/templates/seller/index.html'),
+      chunks: ['seller'],
     }),
     new HtmlWebpackPlugin({
       filename: 'buyer/index.html',
       template: path.resolve(__dirname, 'src/templates/buyer/index.html'),
+      chunks: ['buyer'],
     }),
     new CopyWebpackPlugin({
       patterns: [

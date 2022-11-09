@@ -1,3 +1,3 @@
 import 'regenerator-runtime';
 
-console.log('index');
+console.log('this seller');
