@@ -28,8 +28,20 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      filename: 'admin/index.html',
+      template: path.resolve(__dirname, 'src/templates/admin/index.html'),
+    }),
+    new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.resolve(__dirname, 'src/templates/index.html'),
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'seller/index.html',
+      template: path.resolve(__dirname, 'src/templates/seller/index.html'),
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'buyer/index.html',
+      template: path.resolve(__dirname, 'src/templates/buyer/index.html'),
     }),
     new CopyWebpackPlugin({
       patterns: [
