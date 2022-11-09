@@ -7,6 +7,7 @@ module.exports = {
     admin: path.resolve(__dirname, 'src/script/admin.js'),
     seller: path.resolve(__dirname, 'src/script/seller.js'),
     buyer: path.resolve(__dirname, 'src/script/buyer.js'),
+    login: path.resolve(__dirname, 'src/script/login.js'),
     app: path.resolve(__dirname, 'src/script/index.js'),
   },
   output: {
@@ -34,6 +35,11 @@ module.exports = {
       filename: 'index.html',
       template: path.resolve(__dirname, 'src/templates/index.html'),
       chunks: ['app'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'login.html',
+      template: path.resolve(__dirname, 'src/templates/login.html'),
+      chunks: ['login'],
     }),
     new HtmlWebpackPlugin({
       filename: 'admin/index.html',
