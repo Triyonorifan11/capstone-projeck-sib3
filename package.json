@@ -1,10 +1,11 @@
 {
   "name": "capstone-projek-sib3",
   "version": "1.0.0",
-  "description": "��#\u0000 \u0000c\u0000a\u0000p\u0000s\u0000t\u0000o\u0000n\u0000e\u0000-\u0000p\u0000r\u0000o\u0000j\u0000e\u0000c\u0000k\u0000-\u0000s\u0000i\u0000b\u00003\u0000\r\u0000 \u0000",
+  "description": "capstone projek SIB 3 - Dicoding 2022",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start-dev": "webpack serve --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,24 @@
   "bugs": {
     "url": "https://github.com/Triyonorifan11/capstone-projeck-sib3/issues"
   },
-  "homepage": "https://github.com/Triyonorifan11/capstone-projeck-sib3#readme"
+  "homepage": "https://github.com/Triyonorifan11/capstone-projeck-sib3#readme",
+  "devDependencies": {
+    "@babel/core": "^7.20.2",
+    "@babel/preset-env": "^7.20.2",
+    "babel-loader": "^9.1.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.1",
+    "eslint": "^8.27.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "html-webpack-plugin": "^5.5.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "regenerator-runtime": "^0.13.10"
+  }
 }
