@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = {
   entry: {
     admin: path.resolve(__dirname, 'src/script/admin.js'),
-    seller: path.resolve(__dirname, 'src/script/seller.js'),
+    seller: path.resolve(__dirname, 'src/script/seller-index.js'),
     buyer: path.resolve(__dirname, 'src/script/buyer.js'),
     login: path.resolve(__dirname, 'src/script/login.js'),
     app: path.resolve(__dirname, 'src/script/index.js'),
