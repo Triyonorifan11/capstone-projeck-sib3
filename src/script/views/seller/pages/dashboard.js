@@ -230,10 +230,6 @@ const DashboardSeller = {
 
             </div>
           </div><!-- End Recent Sales -->
-
-
-
-
         </div>
       </div><!-- End Left side columns -->
 
