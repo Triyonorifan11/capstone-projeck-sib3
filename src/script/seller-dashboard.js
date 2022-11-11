@@ -11,8 +11,8 @@ const app = new App({
 });
 
 window.addEventListener('hashchange', () => {
-  app.renderPage();
   loader.classList.add('loaded');
+  app.renderPage();
 });
 
 window.addEventListener('load', () => {
