@@ -47,8 +47,8 @@ const DataPenjualan = {
                           <td>$64</td>
                           <td><span class="badge bg-success">Approved</span></td>
                           <td>
-                            <a href="#" class="btn btn-sm btn-secondary rounded-circle"><i class="bi bi-pencil-square"></i></a>
-                            <a href="#" class="btn btn-sm btn-danger rounded-circle"><i class="bi bi-trash"></i></a>
+                            <a href="#" class="btn btn-sm btn-secondary rounded-circle" title="Edit"><i class="bi bi-pencil-square"></i></a>
+                            <a href="#" class="btn btn-sm btn-danger rounded-circle" title="Delete"><i class="bi bi-trash"></i></a>
                           </td>
                         </tr>
                         <tr>
@@ -58,8 +58,8 @@ const DataPenjualan = {
                           <td>$47</td>
                           <td><span class="badge bg-warning">Pending</span></td>
                           <td>
-                            <a href="#" class="btn btn-sm btn-secondary rounded-circle"><i class="bi bi-pencil-square"></i></a>
-                            <a href="#" class="btn btn-sm btn-danger rounded-circle"><i class="bi bi-trash"></i></a>
+                            <a href="#" class="btn btn-sm btn-secondary rounded-circle" title="Edit"><i class="bi bi-pencil-square"></i></a>
+                            <a href="#" class="btn btn-sm btn-danger rounded-circle" title="Delete"><i class="bi bi-trash"></i></a>
                           </td>
                         </tr>
                         <tr>
@@ -69,8 +69,8 @@ const DataPenjualan = {
                           <td>$147</td>
                           <td><span class="badge bg-success">Approved</span></td>
                           <td>
-                            <a href="#" class="btn btn-sm btn-secondary rounded-circle"><i class="bi bi-pencil-square"></i></a>
-                            <a href="#" class="btn btn-sm btn-danger rounded-circle"><i class="bi bi-trash"></i></a>
+                            <a href="#" class="btn btn-sm btn-secondary rounded-circle" title="Edit"><i class="bi bi-pencil-square"></i></a>
+                            <a href="#" class="btn btn-sm btn-danger rounded-circle" title="Delete"><i class="bi bi-trash"></i></a>
                           </td>
                         </tr>
                         <tr>
@@ -80,8 +80,8 @@ const DataPenjualan = {
                           <td>$67</td>
                           <td><span class="badge bg-danger">Rejected</span></td>
                           <td>
-                            <a href="#" class="btn btn-sm btn-secondary rounded-circle"><i class="bi bi-pencil-square"></i></a>
-                            <a href="#" class="btn btn-sm btn-danger rounded-circle"><i class="bi bi-trash"></i></a>
+                            <a href="#" class="btn btn-sm btn-secondary rounded-circle" title="Edit"><i class="bi bi-pencil-square"></i></a>
+                            <a href="#" class="btn btn-sm btn-danger rounded-circle" title="Delete"><i class="bi bi-trash"></i></a>
                           </td>
                         </tr>
                         <tr>
@@ -91,8 +91,8 @@ const DataPenjualan = {
                           <td>$165</td>
                           <td><span class="badge bg-success">Approved</span></td>
                           <td>
-                            <a href="#" class="btn btn-sm btn-secondary rounded-circle"><i class="bi bi-pencil-square"></i></a>
-                            <a href="#" class="btn btn-sm btn-danger rounded-circle"><i class="bi bi-trash"></i></a>
+                            <a href="#" class="btn btn-sm btn-secondary rounded-circle" title="Edit"><i class="bi bi-pencil-square"></i></a>
+                            <a href="#" class="btn btn-sm btn-danger rounded-circle" title="Delete"><i class="bi bi-trash"></i></a>
                           </td>
                         </tr>
                       </tbody>
