@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 const DataPenjualan = {
+
   async render() {
     return `
     <div class="pagetitle">

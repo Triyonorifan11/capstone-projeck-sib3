@@ -5,6 +5,7 @@ const path = require('path');
 module.exports = {
   entry: {
     admin: path.resolve(__dirname, 'src/script/admin.js'),
+    sellerDashboard: path.resolve(__dirname, 'src/script/seller-dashboard.js'),
     seller: path.resolve(__dirname, 'src/script/seller-index.js'),
     buyer: path.resolve(__dirname, 'src/script/buyer.js'),
     login: path.resolve(__dirname, 'src/script/login.js'),
@@ -50,6 +51,11 @@ module.exports = {
       filename: 'seller/index.html',
       template: path.resolve(__dirname, 'src/templates/seller/index.html'),
       chunks: ['seller'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'seller/dashboard/index.html',
+      template: path.resolve(__dirname, 'src/templates/seller/dashboard/index.html'),
+      chunks: ['sellerDashboard'],
     }),
     new HtmlWebpackPlugin({
       filename: 'buyer/index.html',

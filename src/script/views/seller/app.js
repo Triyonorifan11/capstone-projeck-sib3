@@ -7,15 +7,15 @@ class App {
     this._header = header;
     this._aside = aside;
     this._maincontent = maincontent;
-    this._initialAppShell();
+    // this._initialAppShell();
   }
 
-  _initialAppShell() {
-    const navlink = this._aside.querySelector('.nav-link');
-    navlink.addEventListener('click', () => {
-    //   console.log(navlink);
-    });
-  }
+  // _initialAppShell() {
+  //   const navlink = this._aside.querySelector('.nav-link');
+  //   navlink.addEventListener('click', () => {
+  //   //   console.log(navlink);
+  //   });
+  // }
 
   async renderPage() {
     const url = UrlParser.parseActiveUrlWithCombiner();
