@@ -10,18 +10,31 @@ class App {
     // this._initialAppShell();
   }
 
-  // _initialAppShell() {
-  //   const navlink = this._aside.querySelector('.nav-link');
-  //   navlink.addEventListener('click', () => {
-  //   //   console.log(navlink);
-  //   });
-  // }
+  _loaderActive() {
+    const loader = document.querySelector('#js-preloader');
+    loader.classList.add('loaded');
+  }
+
+  _loaderHide() {
+    const loader = document.querySelector('#js-preloader');
+    setTimeout(() => {
+      loader.classList.remove('loaded');
+    }, 2000);
+  }
 
   async renderPage() {
-    const url = UrlParser.parseActiveUrlWithCombiner();
-    const page = sellerRoutes[url];
-    this._maincontent.innerHTML = await page.render();
-    await page.afterRender();
+    this._loaderActive();
+    try {
+      const url = UrlParser.parseActiveUrlWithCombiner();
+      const page = sellerRoutes[url];
+      this._loaderActive();
+      this._maincontent.innerHTML = await page.render();
+      await page.afterRender();
+    } catch (error) {
+      this._maincontent.innerHTML = `<h1>${error}</h1>`;
+    } finally {
+      this._loaderHide();
+    }
   }
 }
 

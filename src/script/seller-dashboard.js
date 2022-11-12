@@ -1,8 +1,6 @@
 import 'regenerator-runtime';
-import '../styles/homepage.css';
 import App from './views/seller/app';
-
-const loader = document.querySelector('#js-preloader');
+import '../styles/homepage.css';
 
 const app = new App({
   header: document.querySelector('#header'),
@@ -11,11 +9,19 @@ const app = new App({
 });
 
 window.addEventListener('hashchange', () => {
+  const loader = document.querySelector('#js-preloader');
   loader.classList.add('loaded');
-  app.renderPage();
+  setTimeout(() => {
+    loader.classList.remove('loaded');
+    app.renderPage();
+  }, 500);
 });
 
 window.addEventListener('load', () => {
+  const loader = document.querySelector('#js-preloader');
   loader.classList.add('loaded');
-  app.renderPage();
+  setTimeout(() => {
+    loader.classList.remove('loaded');
+    app.renderPage();
+  }, 1000);
 });

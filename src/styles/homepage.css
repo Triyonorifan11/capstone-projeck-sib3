@@ -17,23 +17,23 @@ Pre-loader Style
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #111;
+    background-color: #fff;
     display: -webkit-box;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
     -webkit-box-pack: center;
     justify-content: center;
-    opacity: 1;
-    visibility: visible;
+    opacity: 0;
+    visibility: hidden;
     z-index: 9999;
     -webkit-transition: opacity 0.25s ease;
     transition: opacity 0.25s ease;
   }
   
   .js-preloader.loaded {
-    opacity: 0;
-    visibility: hidden;
+    opacity: 1;
+    visibility: visible;
     pointer-events: none;
   }
   
@@ -78,7 +78,7 @@ Pre-loader Style
     height: 16px;
     top: 12px;
     left: 15px;
-    background: #22b3c1;
+    background: #012970;
     border-radius: 50%;
     -webkit-transform: translateX(0);
     transform: translateX(0);
@@ -101,6 +101,6 @@ Pre-loader Style
     width: 16px;
     height: 16px;
     margin-left: 16px;
-    background: #22b3c1;
+    background: #012970;
     border-radius: 50%;
   }
