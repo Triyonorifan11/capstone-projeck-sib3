@@ -1,5 +1,6 @@
 import 'regenerator-runtime';
 import '../styles/homepage.css';
+import '../styles/about-blog.css';
 
 console.log('seller index');
 
