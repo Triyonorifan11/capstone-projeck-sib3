@@ -4,7 +4,7 @@ const tambahDataPenjualan = {
   async render() {
     return `
       <div class="pagetitle">
-        <h1><a href="#/dataseller" title="Back" class="me-2"><i class="bi bi-arrow-left"></i></a> Tambah data</h1>
+        <h1><a href="#/dataseller" title="Back"><i class="bi bi-arrow-left d-xl-none me-2"></i></a> Tambah data</h1>
         <nav>
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#/">Home</a></li>
