@@ -25,7 +25,7 @@ const DataPenjualan = {
                   <div class="card-body">
                     <h5 class="card-title">
                     Recent Sales
-                    <a href="#tambahDataPenjualan" class="btn btn-primary ms-4"><i class="bi bi-plus-circle"></i> Tambah Data</a>
+                    <a href="#/addsales" class="btn btn-primary ms-4"><i class="bi bi-plus-circle"></i> Tambah Data</a>
                     </h5>
                     
                     <table class="table table-borderless" id="dataseller2">
