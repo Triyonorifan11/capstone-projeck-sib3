@@ -12,13 +12,13 @@ class App {
 
   _loaderActive() {
     const loader = document.querySelector('#js-preloader');
-    loader.classList.add('loaded');
+    loader.classList.remove('loaded');
   }
 
   _loaderHide() {
-    const loader = document.querySelector('#js-preloader');
     setTimeout(() => {
-      loader.classList.remove('loaded');
+      const loader = document.querySelector('#js-preloader');
+      loader.classList.add('loaded');
     }, 2000);
   }
 
@@ -27,7 +27,6 @@ class App {
     try {
       const url = UrlParser.parseActiveUrlWithCombiner();
       const page = sellerRoutes[url];
-      this._loaderActive();
       this._maincontent.innerHTML = await page.render();
       await page.afterRender();
     } catch (error) {

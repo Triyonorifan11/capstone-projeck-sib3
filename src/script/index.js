@@ -2,10 +2,12 @@ import 'regenerator-runtime';
 import '../styles/homepage.css';
 
 console.log('this for preference');
+const loader = document.querySelector('#js-preloader');
+
 window.addEventListener('load', () => {
-  const loader = document.querySelector('#js-preloader');
-  loader.classList.add('loaded');
+  console.log('loading..');
   setTimeout(() => {
-    loader.classList.remove('loaded');
-  }, 2000);
+    loader.classList.add('loaded');
+    console.log('finish');
+  }, 2400);
 });

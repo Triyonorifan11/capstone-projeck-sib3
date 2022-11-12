@@ -4,9 +4,9 @@ import '../styles/homepage.css';
 
 window.addEventListener('load', () => {
   const loader = document.querySelector('#js-preloader');
-  loader.classList.add('loaded');
+  loader.classList.remove('loaded');
   setTimeout(() => {
-    loader.classList.remove('loaded');
+    loader.classList.add('loaded');
   }, 2000);
 });
 

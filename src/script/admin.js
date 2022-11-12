@@ -2,6 +2,7 @@ import 'regenerator-runtime';
 import AdminApp from './views/admin/app';
 import '../styles/homepage.css';
 
+const loader = document.querySelector('#js-preloader');
 const appAdmin = new AdminApp({
   header: document.querySelector('#header'),
   aside: document.querySelector('#sidebar'),
@@ -9,27 +10,18 @@ const appAdmin = new AdminApp({
 });
 
 window.addEventListener('hashchange', () => {
-  appAdmin.renderPage();
-});
-
-window.addEventListener('load', () => {
-  appAdmin.renderPage();
-});
-
-window.addEventListener('hashchange', () => {
-  const loader = document.querySelector('#js-preloader');
-  loader.classList.add('loaded');
+  document.querySelector('body').classList.remove('toggle-sidebar');
+  loader.classList.remove('loaded');
   setTimeout(() => {
-    loader.classList.remove('loaded');
+    loader.classList.add('loaded');
     appAdmin.renderPage();
   }, 500);
 });
 
 window.addEventListener('load', () => {
-  const loader = document.querySelector('#js-preloader');
-  loader.classList.add('loaded');
+  loader.classList.remove('loaded');
   setTimeout(() => {
-    loader.classList.remove('loaded');
+    loader.classList.add('loaded');
     appAdmin.renderPage();
   }, 1000);
 });

@@ -11,13 +11,13 @@ class AdminApp {
 
   _loaderActive() {
     const loader = document.querySelector('#js-preloader');
-    loader.classList.add('loaded');
+    loader.classList.remove('loaded');
   }
 
   _loaderHide() {
-    const loader = document.querySelector('#js-preloader');
     setTimeout(() => {
-      loader.classList.remove('loaded');
+      const loader = document.querySelector('#js-preloader');
+      loader.classList.add('loaded');
     }, 2000);
   }
 

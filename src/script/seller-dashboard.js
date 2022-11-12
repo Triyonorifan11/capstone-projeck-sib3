@@ -9,19 +9,20 @@ const app = new App({
 });
 
 window.addEventListener('hashchange', () => {
+  document.querySelector('body').classList.remove('toggle-sidebar');
   const loader = document.querySelector('#js-preloader');
-  loader.classList.add('loaded');
+  loader.classList.remove('loaded');
   setTimeout(() => {
-    loader.classList.remove('loaded');
+    loader.classList.add('loaded');
     app.renderPage();
   }, 500);
 });
 
 window.addEventListener('load', () => {
   const loader = document.querySelector('#js-preloader');
-  loader.classList.add('loaded');
+  loader.classList.remove('loaded');
   setTimeout(() => {
-    loader.classList.remove('loaded');
+    loader.classList.add('loaded');
     app.renderPage();
   }, 1000);
 });
