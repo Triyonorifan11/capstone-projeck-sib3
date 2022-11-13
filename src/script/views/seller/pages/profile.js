@@ -20,13 +20,13 @@ const Profile = {
 
               <img src="../../assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
               <h2>Kevin Anderson</h2>
-              <h3>Web Designer</h3>
-              <div class="social-links mt-2">
+              <h3>Seller <span class="badge text-bg-success">Active</span></h3>
+              <!-- <div class="social-links mt-2">
                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                 <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
                 <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
                 <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-              </div>
+              </div> -->
             </div>
           </div>
 
@@ -52,44 +52,42 @@ const Profile = {
               <div class="tab-content pt-2">
 
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                  <h5 class="card-title">About</h5>
-                  <p class="small fst-italic">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</p>
-
+                  
                   <h5 class="card-title">Profile Details</h5>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Full Name</div>
+                    <div class="col-lg-3 col-md-4 label ">Nama Lengkap</div>
                     <div class="col-lg-9 col-md-8">Kevin Anderson</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Company</div>
-                    <div class="col-lg-9 col-md-8">Lueilwitz, Wisoky and Leuschke</div>
+                    <div class="col-lg-3 col-md-4 label">Provinsi</div>
+                    <div class="col-lg-9 col-md-8">Jawa Timur</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Job</div>
-                    <div class="col-lg-9 col-md-8">Web Designer</div>
+                    <div class="col-lg-3 col-md-4 label">Kabupaten/Kota</div>
+                    <div class="col-lg-9 col-md-8">Kota Surabaya</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Country</div>
-                    <div class="col-lg-9 col-md-8">USA</div>
+                    <div class="col-lg-3 col-md-4 label">Negara</div>
+                    <div class="col-lg-9 col-md-8">Indonesia</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Address</div>
+                    <div class="col-lg-3 col-md-4 label">Kecamatan</div>
                     <div class="col-lg-9 col-md-8">A108 Adam Street, New York, NY 535022</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Phone</div>
-                    <div class="col-lg-9 col-md-8">(436) 486-3538 x29071</div>
+                    <div class="col-lg-3 col-md-4 label">No Hp/WhatsApp</div>
+                    <div class="col-lg-9 col-md-8">0859 1212 1232</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
+                    <div class="col-lg-9 col-md-8">k.anderson@rtproject.com</div>
                   </div>
 
                 </div>
@@ -97,11 +95,12 @@ const Profile = {
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                   <!-- Profile Edit Form -->
-                  <form>
+                  <form method="post" action="">
                     <div class="row mb-3">
-                      <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
+                      <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Foto Profil</label>
                       <div class="col-md-8 col-lg-9">
                         <img src="../../assets/img/profile-img.jpg" alt="Profile">
+                        <input class="form-control" type="file" id="formFile">
                         <div class="pt-2">
                           <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
                           <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
@@ -110,62 +109,55 @@ const Profile = {
                     </div>
 
                     <div class="row mb-3">
-                      <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
+                      <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nama Lengkap</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="fullName" type="text" class="form-control" id="fullName" value="Kevin Anderson">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="about" class="col-md-4 col-lg-3 col-form-label">About</label>
+                      <label for="provinsi" class="col-md-4 col-lg-3 col-form-label">Provinsi</label>
                       <div class="col-md-8 col-lg-9">
-                        <textarea name="about" class="form-control" id="about" style="height: 100px">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
+                        <input name="provinsi" type="text" class="form-control" id="provinsi" value="Jawa Timur">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="company" class="col-md-4 col-lg-3 col-form-label">Company</label>
+                      <label for="kabupaten" class="col-md-4 col-lg-3 col-form-label">Kabupaten</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="company" type="text" class="form-control" id="company" value="Lueilwitz, Wisoky and Leuschke">
+                        <input name="kabupaten" type="text" class="form-control" id="kabupaten" value="Kota Surabaya">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="Job" class="col-md-4 col-lg-3 col-form-label">Job</label>
+                      <label for="negara" class="col-md-4 col-lg-3 col-form-label">Negara</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="job" type="text" class="form-control" id="Job" value="Web Designer">
+                        <input name="negara" type="text" class="form-control" id="negara" value="Indonesia">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="Country" class="col-md-4 col-lg-3 col-form-label">Country</label>
+                      <label for="kecamatan" class="col-md-4 col-lg-3 col-form-label">Kecamatan</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="country" type="text" class="form-control" id="Country" value="USA">
+                        <input name="kecamatan" type="text" class="form-control" id="kecamatan" value="A108 Adam Street, New York, NY 535022">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
+                      <label for="nomorhp" class="col-md-4 col-lg-3 col-form-label">Nomor Hp/WhatsApp</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="address" type="text" class="form-control" id="Address" value="A108 Adam Street, New York, NY 535022">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="phone" type="text" class="form-control" id="Phone" value="(436) 486-3538 x29071">
+                        <input name="nomorhp" type="text" class="form-control" id="nomorhp" value="0859 1212 1232">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="email" type="email" class="form-control" id="Email" value="k.anderson@example.com">
+                        <input name="email" type="email" class="form-control" id="Email" value="k.anderson@rtproject.com">
                       </div>
                     </div>
 
-                    <div class="row mb-3">
+                    <!-- <div class="row mb-3">
                       <label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Twitter Profile</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="twitter" type="text" class="form-control" id="Twitter" value="https://twitter.com/#">
@@ -191,7 +183,7 @@ const Profile = {
                       <div class="col-md-8 col-lg-9">
                         <input name="linkedin" type="text" class="form-control" id="Linkedin" value="https://linkedin.com/#">
                       </div>
-                    </div>
+                    </div> -->
 
                     <div class="text-center">
                       <button type="submit" class="btn btn-primary">Save Changes</button>
