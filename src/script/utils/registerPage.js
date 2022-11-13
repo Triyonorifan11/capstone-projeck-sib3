@@ -30,6 +30,7 @@ const registerUser = {
       btnsubmit.innerText = 'loading..';
       if (password.value !== passwordconfirm.value) {
         flassMessage('question', 'password tidak sama', 'Silahkan ulangi password');
+        btnsubmit.classList.remove('disabled');
         btnsubmit.innerText = 'register';
       } else {
         const data = {
