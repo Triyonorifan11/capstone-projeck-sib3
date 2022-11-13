@@ -219,7 +219,9 @@
   }
 }());
 
-/* Blog */
+/**
+   * Blog
+   */
 
 /* eslint-disable no-sequences */
 /* eslint-disable no-restricted-syntax */
