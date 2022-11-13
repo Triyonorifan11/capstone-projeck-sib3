@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-alert */
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, set } from 'firebase/database';
@@ -53,8 +54,14 @@ const registerUser = {
       const id = nanoid(20);
       const userPath = `${user.user}_${id}`;
       await set(ref(db, `users/${user.user}/${userPath}`), user);
-      alert('berhasil register');
-      window.location.href = '../login.html';
+      Swal.fire({
+        icon: 'success',
+        title: 'Register Berhasil',
+        text: 'Silahkan login',
+      });
+      setTimeout(() => {
+        window.location.href = '../login.html';
+      }, 2000);
     } catch (error) {
       alert(`eror:${error}`);
     }
