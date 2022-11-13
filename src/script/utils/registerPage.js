@@ -1,9 +1,8 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-alert */
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, set } from 'firebase/database';
 import { nanoid } from 'nanoid';
 import firebaseConfig from '../global/firebase-config';
+import flassMessage from './flassMessage';
 
 const registerUser = {
   async init() {
@@ -27,9 +26,10 @@ const registerUser = {
 
     register.addEventListener('submit', async (e) => {
       e.preventDefault();
+      btnsubmit.classList.add('disabled');
       btnsubmit.innerText = 'loading..';
       if (password.value !== passwordconfirm.value) {
-        alert('Password tidak sama.');
+        flassMessage('question', 'password tidak sama', 'Silahkan ulangi password');
         btnsubmit.innerText = 'register';
       } else {
         const data = {
@@ -54,16 +54,12 @@ const registerUser = {
       const id = nanoid(20);
       const userPath = `${user.user}_${id}`;
       await set(ref(db, `users/${user.user}/${userPath}`), user);
-      Swal.fire({
-        icon: 'success',
-        title: 'Register Berhasil',
-        text: 'Silahkan login',
-      });
+      flassMessage('success', 'Register Berhasil!', 'Silahkan login!');
       setTimeout(() => {
         window.location.href = '../login.html';
       }, 2000);
     } catch (error) {
-      alert(`eror:${error}`);
+      flassMessage('error', 'Opss...!', `Ada kesalahan server ${error}`);
     }
   },
 };
