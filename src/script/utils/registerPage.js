@@ -125,10 +125,13 @@ const registerUser = {
       const decryptPassDb = decrypt(checkEmail.password, user.passwordLogin);
       if (decryptPassDb === user.passwordLogin) {
         if (checkEmail.user === 'seller') {
+          localStorage.setItem('user_seller', JSON.stringify(checkEmail));
           redirect('seller/');
         } else if (checkEmail.user === 'buyer') {
+          localStorage.setItem('user_buyer', JSON.stringify(checkEmail));
           redirect('buyer/');
         } else if (checkEmail.user === 'admin') {
+          localStorage.setItem('user_admin', JSON.stringify(checkEmail));
           redirect('admin/');
         } else {
           flassMessage('error', 'User tidak valid', 'Silahkan Daftar!');
