@@ -18,9 +18,8 @@ class App {
   _logoutSeller() {
     const logoutButton = document.getElementById('logoutButton');
     logoutButton.addEventListener('click', (e) => {
-      console.log('logout');
       e.preventDefault();
-      localStorage.removeItem('user_seller');
+      localStorage.removeItem('user_RTproject');
       window.location.href = '../';
     });
   }
