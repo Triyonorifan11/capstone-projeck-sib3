@@ -166,7 +166,14 @@ const mainLogin = {
   },
 
   async afterRender() {
-    console.log('for login register method');
+    const password = document.querySelector('#yourPassword');
+    const check = document.getElementById('showPassword');
+    check.addEventListener('click', () => {
+      // toggle the type attribute
+      const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+      password.setAttribute('type', type);
+    });
+
     await registerUser.init();
     const datalist = document.querySelector('#datalistOptions');
     fetch('https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json')
