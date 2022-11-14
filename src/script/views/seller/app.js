@@ -15,6 +15,16 @@ class App {
     loader.classList.remove('loaded');
   }
 
+  _logoutSeller() {
+    const logoutButton = document.getElementById('logoutButton');
+    logoutButton.addEventListener('click', (e) => {
+      console.log('logout');
+      e.preventDefault();
+      localStorage.removeItem('user_seller');
+      window.location.href = '../';
+    });
+  }
+
   _loaderHide() {
     setTimeout(() => {
       const loader = document.querySelector('#js-preloader');
@@ -24,6 +34,7 @@ class App {
 
   async renderPage() {
     this._loaderActive();
+    this._logoutSeller();
     try {
       const url = UrlParser.parseActiveUrlWithCombiner();
       const page = sellerDashboardRoutes[url];
