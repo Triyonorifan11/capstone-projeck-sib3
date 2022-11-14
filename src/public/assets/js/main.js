@@ -357,7 +357,7 @@ function renderArticles(articles) {
               <h5 class="card-title">${article.name}</h5>
               <p class="card-date"><small class="text-muted">${article.date}</small></p>
               <p class="card-text">${article.desc}</p>
-              <center><a href="#" class="button">Read More</a></center>
+              <center><a href="#" class="btn btn-primary">Read More</a></center>
             </div>
           </div>
         </div>
