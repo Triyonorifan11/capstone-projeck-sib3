@@ -7,7 +7,7 @@ const BlogsAdmin = {
       <button type="button" class="btn btn-primary btn" data-bs-toggle="modal" data-bs-target="#addBlog">Tambah Blog</button>
     </div>
 
-    <div class="card mb-12" style="max-height: 250px;" >
+    <div class="card mb-12"  >
       <div class="row g-0">
         <div class="col-md-4">
           <img src="https://img.antaranews.com/cache/800x533/2022/11/11/antarafoto-kerja-bakti-gabungan-dki-jakarta-di-kali-ciliwung-101122-sth-5.jpg" style="width: 100%; height: 100%; max-height: 250px; object-fit: cover; object-position: center;" class="img-fluid" alt="...">
@@ -35,7 +35,7 @@ const BlogsAdmin = {
       </div>
     </div>
 
-    <div class="card mb-12" style="max-height: 250px;" >
+    <div class="card mb-12"  >
       <div class="row g-0">
         <div class="col-md-4">
           <img src="https://img.antaranews.com/cache/800x533/2022/11/11/antarafoto-kerja-bakti-gabungan-dki-jakarta-di-kali-ciliwung-101122-sth-5.jpg" style="width: 100%; height: 100%; max-height: 250px; object-fit: cover; object-position: center;" class="img-fluid" alt="...">
