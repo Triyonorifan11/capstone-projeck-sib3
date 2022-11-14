@@ -4,12 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Seller | RT Project</title>
 
   <!-- Favicons -->
   <link href="../assets/img/favicon.png" rel="icon">
   <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link rel="manifest" href="../app.webmanifest">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
     integrity="sha512-XJ3ntWHl40opEiE+6dGhfK9NAKOCELrpjiBRQKtu6uJf9Pli8XY+Hikp7rlFzY4ElLSFtzjx9GGgHql7PLSeog=="
@@ -84,9 +85,9 @@
   </nav>
 
   <!-- main -->
-  <main style="margin-top: 40px;" id="home">
+  <main style="margin-top: 40px; overflow-x: hidden;" id="home">
 
-    <section class="col-12 mb-5 position-relative">
+    <section class="mb-5 position-relative">
       <div class="col-sm-10 col-md-6 position-absolute top-50 start-0 translate-middle-y"
         style="height: 50%;color: #012970;">
         <div class="col-12 col-sm-12 col-lg-9 container p-3">
@@ -141,10 +142,10 @@
           </div>
         </div>
 
-        <div class="col-12">
-          <div class="row">        
+        <div class="col-lg-12">
+          <div class="row">
             <div class="d-flex justify-content-around mt-5 flex-wrap">
-    
+
               <div class="card pt-5 hover-card" style="width: 18rem;">
                 <img src="../assets/img/mudah.png" class="card-img-top rounded-circle mx-auto" alt="solusi png"
                   style="width: 10rem;">
@@ -152,15 +153,16 @@
                   <p class="text-center my-4">Mempermudah dalam melakukan pengelolaan sampah.</p>
                 </div>
               </div>
-    
+
               <div class="card pt-5 hover-card" style="width: 18rem;">
                 <img src="../assets/img/solusi.png" class="card-img-top rounded-circle mx-auto" alt="solusi png"
                   style="width: 10rem;">
                 <div class="card-body">
-                  <p class="text-center my-4">Menjadi solusi dalam mengurangi peningkatan jumlah sampah di Indonesia.</p>
+                  <p class="text-center my-4">Menjadi solusi dalam mengurangi peningkatan jumlah sampah di Indonesia.
+                  </p>
                 </div>
               </div>
-    
+
               <div class="card pt-5 hover-card" style="width: 18rem;">
                 <img src="../assets/img/jualbeli.png" class="card-img-top rounded-circle mx-auto" alt="solusi png"
                   style="width: 10rem;">
@@ -168,131 +170,153 @@
                   <p class="text-center my-4">Memberikan platform untuk jual beli sampah.</p>
                 </div>
               </div>
-    
+
             </div>
           </div>
         </div>
 
       </div>
     </section>
-  </main><!-- End #main -->
 
-  <!-- Blog -->
-  <div class="container main-container mt-5" id="blog">
-    <header>
-      <div class="row">
-        <div class="col-sm-12 head-column">
-          <h1 class="fw-bold text-center" style="color: #012970;">Blog</h1>
-        </div>
+    <!-- Blog -->
+    <div class="container main-container mt-5" id="blog">
+      <header>
+        <div class="row">
+          <div class="col-sm-12 head-column">
+            <h1 class="fw-bold text-center" style="color: #012970;">Blog</h1>
+          </div>
 
-        <div class="col-sm-12 filter-group-wrapper">
-          <div class="filter-group">
-            <button class="filter-button" id="all-articles">All</button>
-            <button class="filter-button" id="artikel">Artikel</button>
-            <button class="filter-button" id="berita">Berita</button>
-            <button class="filter-button" id="blogs">Blogs</button>
+          <div class="col-sm-12 filter-group-wrapper">
+            <div class="filter-group">
+              <button class="filter-button" id="all-articles">All</button>
+              <button class="filter-button" id="artikel">Artikel</button>
+              <button class="filter-button" id="berita">Berita</button>
+              <button class="filter-button" id="blogs">Blogs</button>
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
 
-    <main>
+
       <section class="article-display">
         <div class="row article-display-container">
         </div>
       </section>
-    </main>
 
-    <div class="col-lg-12">
-      <ul class="page-numbers">
-        <li><a href="#"><i class="fa fa-arrow-left"></i></a></li>
-        <li class="active"><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#"><i class="fa fa-arrow-right"></i></a></li>
-      </ul>
+
+      <div class="d-flex justify-content-center">
+        <ul class="page-numbers pagination">
+          <li><a href="#"><i class="fa fa-arrow-left"></i></a></li>
+          <li class="active"><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#"><i class="fa fa-arrow-right"></i></a></li>
+        </ul>
+      </div>
     </div>
-  </div>
 
 
 
-  <!-- About Us -->
-  <section class="bg-white shadow" id="about-us">
-    <div class="container" style="padding: 7rem 0;">
-      <div class="d-grid justify-content-center">
-        <h1 class="fw-bold text-center" style="color: #012970;">About Us</h1>
-        <div class="col-12">
-          <div class="row">
-            <div class="d-flex justify-content-around mt-5 flex-wrap">
-              <figure class="member">
-                <div class="image"><img src="../assets/img/mudah.png" alt="sample70" />
-                  <p>
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat."
-                  </p>
-                </div>
-                <figcaption>
-                  <h4><span> Nutrisha</span></h4>
-                  <h5>📍Sukamaju Street, Semarang, Indonesia</h5>
-                  <div class="icons"><a href="#"><i class="fa fa-instagram"></i></a><a href="mailto:hestiyuana9@gmail.com">
-                      <i class="fa fa-envelope address"></i></a><a href="#"> <i class="fa fa-phone address"></i></a></div>
-                </figcaption>
-              </figure>
-    
-              <figure class="member">
-                <div class="image"><img src="../assets/img/mudah.png" alt="sample79" />
-                  <p>
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat."
-                  </p>
-                </div>
-                <figcaption>
-                  <h4><span>Valentino</span></h4>
-                  <h5>📍Sukamaju Street, Semarang, Indonesia</h5>
-                  <div class="icons"><a href="#"><i class="fa fa-instagram"></i></a><a href="mailto:hestiyuana9@gmail.com">
-                      <i class="fa fa-envelope address"></i></a><a href="#"> <i class="fa fa-phone address"></i></a></div>
-                </figcaption>
-              </figure>
-    
-              <figure class="member">
-                <div class="image"><img src="../assets/img/mudah.png" alt="sample80" />
-                  <p>
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat."
-                  </p>
-                </div>
-                <figcaption>
-                  <h4><span> Soimah</span></h4>
-                  <h5>📍Sukamaju Street, Semarang, Indonesia</h5>
-                  <div class="icons"><a href="#"><i class="fa fa-instagram"></i></a><a href="mailto:hestiyuana9@gmail.com">
-                      <i class="fa fa-envelope address"></i></a><a href="#"> <i class="fa fa-phone address"></i></a></div>
-                </figcaption>
-              </figure>
-    
-              <figure class="member">
-                <div class="image"><img src="../assets/img/mudah.png" alt="sample79" />
-                  <p>
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat."
-                  </p>
-                </div>
-                <figcaption>
-                  <h4><span> Bambang</span></h4>
-                  <h5>📍Sukamaju Street, Semarang, Indonesia</h5>
-                  <div class="icons"><a href="#"><i class="fa fa-instagram"></i></a><a href="mailto:hestiyuana9@gmail.com">
-                      <i class="fa fa-envelope address"></i></a><a href="#"> <i class="fa fa-phone address"></i></a></div>
-                </figcaption>
-              </figure>
+    <!-- About Us -->
+    <section class="bg-white shadow" id="about-us">
+      <div class="container" style="padding: 7rem 0;">
+        <div class="d-grid justify-content-center">
+          <h1 class="fw-bold text-center" style="color: #012970;">About Us</h1>
+          <div class="col-12">
+            <div class="row">
+              <div class="d-flex justify-content-around mt-5 flex-wrap">
+                <figure class="member">
+                  <div class="image"><img src="../assets/img/mudah.png" alt="sample70" />
+                    <p>
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                      labore
+                      et
+                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                      aliquip
+                      ex ea commodo consequat."
+                    </p>
+                  </div>
+                  <figcaption>
+                    <h4><span> Nutrisha</span></h4>
+                    <h5>📍Sukamaju Street, Semarang, Indonesia</h5>
+                    <div class="icons"><a href="#"><i class="fa fa-instagram"></i></a><a
+                        href="mailto:hestiyuana9@gmail.com">
+                        <i class="fa fa-envelope address"></i></a><a href="#"> <i class="fa fa-phone address"></i></a>
+                    </div>
+                  </figcaption>
+                </figure>
+
+                <figure class="member">
+                  <div class="image"><img src="../assets/img/mudah.png" alt="sample79" />
+                    <p>
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                      labore
+                      et
+                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                      aliquip
+                      ex ea commodo consequat."
+                    </p>
+                  </div>
+                  <figcaption>
+                    <h4><span>Valentino</span></h4>
+                    <h5>📍Sukamaju Street, Semarang, Indonesia</h5>
+                    <div class="icons"><a href="#"><i class="fa fa-instagram"></i></a><a
+                        href="mailto:hestiyuana9@gmail.com">
+                        <i class="fa fa-envelope address"></i></a><a href="#"> <i class="fa fa-phone address"></i></a>
+                    </div>
+                  </figcaption>
+                </figure>
+
+                <figure class="member">
+                  <div class="image"><img src="../assets/img/mudah.png" alt="sample80" />
+                    <p>
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                      labore
+                      et
+                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                      aliquip
+                      ex ea commodo consequat."
+                    </p>
+                  </div>
+                  <figcaption>
+                    <h4><span> Soimah</span></h4>
+                    <h5>📍Sukamaju Street, Semarang, Indonesia</h5>
+                    <div class="icons"><a href="#"><i class="fa fa-instagram"></i></a><a
+                        href="mailto:hestiyuana9@gmail.com">
+                        <i class="fa fa-envelope address"></i></a><a href="#"> <i class="fa fa-phone address"></i></a>
+                    </div>
+                  </figcaption>
+                </figure>
+
+                <figure class="member">
+                  <div class="image"><img src="../assets/img/mudah.png" alt="sample79" />
+                    <p>
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                      labore
+                      et
+                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                      aliquip
+                      ex ea commodo consequat."
+                    </p>
+                  </div>
+                  <figcaption>
+                    <h4><span> Bambang</span></h4>
+                    <h5>📍Sukamaju Street, Semarang, Indonesia</h5>
+                    <div class="icons"><a href="#"><i class="fa fa-instagram"></i></a><a
+                        href="mailto:hestiyuana9@gmail.com">
+                        <i class="fa fa-envelope address"></i></a><a href="#"> <i class="fa fa-phone address"></i></a>
+                    </div>
+                  </figcaption>
+                </figure>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main><!-- End #main -->
+
+
 
   <!-- ======= Footer ======= -->
   <footer class="footer">
