@@ -111,7 +111,7 @@ const TransactionsAdmin = {
                         <div class="col-md-2">
                           <div class="mb-3">
                             <label for="totalHarga" class="form-label">Total Harga</label>
-                            <input required name="totalHarga" class="form-control" id="totalHarga" readonly
+                            <input required name="totalHarga" class="form-control" id="totalHarga" readonly disabled
                                 placeholder="Total harga">
                           </div>
                         </div>

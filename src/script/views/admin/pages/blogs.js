@@ -85,12 +85,12 @@ const BlogsAdmin = {
                                 <div class="mb-3">
                                   <label for="blogContent" class="form-label">Konten Blog <span
                                   class="text-danger">*</span></label>
-                                  <textarea class="form-control" id="blogContent" rows="8"></textarea>
+                                  <textarea class="form-control" id="blogContent" rows="8" required></textarea>
                                 </div>
                                 <div class="mb-3">
                                   <label for="blogGambar" class="form-label">Gambar <span
                                   class="text-danger">*</span></label>
-                                  <input class="form-control" type="file" id="blogGambar">
+                                  <input class="form-control" type="file" id="blogGambar" required>
                                 </div>
                             </div>
                         </div>

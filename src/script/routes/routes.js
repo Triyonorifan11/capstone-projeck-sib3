@@ -11,7 +11,7 @@ import tambahDataPenjualan from '../views/seller/pages/tambahDataPenjualan';
 import DashboardAdmin from '../views/admin/pages/dashboard';
 import BlogsAdmin from '../views/admin/pages/blogs';
 import AccountsAdmin from '../views/admin/pages/accounts';
-import ItemsAdmin from '../views/admin/pages/items';
+import ProductsAdmin from '../views/admin/pages/products';
 import TransactionsAdmin from '../views/admin/pages/transactions';
 
 // login routes
@@ -32,7 +32,7 @@ const adminRoutes = {
   '/': DashboardAdmin,
   '/blogs': BlogsAdmin,
   '/accounts': AccountsAdmin,
-  '/items': ItemsAdmin,
+  '/items': ProductsAdmin,
   '/transactions': TransactionsAdmin,
 };
 
