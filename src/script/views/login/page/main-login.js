@@ -27,7 +27,7 @@ const mainLogin = {
                                             <p class="text-center small">Masukkan email dan password akun Anda</p>
                                         </div>
 
-                                        <form class="row g-3 needs-validation" method="post">
+                                        <form class="row g-3 needs-validation" action="#" id="login" method="post">
                                             <div class="col-12">
                                                 <label for="email" class="form-label">Email</label>
                                                 <div class="input-group has-validation">
@@ -38,7 +38,7 @@ const mainLogin = {
 
                                             <div class="col-12">
                                                 <label for="yourPassword" class="form-label">Password</label>
-                                                <input type="password" name="password" class="form-control"
+                                                <input type="password" name="yourPassword" class="form-control"
                                                     id="yourPassword" required>
                                             </div>
 
@@ -51,7 +51,7 @@ const mainLogin = {
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <button class="btn btn-primary w-100" type="submit">Login</button>
+                                                <button class="btn btn-primary w-100" type="submit" id="btnLogin">Login</button>
                                             </div>
                                             <div class="col-12">
                                                 <p class="small mb-0">Belum punya akun <a href="#"

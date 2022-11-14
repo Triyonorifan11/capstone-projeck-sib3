@@ -10,12 +10,13 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const registerUser = {
   async init() {
-    await this._registerMethod();
+    await this._registerLoginMethod();
   },
 
-  async _registerMethod() {
+  async _registerLoginMethod() {
     const userResgis = document.querySelector('#user');
     const email = document.querySelector('#emailRegister');
+    const emaillogin = document.querySelector('#email');
     const namaLengkap = document.querySelector('#nama_lengkap');
     const provinsi = document.querySelector('#provinsi');
     const kabupaten = document.querySelector('#kabupaten');
@@ -23,10 +24,26 @@ const registerUser = {
     const nohpwa = document.querySelector('#no_hp_wa');
     const tgllahir = document.querySelector('#tgl_lahir');
     const password = document.querySelector('#password');
+    const passwordlogin = document.querySelector('#yourPassword');
     const passwordconfirm = document.querySelector('#password_confirm');
     const register = document.getElementById('register');
     const btnsubmit = document.getElementById('btn-submit');
+    const login = document.getElementById('login');
+    const btnlogin = document.getElementById('btnLogin');
 
+    // for login
+    login.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const dataLogin = {
+        emailLogin: emaillogin.value,
+        passwordLogin: passwordlogin.value,
+      };
+      btnlogin.classList.add('disabled');
+      btnlogin.innerText = 'loading..';
+      await this._loginUser(dataLogin);
+    });
+
+    // for register
     register.addEventListener('submit', async (e) => {
       e.preventDefault();
 
@@ -66,16 +83,23 @@ const registerUser = {
 
     const docSnap = await getDocs(q);
     if (docSnap.size > 0) {
-      console.log(docSnap);
-      return true;
+      const docindex = docSnap.docs[0];
+      const user = docindex.data();
+      return user;
     }
-    return false;
+    return null;
   },
 
+  // for login method
+  async _loginUser(user) {
+    const checkEmail = await this._checkemail(user.emailLogin);
+    console.log(checkEmail);
+  },
+
+  // insert for resgister
   async _insertData(user) {
     try {
       const checkEmail = await this._checkemail(user.email);
-      console.log(checkEmail);
       if (checkEmail) {
         flassMessage('info', 'Email telah terdaftar', 'Silahkan Login!');
         setTimeout(() => {
