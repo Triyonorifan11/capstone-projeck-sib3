@@ -1,16 +1,19 @@
 import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, set } from 'firebase/database';
-import { nanoid } from 'nanoid';
+import {
+  getFirestore, doc, setDoc, query, where, limit, collection, getDocs,
+} from 'firebase/firestore';
+import { customAlphabet } from 'nanoid';
 import firebaseConfig from '../global/firebase-config';
 import flassMessage from './flassMessage';
 
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 const registerUser = {
   async init() {
     await this._registerMethod();
   },
 
   async _registerMethod() {
-    initializeApp(firebaseConfig);
     const userResgis = document.querySelector('#user');
     const email = document.querySelector('#emailRegister');
     const namaLengkap = document.querySelector('#nama_lengkap');
@@ -26,12 +29,14 @@ const registerUser = {
 
     register.addEventListener('submit', async (e) => {
       e.preventDefault();
-      btnsubmit.classList.add('disabled');
-      btnsubmit.innerText = 'loading..';
+
+      if (password.value.length < 6) {
+        flassMessage('info', 'Password terlalu pendek', 'Password harus lebih 6 karakter');
+        return;
+      }
+
       if (password.value !== passwordconfirm.value) {
-        flassMessage('question', 'password tidak sama', 'Silahkan ulangi password');
-        btnsubmit.classList.remove('disabled');
-        btnsubmit.innerText = 'register';
+        flassMessage('question', 'Password tidak sama', 'Silahkan ulangi password');
       } else {
         const data = {
           user: userResgis.value,
@@ -44,23 +49,48 @@ const registerUser = {
           tgl_lahir: tgllahir.value,
           password: password.value,
         };
+        btnsubmit.classList.add('disabled');
+        btnsubmit.innerText = 'loading..';
         await this._insertData(data);
       }
     });
   },
 
+  async _checkemail(email, id = null) {
+    let q;
+    if (id) {
+      q = query(collection(db, 'users'), where('email', '==', email), where('id', '==', id), limit(1));
+    } else {
+      q = query(collection(db, 'users'), where('email', '==', email), limit(1));
+    }
+
+    const docSnap = await getDocs(q);
+    if (docSnap.size > 0) {
+      console.log(docSnap);
+      return true;
+    }
+    return false;
+  },
+
   async _insertData(user) {
     try {
-      const db = getDatabase();
-      const id = nanoid(20);
-      const userPath = `${user.user}_${id}`;
-      await set(ref(db, `users/${user.user}/${userPath}`), user);
-      flassMessage('success', 'Register Berhasil!', 'Silahkan login!');
-      setTimeout(() => {
-        window.location.href = '../login.html';
-      }, 2000);
+      const checkEmail = await this._checkemail(user.email);
+      console.log(checkEmail);
+      if (checkEmail) {
+        flassMessage('info', 'Email telah terdaftar', 'Silahkan Login!');
+        setTimeout(() => {
+          window.location.href = '../login.html';
+        }, 2000);
+      } else {
+        const nanoid = customAlphabet('1234567890abcdef', 17);
+        await setDoc(doc(db, 'users', `user_${nanoid()}`), user);
+        flassMessage('success', 'Berhasil Daftar', 'Silahkan Login!');
+        setTimeout(() => {
+          window.location.href = '../login.html';
+        }, 2000);
+      }
     } catch (error) {
-      flassMessage('error', 'Opss...!', `Ada kesalahan server ${error}`);
+      flassMessage('error', 'Gagal Daftar', `Error: ${error}`);
     }
   },
 };
