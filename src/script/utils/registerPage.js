@@ -3,11 +3,39 @@ import {
   getFirestore, doc, setDoc, query, where, limit, collection, getDocs,
 } from 'firebase/firestore';
 import { customAlphabet } from 'nanoid';
+import CryptoJS from 'crypto-js';
+
 import firebaseConfig from '../global/firebase-config';
 import flassMessage from './flassMessage';
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+
+function escapeHtml(text) {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+const encrypt = (value) => {
+  const passAES = CryptoJS.AES.encrypt(value, value);
+  return passAES.toString();
+};
+
+const decrypt = (dbpass, value) => {
+  const passAES = CryptoJS.AES.decrypt(dbpass, value);
+  return passAES.toString(CryptoJS.enc.Utf8);
+};
+
+function redirect(page) {
+  setTimeout(() => {
+    window.location.href = `../${page}`;
+  }, 2000);
+}
+
 const registerUser = {
   async init() {
     await this._registerLoginMethod();
@@ -35,8 +63,8 @@ const registerUser = {
     login.addEventListener('submit', async (e) => {
       e.preventDefault();
       const dataLogin = {
-        emailLogin: emaillogin.value,
-        passwordLogin: passwordlogin.value,
+        emailLogin: escapeHtml(emaillogin.value),
+        passwordLogin: escapeHtml(passwordlogin.value),
       };
       btnlogin.classList.add('disabled');
       btnlogin.innerText = 'loading..';
@@ -56,15 +84,15 @@ const registerUser = {
         flassMessage('question', 'Password tidak sama', 'Silahkan ulangi password');
       } else {
         const data = {
-          user: userResgis.value,
-          email: email.value,
-          namalengkap: namaLengkap.value,
-          provinsi: provinsi.value,
-          kabupaten: kabupaten.value,
-          kecamatan: kecamatan.value,
-          no_hp_wa: nohpwa.value,
-          tgl_lahir: tgllahir.value,
-          password: password.value,
+          user: escapeHtml(userResgis.value),
+          email: escapeHtml(email.value),
+          namalengkap: escapeHtml(namaLengkap.value),
+          provinsi: escapeHtml(provinsi.value),
+          kabupaten: escapeHtml(kabupaten.value),
+          kecamatan: escapeHtml(kecamatan.value),
+          no_hp_wa: escapeHtml(nohpwa.value),
+          tgl_lahir: escapeHtml(tgllahir.value),
+          password: encrypt(escapeHtml(password.value)),
         };
         btnsubmit.classList.add('disabled');
         btnsubmit.innerText = 'loading..';
@@ -93,7 +121,27 @@ const registerUser = {
   // for login method
   async _loginUser(user) {
     const checkEmail = await this._checkemail(user.emailLogin);
-    console.log(checkEmail);
+    if (checkEmail) {
+      const decryptPassDb = decrypt(checkEmail.password, user.passwordLogin);
+      if (decryptPassDb === user.passwordLogin) {
+        if (checkEmail.user === 'seller') {
+          redirect('seller/');
+        } else if (checkEmail.user === 'buyer') {
+          redirect('buyer/');
+        } else if (checkEmail.user === 'admin') {
+          redirect('admin/');
+        } else {
+          flassMessage('error', 'User tidak valid', 'Silahkan Daftar!');
+          redirect('login.html');
+        }
+      } else {
+        flassMessage('error', 'Password tidak valid', 'Silahkan coba lagi!');
+        redirect('login.html');
+      }
+    } else {
+      flassMessage('error', 'Email tidak terdaftar', 'Silahkan daftar!');
+      redirect('login.html');
+    }
   },
 
   // insert for resgister
@@ -102,16 +150,12 @@ const registerUser = {
       const checkEmail = await this._checkemail(user.email);
       if (checkEmail) {
         flassMessage('info', 'Email telah terdaftar', 'Silahkan Login!');
-        setTimeout(() => {
-          window.location.href = '../login.html';
-        }, 2000);
+        redirect('login.html');
       } else {
         const nanoid = customAlphabet('1234567890abcdef', 17);
         await setDoc(doc(db, 'users', `user_${nanoid()}`), user);
         flassMessage('success', 'Berhasil Daftar', 'Silahkan Login!');
-        setTimeout(() => {
-          window.location.href = '../login.html';
-        }, 2000);
+        redirect('login.html');
       }
     } catch (error) {
       flassMessage('error', 'Gagal Daftar', `Error: ${error}`);
