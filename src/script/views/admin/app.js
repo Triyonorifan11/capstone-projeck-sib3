@@ -1,5 +1,5 @@
 /* eslint-disable class-methods-use-this */
-import adminRoutes from '../../routes/admin-routes';
+import { adminRoutes } from '../../routes/routes';
 import UrlParser from '../../routes/url-parser';
 
 class AdminApp {

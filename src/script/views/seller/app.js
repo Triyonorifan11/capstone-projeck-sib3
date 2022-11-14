@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
 import UrlParser from '../../routes/url-parser';
-import sellerRoutes from '../../routes/seller-routes';
+import { sellerDashboardRoutes } from '../../routes/routes';
 
 class App {
   constructor({ header, aside, maincontent }) {
@@ -26,7 +26,7 @@ class App {
     this._loaderActive();
     try {
       const url = UrlParser.parseActiveUrlWithCombiner();
-      const page = sellerRoutes[url];
+      const page = sellerDashboardRoutes[url];
       this._maincontent.innerHTML = await page.render();
       await page.afterRender();
     } catch (error) {

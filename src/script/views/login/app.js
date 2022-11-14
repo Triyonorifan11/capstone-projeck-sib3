@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
 import UrlParser from '../../routes/url-parser';
-import loginRoutes from '../../routes/routes';
+import { loginRoutes } from '../../routes/routes';
 
 class AppLogin {
   constructor({ maincontent }) {
