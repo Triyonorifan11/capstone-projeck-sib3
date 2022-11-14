@@ -239,7 +239,7 @@ const allArticles = [
     'https://akcdn.detik.net.id/community/media/visual/2022/09/14/ilustrasi-sampah-plastik_43.jpeg?w=700&q=90',
     'Judul1',
     'Tanggal',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam ...',
     'artikel',
   )),
   (title2 = new Article(
@@ -247,7 +247,7 @@ const allArticles = [
     'https://img.antaranews.com/cache/800x533/2022/11/11/antarafoto-kerja-bakti-gabungan-dki-jakarta-di-kali-ciliwung-101122-sth-5.jpg',
     'Judul2',
     'Tanggal',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam ...',
     'artikel',
   )),
   (title3 = new Article(
@@ -255,7 +255,7 @@ const allArticles = [
     'https://statik.tempo.co/data/2019/01/03/id_808711/808711_720.jpg',
     'Judul3',
     'Tanggal',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam ...',
     'blog',
   )),
   (title4 = new Article(
@@ -263,7 +263,7 @@ const allArticles = [
     'https://akcdn.detik.net.id/visual/2022/10/25/pantai-kuta-bali-mulai-diserbu-sampah_169.jpeg?w=650',
     'Judul4',
     'Tanggal',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam ...',
     'artikel',
   )),
   (title5 = new Article(
@@ -271,7 +271,7 @@ const allArticles = [
     'https://static.republika.co.id/uploads/images/inpicture_slide/041528700-1591015513-830-556.jpg',
     'Judul5',
     'Tanggal',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam ...',
     'artikel',
   )),
   (title6 = new Article(
@@ -279,7 +279,7 @@ const allArticles = [
     'https://asset.kompas.com/crops/uq2UQq6_B1ZsLEOwXmlvJIfMXvk=/0x0:1999x1333/750x500/data/photo/2020/11/20/5fb6b6519418c.png',
     'Judul6',
     'Tanggal',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam ...',
     'berita',
   )),
   (title7 = new Article(
@@ -287,7 +287,7 @@ const allArticles = [
     'https://akcdn.detik.net.id/community/media/visual/2022/02/24/tumpukan-sampah-mencemari-lokasi-proyek-tanggul-laut-raksasa-giant-sea-wall-di-kalibaru-cilincing-jakut-wildan-ndetikcom_169.jpeg?w=700&q=90',
     'Judul7',
     'Tanggal',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam ...',
     'berita',
   )),
   (title8 = new Article(
@@ -295,7 +295,7 @@ const allArticles = [
     'https://img.antaranews.com/cache/800x533/2022/06/21/pexels-tom-fisk-3186574.jpg.webp',
     'Judul8',
     'Tanggal',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam ...',
     'berita',
   )),
   (title9 = new Article(
@@ -303,7 +303,7 @@ const allArticles = [
     'https://static.republika.co.id/uploads/images/inpicture_slide/foto-udara-tumpukan-sampah-di-daerah-aliran-kali-cikarang_220727174648-480.jpg',
     'Judul9',
     'Tanggal',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam ...',
     'blog',
   )),
   (title10 = new Article(
@@ -311,7 +311,7 @@ const allArticles = [
     'https://akcdn.detik.net.id/community/media/visual/2019/03/12/496ca098-13ab-42a2-9082-b51736fb57f3.jpeg?w=700&q=90',
     'Judul10',
     'Tanggal',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam ...',
     'blog',
   )),
 ];
@@ -349,19 +349,16 @@ function renderArticles(articles) {
   elements.articleContainer.innerHTML = '';
   for (article of articles) {
     const newArticle = `
-        <div class="col-sm-12 col-md-6 menu-item" id="${article.id}">
-        <div class="col-sm-5 menu-item-image" style="background-image: url(${article.img});"></div>
-        <div class="col-sm-7 menu-copy">
-          <div class="menu-copy-header">
-            <h5 class="menu-copy-header-title">${article.name}</h5>
-            <p class="date">${article.date}</p>
-          </div>
-          <hr>
-          <div class="menu-copy-body">
-            <p>${article.desc}</p>
-          </div>
-          <div class="text-button">
-            <a href="about.html">&nbsp; Read More <i class="fa fa-arrow-right"></i></a>
+      <div class="col-sm-12 col-md-4 menu-item" id="${article.id}">
+        <div class="col">
+          <div class="card">
+            <img src="${article.img}" class="card-img-top" alt="background-image">
+            <div class="card-body">
+              <h5 class="card-title">${article.name}</h5>
+              <p class="card-date"><small class="text-muted">${article.date}</small></p>
+              <p class="card-text">${article.desc}</p>
+              <center><a href="#" class="btn btn-primary">Read More</a></center>
+            </div>
           </div>
         </div>
       </div>
