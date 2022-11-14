@@ -32,7 +32,7 @@ const decrypt = (dbpass, value) => {
 
 function redirect(page) {
   setTimeout(() => {
-    window.location.href = `../${page}`;
+    window.location.href = `./${page}`;
   }, 2000);
 }
 
