@@ -9,7 +9,7 @@ import tambahDataPenjualan from '../views/seller/pages/tambahDataPenjualan';
 
 // admin
 import DashboardAdmin from '../views/admin/pages/dashboard';
-import BlogsAdmin from '../views/admin/pages/articles';
+import BlogsAdmin from '../views/admin/pages/blogs';
 import AccountsAdmin from '../views/admin/pages/accounts';
 import ItemsAdmin from '../views/admin/pages/items';
 import TransactionsAdmin from '../views/admin/pages/transactions';
