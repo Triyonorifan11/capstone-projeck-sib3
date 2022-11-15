@@ -3,9 +3,10 @@ const AccountsAdmin = {
 
   async render() {
     return `
-    <div class="d-grid gap-2 col-2" style="padding-bottom: 20px;">
+    <div class="mb-3" >
     <button type="button" class="btn btn-primary btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Tambah Akun</button>
     </div>
+    
       <section class="section accounts">
       <div class="card">
       <div class="card-body">

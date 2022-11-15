@@ -349,15 +349,19 @@ function renderArticles(articles) {
   elements.articleContainer.innerHTML = '';
   for (article of articles) {
     const newArticle = `
-      <div class="col-sm-12 col-md-4 menu-item" id="${article.id}">
-        <div class="col">
-          <div class="card">
-            <img src="${article.img}" class="card-img-top" alt="background-image">
-            <div class="card-body">
-              <h5 class="card-title">${article.name}</h5>
-              <p class="card-date"><small class="text-muted">${article.date}</small></p>
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="${article.img}" class="img-fluid rounded-start" alt="${article.name}" width="100%" style="object-fit: cover;">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body p-3">
+              <h5 class="card-title fs-3">${article.name}</h5>
+              <small class="text-muted">${article.date}</small>
               <p class="card-text">${article.desc}</p>
-              <center><a href="about.html" class="btn btn-primary">Read More</a></center>
+              <div class="d-grid gap-2 d-md-block">
+                <a href="about.html" class="btn btn-primary">Read More</a>
+              </div>
             </div>
           </div>
         </div>

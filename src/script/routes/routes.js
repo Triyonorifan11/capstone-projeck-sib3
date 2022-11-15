@@ -9,9 +9,9 @@ import tambahDataPenjualan from '../views/seller/pages/tambahDataPenjualan';
 
 // admin
 import DashboardAdmin from '../views/admin/pages/dashboard';
-import ArticlesAdmin from '../views/admin/pages/articles';
+import BlogsAdmin from '../views/admin/pages/blogs';
 import AccountsAdmin from '../views/admin/pages/accounts';
-import ItemsAdmin from '../views/admin/pages/items';
+import ProductsAdmin from '../views/admin/pages/products';
 import TransactionsAdmin from '../views/admin/pages/transactions';
 
 // login routes
@@ -30,9 +30,9 @@ const sellerDashboardRoutes = {
 // admin dashboard routes
 const adminRoutes = {
   '/': DashboardAdmin,
-  '/articles': ArticlesAdmin,
+  '/blogs': BlogsAdmin,
   '/accounts': AccountsAdmin,
-  '/items': ItemsAdmin,
+  '/items': ProductsAdmin,
   '/transactions': TransactionsAdmin,
 };
 
