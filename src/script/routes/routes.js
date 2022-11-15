@@ -14,6 +14,10 @@ import AccountsAdmin from '../views/admin/pages/accounts';
 import ProductsAdmin from '../views/admin/pages/products';
 import TransactionsAdmin from '../views/admin/pages/transactions';
 
+// homepage
+import About from '../views/homepage/pages/about';
+// import Home from '../views/homepage/pages/home';
+
 // login routes
 const loginRoutes = {
   '/': mainLogin,
@@ -36,4 +40,12 @@ const adminRoutes = {
   '/transactions': TransactionsAdmin,
 };
 
-export { loginRoutes, sellerDashboardRoutes, adminRoutes };
+// homepage dashboard routes
+const homepageRoutes = {
+  // '/': home,
+  '/about': About,
+};
+
+export {
+  loginRoutes, sellerDashboardRoutes, adminRoutes, homepageRoutes,
+};
