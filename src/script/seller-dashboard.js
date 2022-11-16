@@ -6,11 +6,11 @@ function isLoginSeller() {
   const userRT = localStorage.getItem('user_RTproject');
   const data = JSON.parse(userRT);
   if (!userRT) {
-    window.location.href = '../';
+    window.location.href = '../../';
   }
 
   if (data.user !== 'seller') {
-    window.location.href = '../';
+    window.location.href = '../../';
   }
 }
 
