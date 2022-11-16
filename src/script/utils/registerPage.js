@@ -126,10 +126,10 @@ const registerUser = {
       if (decryptPassDb === user.passwordLogin) {
         if (checkEmail.user === 'seller') {
           localStorage.setItem('user_RTproject', JSON.stringify(checkEmail));
-          redirect('seller/');
+          redirect('./');
         } else if (checkEmail.user === 'buyer') {
           localStorage.setItem('user_RTproject', JSON.stringify(checkEmail));
-          redirect('buyer/');
+          redirect('./');
         } else if (checkEmail.user === 'admin') {
           localStorage.setItem('user_RTproject', JSON.stringify(checkEmail));
           redirect('admin/');

@@ -20,7 +20,7 @@ class App {
     logoutButton.addEventListener('click', (e) => {
       e.preventDefault();
       localStorage.removeItem('user_RTproject');
-      window.location.href = '../';
+      window.location.href = '../../';
     });
   }
 

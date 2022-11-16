@@ -10,9 +10,26 @@ function isLogin() {
   const data = JSON.parse(userRT);
   if (!userRT) {
     dashboardlink.innerHTML = 'Login';
-    dashboardlink.getAttribute('href');
+    dashboardlink.href = './login.html';
   } else if ((data.user !== 'seller') || (data.user !== 'admin') || data.user !== 'buyer') {
+    dashboardlink.href = './login.html';
     dashboardlink.innerHTML = 'Login';
+  }
+
+  if (userRT) {
+    if (data.user === 'seller') {
+      dashboardlink.innerHTML = 'Dashboard';
+      dashboardlink.href = './seller/dashboard/';
+    } else if (data.user === 'buyer') {
+      dashboardlink.innerHTML = 'Dashboard';
+      dashboardlink.href = './buyer/';
+    } else if (data.user === 'admin') {
+      dashboardlink.innerHTML = 'Dashboard';
+      dashboardlink.href = './admin/';
+    } else {
+      dashboardlink.innerHTML = 'Login';
+      dashboardlink.href = './login.html';
+    }
   }
 }
 
