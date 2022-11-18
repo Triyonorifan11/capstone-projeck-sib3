@@ -10,8 +10,8 @@ const About = {
               <img src="../../assets/img/logo500.png" alt="Logo Project" class="rounded mx-auto d-block" width='25%' /><br><br>
             </div>
             <div className='col-6 about-us-head'>
-              <h1 class="fw-bold text-center" style="color: #012970;">About Reforma Trash</h1>
-              <p className='desc-highlight' align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ullamcorper neque ut sodales ornare. Pellentesque vel nisi nulla. Proin ultricies nisl nec tristique ultricies. Quisque volutpat diam et mattis auctor. Curabitur ac neque felis. Proin sed rutrum felis. Vestibulum hendrerit purus at odio facilisis, eu commodo nibh varius. Proin dapibus vulputate metus, at luctus orci pellentesque at. Mauris et sollicitudin massa.</p>
+              <h1 class="fw-bold text-center" style="color: #012970;">Tentang Reforma Trash</h1>
+              <p className='desc-highlight' align="justify">Reforma Trash merupakan sistem yang dapat memberikan informasi kepada masyarakat untuk mencari informasi terkait sampah di Indonesia. Penggunaan sistem berbasis website ini diharapkan dapat memudahkan masyarakat untuk melakukan jual beli sampah daur ulang secara online. Selain itu dapat membantu pengepul sampah di Indonesia untuk mengumpulkan sampah. Website tersebut memiliki beberapa fitur antara lain jenis-jenis sampah daur ulang, berita sampah di Indonesia, bahkan memiliki sistem monitoring penjualan sampah seperti barang, rekap penjualan, dan akun penjual serta pembeli.</p>
             </div>
           </div>
 
@@ -20,9 +20,9 @@ const About = {
               <img src="../../assets/img/about-us.png" alt="About Us Illustrator" class="rounded mx-auto d-block" width='50%' />
             </div>
             <div className='col-6 why-use-head'>
-              <h1 class="fw-bold text-center" style="color: #012970;">Why Use Reforma Trash?</h1>
+              <h1 class="fw-bold text-center" style="color: #012970;">Alasan Penggunaan</h1>
               <p className='desc-highlight' align="justify">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ullamcorper neque ut sodales ornare. Pellentesque vel nisi nulla. Proin ultricies nisl nec tristique ultricies. Quisque volutpat diam et mattis auctor. Curabitur ac neque felis. Proin sed rutrum felis. Vestibulum hendrerit purus at odio facilisis, eu commodo nibh varius. Proin dapibus vulputate metus, at luctus orci pellentesque at. Mauris et sollicitudin massa.</p><br><br><br>
+              Reforma Trash dapat memberikan akses kepada administrator untuk dapat memasukan data penjual, pembeli, blog, dan rekap penjualan sehingga setiap data yang diinputkan dapat menjadikan bahan evaluasi bahkan untuk blog akan ditampilkan kepada pengguna. Website ini dapat berkembang melalui dukungan masyarakat. Sehingga diharapkan dapat memberikan kesadaran masyarakat bahwa sampah memiliki nilai serta menjaga lingkungan tetap bersih. Selain itu diharapkan dapat meningkatkan produktivitas pengepul sampah sehingga efisisensi tenaga dan waktu dalam mengumpulkan sampah.</p><br><br><br>
             </div>
           </div>
 
@@ -31,7 +31,7 @@ const About = {
               <img src="../../assets/img/how-to-use.png" alt="Step by step Illustrator" class="rounded mx-auto d-block" width='50%' /><br><br>
             </div>
             <div className='col-6 how-to-use-head'>
-              <h1 class="fw-bold text-center" style="color: #012970;">How To Use?</h1>
+              <h1 class="fw-bold text-center" style="color: #012970;">Cara Penggunaan</h1>
               <p className='desc-highlight' align="justify">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ullamcorper neque ut sodales ornare. Pellentesque vel nisi nulla. Proin ultricies nisl nec tristique ultricies. Quisque volutpat diam et mattis auctor. Curabitur ac neque felis. Proin sed rutrum felis. Vestibulum hendrerit purus at odio facilisis, eu commodo nibh varius. Proin dapibus vulputate metus, at luctus orci pellentesque at. Mauris et sollicitudin massa.</p><br><br>
             </div>
