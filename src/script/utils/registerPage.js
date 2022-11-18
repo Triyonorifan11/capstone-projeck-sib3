@@ -126,7 +126,7 @@ const registerUser = {
       if (decryptPassDb === user.passwordLogin) {
         if (checkEmail.user === 'seller') {
           localStorage.setItem('user_RTproject', JSON.stringify(checkEmail));
-          redirect('./');
+          redirect('seller/dashboard/');
         } else if (checkEmail.user === 'buyer') {
           localStorage.setItem('user_RTproject', JSON.stringify(checkEmail));
           redirect('./');
