@@ -113,6 +113,7 @@ const registerUser = {
     if (docSnap.size > 0) {
       const docindex = docSnap.docs[0];
       const user = docindex.data();
+      user.id = docindex.id;
       return user;
     }
     return null;
