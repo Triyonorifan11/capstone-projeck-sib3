@@ -223,12 +223,14 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-expressions */
 class Article {
-  constructor(id, img, name, date, desc, tag) {
+  constructor(id, img, name, date, desc, writer, region, tag) {
     this.id = id,
     this.img = img,
     this.name = name,
     this.date = date,
     this.desc = desc,
+    this.writer = writer,
+    this.region = region,
     this.tag = tag;
   }
 }
@@ -240,6 +242,8 @@ const allArticles = [
     'Judul1',
     'Tanggal',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam ...',
+    'Kevin',
+    'Nasional',
     'artikel',
   )),
   (title2 = new Article(
@@ -248,6 +252,8 @@ const allArticles = [
     'Judul2',
     'Tanggal',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam ...',
+    'Rani',
+    'Internasional',
     'artikel',
   )),
   (title3 = new Article(
@@ -256,6 +262,8 @@ const allArticles = [
     'Judul3',
     'Tanggal',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam ...',
+    'Ridho',
+    'Nasional',
     'blog',
   )),
   (title4 = new Article(
@@ -264,6 +272,8 @@ const allArticles = [
     'Judul4',
     'Tanggal',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam ...',
+    'Tasya',
+    'Nasional',
     'artikel',
   )),
   (title5 = new Article(
@@ -272,6 +282,8 @@ const allArticles = [
     'Judul5',
     'Tanggal',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam ...',
+    'Fathan',
+    'Internasional',
     'artikel',
   )),
   (title6 = new Article(
@@ -280,6 +292,8 @@ const allArticles = [
     'Judul6',
     'Tanggal',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam ...',
+    'Yuana',
+    'Nasional',
     'berita',
   )),
   (title7 = new Article(
@@ -288,6 +302,8 @@ const allArticles = [
     'Judul7',
     'Tanggal',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam ...',
+    'Dika',
+    'Nasional',
     'berita',
   )),
   (title8 = new Article(
@@ -296,6 +312,8 @@ const allArticles = [
     'Judul8',
     'Tanggal',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam ...',
+    'Ayu',
+    'Nasional',
     'berita',
   )),
   (title9 = new Article(
@@ -304,6 +322,8 @@ const allArticles = [
     'Judul9',
     'Tanggal',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam ...',
+    'Rayhan',
+    'Nasional',
     'blog',
   )),
   (title10 = new Article(
@@ -312,6 +332,8 @@ const allArticles = [
     'Judul10',
     'Tanggal',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam ...',
+    'Catlin',
+    'Nasional',
     'blog',
   )),
 ];
@@ -323,6 +345,8 @@ const elements = {
   menuTitle: document.querySelector('.menu-copy-header-title'),
   menuDate: document.querySelector('.date'),
   menuDesc: document.querySelector('.menu-copy-body'),
+  menuWriter: document.querySelector('.writer'),
+  menuRegion: document.querySelector('.region'),
   allBtn: document.querySelector('#all-articles'),
   breakBtn: document.querySelector('#artikel'),
   lnchBtn: document.querySelector('#berita'),
@@ -349,23 +373,23 @@ function renderArticles(articles) {
   elements.articleContainer.innerHTML = '';
   for (article of articles) {
     const newArticle = `
-      <div class="card mb-3">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="${article.img}" class="img-fluid rounded-start" alt="${article.name}" width="100%" style="object-fit: cover;">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body p-3">
-              <h5 class="card-title fs-3">${article.name}</h5>
-              <small class="text-muted">${article.date}</small>
-              <p class="card-text">${article.desc}</p>
-              <div class="d-grid gap-2 d-md-block">
-                <a href="about.html" class="btn btn-primary">Read More</a>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="blog-card">
+      <div class="meta">
+        <div class="photo" style="background-image: url(${article.img})"></div>
+        <ul class="details">
+        <li class="author"><a href="#">${article.writer}</a></li>
+        <li class="date">${article.date}</li>
+        </ul>
       </div>
+      <div class="description">
+        <h1>${article.name}</h1>
+        <h2>${article.region}</h2>
+        <p>${article.desc}</p>
+        <p class="read-more">
+        <a href="post-page.html">Read More</a>
+        </p>
+      </div>
+    </div>
       `;
     elements.articleContainer.insertAdjacentHTML('beforeend', newArticle);
   }
