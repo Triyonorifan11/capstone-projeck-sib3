@@ -13,7 +13,7 @@ const AccountsAdmin = {
       <h5 class="card-title">Akun Penjual</h5>
       <div class="col align-middle">
       <div class="table-responsive">
-      <table class="table table-hover">
+      <table class="table table-hover" id="buyerSeller">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -61,15 +61,15 @@ const AccountsAdmin = {
       <div class="card-body">
       <h5 class="card-title">Akun Pembeli</h5>
       <div class="table-responsive">
-      <table class="table table-hover">
+      <table class="table table-hover" id="buyerTable">
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Avatar</th>
+      <th scope="col" class="no-sort">Avatar</th>
       <th scope="col">First</th>
       <th scope="col">Last</th>
       <th scope="col">Username</th>
-      <th scope="col">Action</th>
+      <th scope="col" class="no-sort">Action</th>
     </tr>
   </thead>
   <tbody class="align-middle">
@@ -278,6 +278,24 @@ const AccountsAdmin = {
 
   async afterRender() {
     console.log('afterrender accounts');
+
+    $('#buyerTable').DataTable({
+      // eslint-disable-next-line quotes
+      lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+      columnDefs: [{
+        targets: 'no-sort',
+        orderable: false,
+      }],
+    });
+
+    $('#buyerSeller').DataTable({
+      // eslint-disable-next-line quotes
+      lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+      columnDefs: [{
+        targets: 'no-sort',
+        orderable: false,
+      }],
+    });
   },
 };
 

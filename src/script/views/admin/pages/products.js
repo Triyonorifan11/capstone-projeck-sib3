@@ -12,7 +12,7 @@ const ProductsAdmin = {
           <div class="card-body">
             <h5 class="card-title">List Barang</h5>
             <div class="table-responsive">
-              <table class="table table-hover">
+              <table class="table table-hover" id="productTable">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
@@ -20,8 +20,8 @@ const ProductsAdmin = {
                     <th scope="col">Barang</th>
                     <th scope="col">Stok</th>
                     <th scope="col">Harga</th>
-                    <th scope="col">Gambar</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col" class="no-sort">Gambar</th>
+                    <th scope="col" class="no-sort">Actions</th>
                   </tr>
                 </thead>
                 <tbody class="align-middle">
@@ -177,6 +177,15 @@ const ProductsAdmin = {
 
   async afterRender() {
     console.log('afterrender items');
+
+    $('#productTable').DataTable({
+      // eslint-disable-next-line quotes
+      lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+      columnDefs: [{
+        targets: 'no-sort',
+        orderable: false,
+      }],
+    });
   },
 };
 
