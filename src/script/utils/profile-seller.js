@@ -51,6 +51,12 @@ const profileSeller = {
 
     document.getElementById('nameUser').innerText = temp.namalengkap;
 
+    const status = document.getElementById('status');
+    status.innerText = temp.status;
+    if (temp.status === 'Active') {
+      status.classList.add('text-bg-success');
+    }
+
     const submitEdit = document.getElementById('editProfile');
     submitEdit.addEventListener('submit', async (e) => {
       e.preventDefault();

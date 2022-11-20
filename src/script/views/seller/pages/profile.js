@@ -22,7 +22,7 @@ const Profile = {
 
               <img src="../../assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
               <h2 id="nameUser">Kevin Anderson</h2>
-              <h3 id="user">Seller <span class="badge text-bg-success">Active</span></h3>
+              <h3 id="user">Seller <span class="badge " id="status"></span></h3>
               <!-- <div class="social-links mt-2">
                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                 <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
