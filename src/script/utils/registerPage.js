@@ -79,6 +79,7 @@ const registerUser = {
           no_hp_wa: escapeHtml(nohpwa.value),
           tgl_lahir: escapeHtml(tgllahir.value),
           password: encrypt(escapeHtml(password.value)),
+          status: 'Active',
         };
         btnsubmit.classList.add('disabled');
         btnsubmit.innerText = 'loading..';

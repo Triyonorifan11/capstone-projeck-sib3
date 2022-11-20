@@ -7,6 +7,10 @@ function isLoginSeller() {
   const data = JSON.parse(userRT);
   if (!userRT) {
     window.location.href = '../../';
+  } else {
+    document.getElementById('username').innerText = data.namalengkap;
+    document.getElementById('namauser').innerText = data.namalengkap;
+    document.getElementById('user').innerText = data.user;
   }
 
   if (data.user !== 'seller') {
