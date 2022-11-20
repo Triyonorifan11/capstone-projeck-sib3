@@ -113,9 +113,13 @@ const Profile = {
                     </div>
 
                     <div class="row mb-3">
-                      <label for="provinsi" class="col-md-4 col-lg-3 col-form-label">Provinsi</label>
+                      <label for="edit_provinsi" class="col-md-4 col-lg-3 col-form-label">Provinsi</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="provinsi" type="text" class="form-control" id="edit_provinsi" value="Jawa Timur">
+                        <input class="form-control" required name="provinsi" list="datalistOptions"
+                                        id="edit_provinsi" placeholder="Provinsi">
+                                    <!-- https://www.emsifa.com/api-wilayah-indonesia/ -->
+                                    <datalist id="datalistOptions">
+                                    </datalist>
                       </div>
                     </div>
 
@@ -143,7 +147,7 @@ const Profile = {
                     <div class="row mb-3">
                       <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="email" type="email" class="form-control" id="edit_email" value="k.anderson@rtproject.com">
+                        <input name="email" type="email" class="form-control readonly" aria-label="Disabled input email" id="edit_email" value="k.anderson@rtproject.com" disabled readonly>
                       </div>
                     </div>
 
@@ -196,7 +200,12 @@ const Profile = {
   },
 
   async afterRender() {
-    console.log('profile');
+    const datalist = document.querySelector('#datalistOptions');
+    fetch('https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json')
+      .then((response) => response.json())
+      .then((provinces) => provinces.forEach((provinsi) => {
+        datalist.innerHTML += `<option value="${provinsi.name}">`;
+      }));
     await profileSeller.init();
   },
 };
