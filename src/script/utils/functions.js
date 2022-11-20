@@ -12,4 +12,21 @@ function getUserInfo() {
   return null;
 }
 
-export { isLogin, getUserInfo };
+function escapeHtml(text) {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+function redirect(page) {
+  setTimeout(() => {
+    window.location.href = `./${page}`;
+  }, 2000);
+}
+
+export {
+  isLogin, getUserInfo, escapeHtml, redirect,
+};

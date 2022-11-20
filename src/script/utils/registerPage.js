@@ -7,18 +7,10 @@ import CryptoJS from 'crypto-js';
 
 import firebaseConfig from '../global/firebase-config';
 import flassMessage from './flassMessage';
+import { escapeHtml, redirect } from './functions';
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
-function escapeHtml(text) {
-  return text
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
-}
 
 const encrypt = (value) => {
   const passAES = CryptoJS.AES.encrypt(value, value);
@@ -29,12 +21,6 @@ const decrypt = (dbpass, value) => {
   const passAES = CryptoJS.AES.decrypt(dbpass, value);
   return passAES.toString(CryptoJS.enc.Utf8);
 };
-
-function redirect(page) {
-  setTimeout(() => {
-    window.location.href = `./${page}`;
-  }, 2000);
-}
 
 const registerUser = {
   async init() {

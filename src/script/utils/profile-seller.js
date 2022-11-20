@@ -42,7 +42,7 @@ const profileSeller = {
     const submitEdit = document.getElementById('editProfile');
     submitEdit.addEventListener('submit', async (e) => {
       e.preventDefault();
-      console.log('edit profile');
+      console.log(document.getElementById('fullName').value);
       flassMessage('success', 'Update Berhasil', 'Ubah data berhasil');
     });
   },
