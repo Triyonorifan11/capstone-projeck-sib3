@@ -4,7 +4,7 @@ import {
 import { initializeApp } from 'firebase/app';
 import firebaseConfig from '../global/firebase-config';
 import flassMessage from './flassMessage';
-import { getUserInfo, escapeHtml } from './functions';
+import { getUserInfo, escapeHtml, uploadFile } from './functions';
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -57,6 +57,33 @@ const profileSeller = {
       status.classList.add('text-bg-success');
     }
 
+    const imgProfile = document.querySelector('.imgprofile');
+    const editimgprofile = document.querySelector('.editimgprofile');
+    if (temp.fotoprofile) {
+      imgProfile.setAttribute('src', temp.fotoprofile);
+      editimgprofile.setAttribute('src', temp.fotoprofile);
+      document.querySelector('.imgnav').setAttribute('src', temp.fotoprofile);
+    } else {
+      imgProfile.setAttribute('src', '../../assets/img/profile-img.png');
+      editimgprofile.setAttribute('src', '../../assets/img/profile-img.png');
+      document.querySelector('.imgnav').setAttribute('src', '../../assets/img/profile-img.png');
+    }
+
+    const editFoto = document.getElementById('editFoto');
+    editFoto.addEventListener('change', async (e) => {
+      e.preventDefault();
+      console.log(`change profile ${e.target.files[0].name}`);
+      // const url = await uploadFile(e.target.files[0], getUserInfo().id);
+      // console.log(url);
+      await uploadFile(e.target.files[0], getUserInfo().id).then((url) => {
+        const data = {};
+        console.log(url);
+        data.id = getUserInfo().id;
+        data.fotoprofile = url;
+        this._updateProfile(data);
+      });
+    });
+
     const submitEdit = document.getElementById('editProfile');
     submitEdit.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -75,6 +102,8 @@ const profileSeller = {
   async _updateProfile(user) {
     try {
       const docRef = doc(db, 'users', user.id);
+      // eslint-disable-next-line no-param-reassign
+      delete user.id;
       await updateDoc(docRef, user);
       flassMessage('success', 'Berhasil!', 'Profile berhasil di edit');
       await this._fetchprofile();

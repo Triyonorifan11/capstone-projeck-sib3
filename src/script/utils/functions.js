@@ -1,3 +1,7 @@
+import {
+  getStorage, ref, getDownloadURL, uploadBytes,
+} from 'firebase/storage';
+
 function isLogin() {
   if (localStorage.getItem('user_RTproject')) {
     return true;
@@ -26,7 +30,21 @@ function redirect(page) {
     window.location.href = `./${page}`;
   }, 2000);
 }
+function getFilename(file, name) {
+  const extension = file.name.substring(file.name.lastIndexOf('.') + 1);
+  return `${name}.${extension}`;
+}
+async function uploadFile(file, name) {
+  const storage = getStorage();
+  const filename = getFilename(file, name);
+  const storageRef = ref(storage, filename);
+  const uploadImage = await uploadBytes(storageRef, file);
+  return getDownloadURL(uploadImage.ref).then((url) => Promise.resolve(url));
+  // return uploadBytes(storageRef, file).then((snapshot) => {
+  //   getDownloadURL(storageRef).then((url) => Promise.resolve(url));
+  // });
+}
 
 export {
-  isLogin, getUserInfo, escapeHtml, redirect,
+  isLogin, getUserInfo, escapeHtml, redirect, uploadFile,
 };

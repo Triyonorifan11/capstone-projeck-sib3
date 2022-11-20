@@ -20,7 +20,7 @@ const Profile = {
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-              <img src="../../assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+              <img src="" alt="Profile" class="rounded-circle imgprofile" style="object-fit: cover;width: 150px;">
               <h2 id="nameUser">Kevin Anderson</h2>
               <h3 id="user">Seller <span class="badge " id="status"></span></h3>
               <!-- <div class="social-links mt-2">
@@ -96,12 +96,9 @@ const Profile = {
                     <div class="row mb-3">
                       <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Foto Profil</label>
                       <div class="col-md-8 col-lg-9">
-                        <img src="../../assets/img/profile-img.jpg" alt="Profile">
-                        <input class="form-control" type="file" id="formFile">
-                        <div class="pt-2">
-                          <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
-                          <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
-                        </div>
+                        <img src="" alt="Profile" class="rounded-circle editimgprofile" style="object-fit: cover;width: 150px;">
+                        <input class="form-control" id="editFoto" type="file" id="formFile" accept="image/*">
+                        <small><span class="text-danger fst-italic">Pastikan file tidak lebih 3mb dan format jpg/jpeg/png. dan ukuran 1:1 lebih baik!</span></small>
                       </div>
                     </div>
 
