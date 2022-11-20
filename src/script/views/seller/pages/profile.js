@@ -108,14 +108,14 @@ const Profile = {
                     <div class="row mb-3">
                       <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nama Lengkap</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="fullName" type="text" class="form-control" id="fullName" value="Kevin Anderson">
+                        <input name="fullName" type="text" class="form-control" autocomplete="off" id="fullName" value="Kevin Anderson">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="edit_provinsi" class="col-md-4 col-lg-3 col-form-label">Provinsi</label>
                       <div class="col-md-8 col-lg-9">
-                        <input class="form-control" required name="provinsi" list="datalistOptions"
+                        <input class="form-control" required name="provinsi" list="datalistOptions" autocomplete="off"
                                         id="edit_provinsi" placeholder="Provinsi">
                                     <!-- https://www.emsifa.com/api-wilayah-indonesia/ -->
                                     <datalist id="datalistOptions">
@@ -126,21 +126,21 @@ const Profile = {
                     <div class="row mb-3">
                       <label for="kabupaten" class="col-md-4 col-lg-3 col-form-label">Kabupaten</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="kabupaten" type="text" class="form-control" id="edit_kabupaten" value="Kota Surabaya">
+                        <input name="kabupaten" type="text" class="form-control" autocomplete="off" id="edit_kabupaten" value="Kota Surabaya">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="kecamatan" class="col-md-4 col-lg-3 col-form-label">Kecamatan</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="kecamatan" type="text" class="form-control" id="edit_kecamatan" value="A108 Adam Street, New York, NY 535022">
+                        <input name="kecamatan" type="text" class="form-control" autocomplete="off" id="edit_kecamatan" value="A108 Adam Street, New York, NY 535022">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="nomorhp" class="col-md-4 col-lg-3 col-form-label">Nomor Hp/WhatsApp</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="nomorhp" type="text" class="form-control" id="nomorhp" value="0859 1212 1232">
+                        <input name="nomorhp" type="text" class="form-control" autocomplete="off" id="nomorhp" value="0859 1212 1232">
                       </div>
                     </div>
 
