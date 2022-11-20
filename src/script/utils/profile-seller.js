@@ -72,9 +72,6 @@ const profileSeller = {
     const editFoto = document.getElementById('editFoto');
     editFoto.addEventListener('change', async (e) => {
       e.preventDefault();
-      console.log(`change profile ${e.target.files[0].name}`);
-      // const url = await uploadFile(e.target.files[0], getUserInfo().id);
-      // console.log(url);
       await uploadFile(e.target.files[0], getUserInfo().id).then((url) => {
         const data = {};
         console.log(url);

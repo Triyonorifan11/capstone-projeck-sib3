@@ -40,9 +40,6 @@ async function uploadFile(file, name) {
   const storageRef = ref(storage, filename);
   const uploadImage = await uploadBytes(storageRef, file);
   return getDownloadURL(uploadImage.ref).then((url) => Promise.resolve(url));
-  // return uploadBytes(storageRef, file).then((snapshot) => {
-  //   getDownloadURL(storageRef).then((url) => Promise.resolve(url));
-  // });
 }
 
 export {
