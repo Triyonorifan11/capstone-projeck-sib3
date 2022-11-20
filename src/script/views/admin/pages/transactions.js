@@ -10,7 +10,7 @@ const TransactionsAdmin = {
       <div class="card-body">
       <h5 class="card-title">List Penjualan</h5>
       <div class="table-responsive">
-      <table class="table table-hover">
+      <table class="table table-hover" id="transactionTable">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -19,7 +19,7 @@ const TransactionsAdmin = {
       <th scope="col">Jumlah</th>
       <th scope="col">Penjual</th>
       <th scope="col">Total</th>
-      <th scope="col">Actions</th>
+      <th scope="col" class="no-sort">Actions</th>
     </tr>
   </thead>
   <tbody class="align-middle">
@@ -130,6 +130,15 @@ const TransactionsAdmin = {
 
   async afterRender() {
     console.log('afterrender transactions');
+
+    $('#transactionTable').DataTable({
+      // eslint-disable-next-line quotes
+      lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+      columnDefs: [{
+        targets: 'no-sort',
+        orderable: false,
+      }],
+    });
   },
 };
 
