@@ -1,3 +1,5 @@
+import profileSeller from '../../../utils/profile-seller';
+
 const Profile = {
 
   async render() {
@@ -19,8 +21,8 @@ const Profile = {
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
               <img src="../../assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-              <h2>Kevin Anderson</h2>
-              <h3>Seller <span class="badge text-bg-success">Active</span></h3>
+              <h2 id="nameUser">Kevin Anderson</h2>
+              <h3 id="user">Seller <span class="badge text-bg-success">Active</span></h3>
               <!-- <div class="social-links mt-2">
                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                 <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -57,37 +59,32 @@ const Profile = {
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Nama Lengkap</div>
-                    <div class="col-lg-9 col-md-8">Kevin Anderson</div>
+                    <div class="col-lg-9 col-md-8" id="namaLengkap">Kevin Anderson</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Provinsi</div>
-                    <div class="col-lg-9 col-md-8">Jawa Timur</div>
+                    <div class="col-lg-9 col-md-8" id="provinsi">Jawa Timur</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Kabupaten/Kota</div>
-                    <div class="col-lg-9 col-md-8">Kota Surabaya</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Negara</div>
-                    <div class="col-lg-9 col-md-8">Indonesia</div>
+                    <div class="col-lg-9 col-md-8" id="kabupaten">Kota Surabaya</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Kecamatan</div>
-                    <div class="col-lg-9 col-md-8">A108 Adam Street, New York, NY 535022</div>
+                    <div class="col-lg-9 col-md-8" id="kecamatan">A108 Adam Street, New York, NY 535022</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">No Hp/WhatsApp</div>
-                    <div class="col-lg-9 col-md-8">0859 1212 1232</div>
+                    <div class="col-lg-9 col-md-8" id="no_hp_wa">0859 1212 1232</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8">k.anderson@rtproject.com</div>
+                    <div class="col-lg-9 col-md-8" id="email">k.anderson@rtproject.com</div>
                   </div>
 
                 </div>
@@ -95,7 +92,7 @@ const Profile = {
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                   <!-- Profile Edit Form -->
-                  <form method="post" action="">
+                  <form method="post" action="#" id="editProfile" enctype="multipart/form-data">
                     <div class="row mb-3">
                       <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Foto Profil</label>
                       <div class="col-md-8 col-lg-9">
@@ -118,28 +115,21 @@ const Profile = {
                     <div class="row mb-3">
                       <label for="provinsi" class="col-md-4 col-lg-3 col-form-label">Provinsi</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="provinsi" type="text" class="form-control" id="provinsi" value="Jawa Timur">
+                        <input name="provinsi" type="text" class="form-control" id="edit_provinsi" value="Jawa Timur">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="kabupaten" class="col-md-4 col-lg-3 col-form-label">Kabupaten</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="kabupaten" type="text" class="form-control" id="kabupaten" value="Kota Surabaya">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="negara" class="col-md-4 col-lg-3 col-form-label">Negara</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="negara" type="text" class="form-control" id="negara" value="Indonesia">
+                        <input name="kabupaten" type="text" class="form-control" id="edit_kabupaten" value="Kota Surabaya">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="kecamatan" class="col-md-4 col-lg-3 col-form-label">Kecamatan</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="kecamatan" type="text" class="form-control" id="kecamatan" value="A108 Adam Street, New York, NY 535022">
+                        <input name="kecamatan" type="text" class="form-control" id="edit_kecamatan" value="A108 Adam Street, New York, NY 535022">
                       </div>
                     </div>
 
@@ -153,7 +143,7 @@ const Profile = {
                     <div class="row mb-3">
                       <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="email" type="email" class="form-control" id="Email" value="k.anderson@rtproject.com">
+                        <input name="email" type="email" class="form-control" id="edit_email" value="k.anderson@rtproject.com">
                       </div>
                     </div>
 
@@ -186,7 +176,7 @@ const Profile = {
                     </div> -->
 
                     <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Save Changes</button>
+                      <button type="submit" class="btn btn-primary" id="btnEdit">Save Changes</button>
                     </div>
                   </form><!-- End Profile Edit Form -->
 
@@ -207,6 +197,7 @@ const Profile = {
 
   async afterRender() {
     console.log('profile');
+    await profileSeller.init();
   },
 };
 
