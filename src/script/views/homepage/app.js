@@ -1,14 +1,12 @@
 /* eslint-disable class-methods-use-this */
-// console.log('for home preference');
-
 import { homepageRoutes } from '../../routes/routes';
 import UrlParser from '../../routes/url-parser';
 
-class AppHomepage {
+class HomepageApp {
   constructor({ header, maincontent }) {
     this._header = header;
+    // this._aside = aside;
     this._maincontent = maincontent;
-    // this._initialAppShell();
   }
 
   _loaderActive() {
@@ -20,7 +18,7 @@ class AppHomepage {
     setTimeout(() => {
       const loader = document.querySelector('#js-preloader');
       loader.classList.add('loaded');
-    }, 2000);
+    }, 250);
   }
 
   async renderPage() {
@@ -28,7 +26,7 @@ class AppHomepage {
     try {
       const url = UrlParser.parseActiveUrlWithCombiner();
       const page = homepageRoutes[url];
-      console.log('kode renderpage AdminApp jalan..');
+      console.log('kode renderpage HomepageApp jalan..');
       this._maincontent.innerHTML = await page.render();
       await page.afterRender();
     } catch (error) {
@@ -39,4 +37,4 @@ class AppHomepage {
   }
 }
 
-export default AppHomepage;
+export default HomepageApp;

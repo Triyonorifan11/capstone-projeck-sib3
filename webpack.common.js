@@ -10,7 +10,7 @@ module.exports = {
     buyer: path.resolve(__dirname, 'src/script/buyer.js'),
     login: path.resolve(__dirname, 'src/script/login.js'),
     app: path.resolve(__dirname, 'src/script/index.js'),
-    homepage: path.resolve(__dirname, 'src/script/homepage.js'),
+    // homepage: path.resolve(__dirname, 'src/script/homepage.js'),
   },
   output: {
     filename: '[name].bundle.js',
@@ -33,11 +33,11 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      filename: 'homepage.html',
-      template: path.resolve(__dirname, 'src/templates/homepage/homepage.html'),
-      chunks: ['homepage'],
-    }),
+    // new HtmlWebpackPlugin({
+    //   filename: 'homepage.html',
+    //   template: path.resolve(__dirname, 'src/templates/homepage/homepage.html'),
+    //   chunks: ['homepage'],
+    // }),
     // new HtmlWebpackPlugin({
     //   filename: 'post-details.html',
     //   template: path.resolve(__dirname, 'src/templates/homepage/post-details.html'),

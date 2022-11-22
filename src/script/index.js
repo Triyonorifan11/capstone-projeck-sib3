@@ -1,6 +1,7 @@
 import 'regenerator-runtime';
 import '../styles/homepage.css';
 import '../styles/about-blog.css';
+import HomepageApp from './views/homepage/app';
 
 console.log('seller index');
 
@@ -40,4 +41,27 @@ window.addEventListener('load', () => {
   setTimeout(() => {
     loader.classList.add('loaded');
   }, 2000);
+});
+
+const appHomepage = new HomepageApp({
+  header: document.querySelector('#header'),
+  // aside: document.querySelector('#sidebar'),
+  maincontent: document.querySelector('#home'),
+});
+
+window.addEventListener('hashchange', () => {
+  document.querySelector('body').classList.remove('toggle-sidebar');
+  loader.classList.remove('loaded');
+  setTimeout(() => {
+    // loader.classList.add('loaded');
+    appHomepage.renderPage();
+  }, 500);
+});
+
+window.addEventListener('load', () => {
+  loader.classList.remove('loaded');
+  setTimeout(() => {
+    loader.classList.add('loaded');
+    appHomepage.renderPage();
+  }, 1000);
 });
