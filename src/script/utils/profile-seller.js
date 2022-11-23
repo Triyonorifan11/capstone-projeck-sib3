@@ -74,7 +74,6 @@ const profileSeller = {
       e.preventDefault();
       await uploadFile(e.target.files[0], getUserInfo().id).then((url) => {
         const data = {};
-        console.log(url);
         data.id = getUserInfo().id;
         data.fotoprofile = url;
         this._updateProfile(data);

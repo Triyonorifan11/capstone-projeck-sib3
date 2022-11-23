@@ -42,6 +42,17 @@ async function uploadFile(file, name) {
   return getDownloadURL(uploadImage.ref).then((url) => Promise.resolve(url));
 }
 
+function formatDate(date) {
+  const options = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  };
+  const dateTemp = new Date(date);
+  return dateTemp.toLocaleDateString('id-ID', options);
+}
+
 export {
-  isLogin, getUserInfo, escapeHtml, redirect, uploadFile,
+  isLogin, getUserInfo, escapeHtml, redirect, uploadFile, formatDate,
 };

@@ -39,6 +39,7 @@ const DataPenjualan = {
                               <th scope="col">Nama Produk</th>
                               <th scope="col">Harga</th>
                               <th scope="col">stock</th>
+                              <th scope="col">Tgl update</th>
                               <th scope="col" class="no-sort">Actions</th>
                             </tr>
                           </thead>
