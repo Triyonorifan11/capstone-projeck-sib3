@@ -9,8 +9,8 @@ const createRowTableProduct = (data, i) => `
         <td><span class="badge bg-success">${data.stok}</span></td>
         <td><span class="badge bg-secondary">${formatDate(data.tgl_diupdate)}</span></td>
         <td>
-            <a href="#/edit/${data.id_produk}" class="btn btn-sm btn-secondary rounded-circle" title="Edit"><i class="bi bi-pencil-square"></i></a>
-            <a href="#/delete/${data.id_produk}" class="btn btn-sm btn-danger rounded-circle" title="Delete"><i class="bi bi-trash"></i></a>
+            <a href="#/edit/${data.id_produk}" class="btn btn-sm btn-secondary rounded-circle" title="Edit Produk" id="editProduk"><i class="bi bi-pencil-square"></i></a>
+            <a href="#/delete/${data.id_produk}" class="btn btn-sm btn-danger rounded-circle" title="Delete Produk" id="deleteProduk"><i class="bi bi-trash"></i></a>
         </td>
     </tr>
 `;
