@@ -11,7 +11,9 @@ function isLoginSeller() {
     document.getElementById('username').innerText = data.namalengkap;
     document.getElementById('namauser').innerText = data.namalengkap;
     document.getElementById('user').innerText = data.user;
-    document.querySelector('.imgnav').setAttribute('src', data.fotoprofile);
+    if (data.fotoprofile) {
+      document.querySelector('.imgnav').setAttribute('src', data.fotoprofile);
+    }
   }
 
   if (data.user !== 'seller') {
