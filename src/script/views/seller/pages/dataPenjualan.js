@@ -1,3 +1,6 @@
+import dataProduct from '../../../utils/dataProducts';
+import createRowTableProduct from '../templates/tableProduct';
+
 /* eslint-disable no-undef */
 const DataPenjualan = {
 
@@ -31,70 +34,15 @@ const DataPenjualan = {
                     <table class="table table-borderless" id="dataseller2">
                       <thead>
                         <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">Customer</th>
-                          <th scope="col">Product</th>
-                          <th scope="col">Price</th>
-                          <th scope="col">Status</th>
-                          <th scope="col">Actions</th>
+                          <th scope="col">No</th>
+                          <th scope="col">Foto</th>
+                          <th scope="col">Nama Produk</th>
+                          <th scope="col">Harga</th>
+                          <th scope="col">stock</th>
+                          <th scope="col" class="no-sort">Actions</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th scope="row"><a href="#">#2457</a></th>
-                          <td>Brandon Jacob</td>
-                          <td><a href="#" class="text-primary">At praesentium minu</a></td>
-                          <td>$64</td>
-                          <td><span class="badge bg-success">Approved</span></td>
-                          <td>
-                            <a href="#" class="btn btn-sm btn-secondary rounded-circle" title="Edit"><i class="bi bi-pencil-square"></i></a>
-                            <a href="#" class="btn btn-sm btn-danger rounded-circle" title="Delete"><i class="bi bi-trash"></i></a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row"><a href="#">#2147</a></th>
-                          <td>Bridie Kessler</td>
-                          <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>
-                          <td>$47</td>
-                          <td><span class="badge bg-warning">Pending</span></td>
-                          <td>
-                            <a href="#" class="btn btn-sm btn-secondary rounded-circle" title="Edit"><i class="bi bi-pencil-square"></i></a>
-                            <a href="#" class="btn btn-sm btn-danger rounded-circle" title="Delete"><i class="bi bi-trash"></i></a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row"><a href="#">#2049</a></th>
-                          <td>Ashleigh Langosh</td>
-                          <td><a href="#" class="text-primary">At recusandae consectetur</a></td>
-                          <td>$147</td>
-                          <td><span class="badge bg-success">Approved</span></td>
-                          <td>
-                            <a href="#" class="btn btn-sm btn-secondary rounded-circle" title="Edit"><i class="bi bi-pencil-square"></i></a>
-                            <a href="#" class="btn btn-sm btn-danger rounded-circle" title="Delete"><i class="bi bi-trash"></i></a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row"><a href="#">#2644</a></th>
-                          <td>Angus Grady</td>
-                          <td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td>
-                          <td>$67</td>
-                          <td><span class="badge bg-danger">Rejected</span></td>
-                          <td>
-                            <a href="#" class="btn btn-sm btn-secondary rounded-circle" title="Edit"><i class="bi bi-pencil-square"></i></a>
-                            <a href="#" class="btn btn-sm btn-danger rounded-circle" title="Delete"><i class="bi bi-trash"></i></a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row"><a href="#">#2644</a></th>
-                          <td>Raheem Lehner</td>
-                          <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>
-                          <td>$165</td>
-                          <td><span class="badge bg-success">Approved</span></td>
-                          <td>
-                            <a href="#" class="btn btn-sm btn-secondary rounded-circle" title="Edit"><i class="bi bi-pencil-square"></i></a>
-                            <a href="#" class="btn btn-sm btn-danger rounded-circle" title="Delete"><i class="bi bi-trash"></i></a>
-                          </td>
-                        </tr>
                       </tbody>
                     </table>
 
@@ -112,8 +60,25 @@ const DataPenjualan = {
   },
 
   async afterRender() {
-    $('#dataseller2').DataTable();
+    const dataproduc = await dataProduct.init();
+    const tbody = document.querySelector('tbody');
+    let i = 0;
+    dataproduc.forEach((product) => {
+      const data = product.data();
+      data.id_produk = product.id;
+      i += 1;
+      tbody.innerHTML += createRowTableProduct(data, i);
+    });
+
+    $('#dataseller2').DataTable({
+      lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, 'All']],
+      columnDefs: [{
+        targets: 'no-sort',
+        orderable: false,
+      }],
+    });
   },
+
 };
 
 export default DataPenjualan;
