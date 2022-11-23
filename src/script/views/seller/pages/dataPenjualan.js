@@ -30,21 +30,23 @@ const DataPenjualan = {
                     Recent Sales
                     <a href="#/addsales" class="btn btn-primary ms-4"><i class="bi bi-plus-circle"></i> Tambah Data</a>
                     </h5>
+                    <div class="table-responsive p-1">
+                      <table class="table table-borderless" id="dataseller2">
+                          <thead>
+                            <tr>
+                              <th scope="col">No</th>
+                              <th scope="col">Foto</th>
+                              <th scope="col">Nama Produk</th>
+                              <th scope="col">Harga</th>
+                              <th scope="col">stock</th>
+                              <th scope="col" class="no-sort">Actions</th>
+                            </tr>
+                          </thead>
+                        <tbody>
+                        </tbody>
+                      </table>
+                    </div>
                     
-                    <table class="table table-borderless" id="dataseller2">
-                      <thead>
-                        <tr>
-                          <th scope="col">No</th>
-                          <th scope="col">Foto</th>
-                          <th scope="col">Nama Produk</th>
-                          <th scope="col">Harga</th>
-                          <th scope="col">stock</th>
-                          <th scope="col" class="no-sort">Actions</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                      </tbody>
-                    </table>
 
                   </div>
 

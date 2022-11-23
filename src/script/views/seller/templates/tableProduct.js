@@ -1,7 +1,7 @@
 const createRowTableProduct = (data, i) => `
     <tr class="odd">
         <th scope="row"><a href="#">${i}</a></th>
-        <td><img src="${data.foto}" alt="${data.nama_product}" class="rounded" style="object-fit: cover;width: 60px;"></td>
+        <td><img src="${data.foto}" alt="${data.nama_product}" class="rounded" style="object-fit: cover;width: 150px;"></td>
         <td><a href="#" class="text-primary">${data.nama_product}</a></td>
         <td>${data.harga}</td>
         <td><span class="badge bg-success">${data.stok}</span></td>
