@@ -51,7 +51,7 @@ const addProduct = {
       };
       const nanoid = customAlphabet('1234567890abcdef', 17);
       const idProduk = `product_${nanoid()}`;
-      await uploadFile(fileimage, idProduk).then((url) => {
+      await uploadFile(fileimage, `products/${idProduk}`).then((url) => {
         dataproduct.foto = url;
       });
       await this._insertDataProduct(dataproduct, idProduk);
