@@ -32,7 +32,7 @@ const DataPenjualan = {
                     <a href="#/addsales" class="btn btn-primary ms-4"><i class="bi bi-plus-circle"></i> Tambah Data</a>
                     </h5>
                     <div class="table-responsive p-1">
-                      <table class="table table-borderless" id="dataseller2">
+                      <table class="table table-bordered table-hover" id="dataseller2">
                           <thead>
                             <tr>
                               <th scope="col">No</th>
