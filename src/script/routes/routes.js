@@ -6,6 +6,7 @@ import DashboardSeller from '../views/seller/pages/dashboard';
 import Profile from '../views/seller/pages/profile';
 import DataPenjualan from '../views/seller/pages/dataPenjualan';
 import tambahDataPenjualan from '../views/seller/pages/tambahDataPenjualan';
+import editDataPenjualan from '../views/seller/pages/editDataPenjualan';
 
 // admin
 import DashboardAdmin from '../views/admin/pages/dashboard';
@@ -30,6 +31,7 @@ const sellerDashboardRoutes = {
   '/profile': Profile,
   '/dataseller': DataPenjualan,
   '/addsales': tambahDataPenjualan,
+  '/update/:id': editDataPenjualan,
 };
 
 // admin dashboard routes
