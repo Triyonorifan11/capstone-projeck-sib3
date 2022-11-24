@@ -44,7 +44,7 @@ const addProduct = {
         jenis_barang: escapeHtml(jenisBarang.value),
         stok: escapeHtml(stokBarang.value),
         harga: escapeHtml(hargaBarang.value),
-        deskripsi: escapeHtml(deskripsiProduk.value),
+        deskripsi: deskripsiProduk.value,
         id_user: getUserInfo().id,
         tgl_dibuat: new Date().toISOString(),
         tgl_diupdate: new Date().toISOString(),

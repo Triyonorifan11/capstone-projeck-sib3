@@ -5,6 +5,9 @@ import '../styles/homepage.css';
 function isLoginSeller() {
   const userRT = localStorage.getItem('user_RTproject');
   const data = JSON.parse(userRT);
+  if (data.user !== 'seller') {
+    window.location.href = '../../';
+  }
   if (!userRT) {
     window.location.href = '../../';
   } else {
@@ -14,10 +17,6 @@ function isLoginSeller() {
     if (data.fotoprofile) {
       document.querySelector('.imgnav').setAttribute('src', data.fotoprofile);
     }
-  }
-
-  if (data.user !== 'seller') {
-    window.location.href = '../../';
   }
 }
 
