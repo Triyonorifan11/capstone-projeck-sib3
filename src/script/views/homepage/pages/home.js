@@ -1,3 +1,6 @@
+import dataProduct from '../../../utils/dataProducts';
+import createAllProducts from '../../seller/templates/displayProducts';
+
 const Home = {
 
   async render() {
@@ -13,32 +16,7 @@ const Home = {
 </section>
 
 <section class="container pb-3" style="margin: 7rem auto;">
-  <div class="row">
-    <div class="col-md-6 p-3">
-      <figure>
-        <img
-          src="https://asset.kompas.com/crops/dDeShZfgwPo3Kao7Z5bZZviP_Jw=/0x0:0x0/750x500/data/photo/2022/06/20/62afda1d4d992.jpg"
-          title="perairan-jakarta-tercemar-sampah-saset-ecoton-layangkan-somasi-ke-jokowi" alt="tumpukan sampah"
-          width="100%" class="rounded-4 shadow">
-        <figcaption><small>Source: <a
-              href="https://megapolitan.kompas.com/image/2022/06/20/10203551/perairan-jakarta-tercemar-sampah-saset-ecoton-layangkan-somasi-ke-jokowi?page=1"
-              target="_blank" class="link-primary">kompas.com</a></small></figcaption>
-      </figure>
-    </div>
-
-    <div class="col-md-6 d-flex align-items-center my-auto">
-      <p class="p-4">
-        Indonesia merupakan penghasil sampah plastik laut terbesar kedua di dunia setelah China (Kementerian
-        Kelautan dan Perikanan, 2019). Berdasarkan data Kementerian Lingkungan Hidup dan Kehutanan (KLHK), Indonesia
-        menghasilkan 30,8 juta ton sampah per tahun sampai pada tahun 2021. Faktor meningkatnya sampah di Indonesia
-        adalah meningkatnya jumlah penduduk dan sampah plastik yang sulit terurai melalui air maupun tanah. Sehingga
-        sampah harus dikelola dengan menerapkan reduce, reuse, dan recycle. Namun tidak semua masyarakat memiliki
-        pengetahuan dan akses terkait hal tersebut. Oleh karena itu dibutuhkan sebuah platform untuk membantu
-        masyarakat mendapatkan informasi terkait sampah dan lingkungan serta perantara jual beli sampah/produk
-        sampah secara online.
-      </p>
-
-    </div>
+  <div class="row .d-flex" id="products">
   </div>
 
 </section>
@@ -244,6 +222,14 @@ const Home = {
 
   async afterRender() {
     console.log('home');
+    const products = document.querySelector('#products');
+    const fetchedDataProduct = await dataProduct._fetchAllDataProduct();
+    fetchedDataProduct.forEach(async (d) => {
+      console.log(d.nama_product);
+      const sellerName = await dataProduct._fetchUserNameById(d.id_user);
+      console.log(sellerName.namalengkap);
+      products.innerHTML += createAllProducts(d.nama_product, d.foto, d.harga, sellerName.namalengkap, d.deskripsi, d.stok);
+    });
   },
 };
 
