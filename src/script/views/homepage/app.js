@@ -26,7 +26,6 @@ class HomepageApp {
     try {
       const url = UrlParser.parseActiveUrlWithCombiner();
       const page = homepageRoutes[url];
-      console.log('kode renderpage HomepageApp jalan..');
       this._maincontent.innerHTML = await page.render();
       await page.afterRender();
     } catch (error) {

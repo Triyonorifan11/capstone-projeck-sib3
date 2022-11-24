@@ -221,13 +221,10 @@ const Home = {
   },
 
   async afterRender() {
-    console.log('home');
     const products = document.querySelector('#products');
     const fetchedDataProduct = await dataProduct._fetchAllDataProduct();
     fetchedDataProduct.forEach(async (d) => {
-      console.log(d.nama_product);
       const sellerName = await dataProduct._fetchUserNameById(d.id_user);
-      console.log(sellerName.namalengkap);
       products.innerHTML += createAllProducts(d.nama_product, d.foto, d.harga, sellerName.namalengkap, d.deskripsi, d.stok);
     });
   },
