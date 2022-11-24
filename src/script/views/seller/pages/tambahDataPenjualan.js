@@ -47,30 +47,33 @@ const tambahDataPenjualan = {
                                         <option value="Sampah B3">Sampah B3</option>
                                     </select>
                                 </div>
+                                
+                            </div>
+                            <div class="col-md-6">
                                 <label for="stokBarang" class="form-label">Stok</label>
                                 <div class="input-group mb-3">
                                     <input type="number" class="form-control" name="stokBarang" id="stokBarang" placeholder="2" aria-label="Stok barang" required>
                                     <span class="input-group-text" id="basic-addon2">pack</span>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
                                 <label for="hargaBarang" class="form-label">Harga</label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon2">Rp</span>
                                     <input type="number" class="form-control" name="hargaBarang" id="hargaBarang" placeholder="13000" aria-label="Berat barang" aria-describedby="basic-addon2" required>
                                 </div>
-                                <div class="mb-3">
-                                  <label for="deskripsi" class="form-label">Example textarea</label>
-                                  <textarea class="form-control" id="deskripsi" placeholder="Deskripsi Produk" rows="1"></textarea>
-                                </div>
+                                
                                 <div class="mb-3">
                                     <label for="fotoBarang" class="form-label">Foto Barang</label>
                                     <input class="form-control" type="file" id="fotoBarang" name="fotoBarang" required accept=".jpg,.jpeg,.png">
                                     <small><span class="text-danger fst-italic">Pastikan file tidak lebih 3mb dan format jpg/jpeg/png</span></small>
                                 </div>
-                                <div class="d-grid gap-2 mt-2">
-                                    <button class="btn btn-primary" type="submit" id="btnTambah">Tambah</button>
-                                </div>
+                                
+                            </div>
+                            <div class="mb-3">
+                              <label for="deskripsi" class="form-label">Deskripsi Produk</label>
+                              <textarea class="form-control" id="deskripsi" placeholder="Deskripsi Produk" rows="1"></textarea>
+                            </div>
+                            <div class="d-grid gap-2 mt-2">
+                                <button class="btn btn-primary" type="submit" id="btnTambah">Tambah</button>
                             </div>
                         </div>
                       </form>
@@ -90,6 +93,23 @@ const tambahDataPenjualan = {
 
   async afterRender() {
     await addProduct.init();
+    $('#deskripsi').summernote({
+      placeholder: 'Tulis Deskripsi postingan',
+      tabsize: 2,
+      height: 100,
+      toolbar: [
+        ['style', ['undo', 'redo', 'style', 'bold', 'underline', 'clear']],
+        ['font', ['strikethrough', 'superscript', 'subscript']],
+        ['fontsize', ['fontsize']],
+        ['fontname', ['fontname']],
+        ['height', ['height']],
+        ['color', ['color']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['table', ['table']],
+        ['insert', ['link', 'picture', 'video']],
+        ['view', ['help']],
+      ],
+    });
   },
 };
 
