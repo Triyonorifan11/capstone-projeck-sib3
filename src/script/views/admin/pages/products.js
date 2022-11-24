@@ -1,3 +1,5 @@
+import dataProduct from '../../../utils/dataProducts';
+
 /* eslint-disable no-undef */
 const ProductsAdmin = {
 
@@ -24,34 +26,8 @@ const ProductsAdmin = {
                     <th scope="col" class="no-sort">Actions</th>
                   </tr>
                 </thead>
-                <tbody class="align-middle">
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Joko</td>
-                    <td>Sampah Plastik</td>
-                    <td>3 Kilogram</td>
-                    <td>Rp 20.000/Kg</td>
-                    <td><img src="https://dlh.kulonprogokab.go.id/files/news/normal/11775d082ee4a5c88968ebcab7795390.jpeg" style="width: 90px; height: 80px" class="rounded"></td>
-                    <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editProducts">Edit</button> <button type="button" class="btn btn-outline-danger">Del</button></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Kevin</td>
-                    <td>Sampah Kardus</td>
-                    <td>4 Kilogram</td>
-                    <td>Rp 18.000/Kg</td>
-                    <td><img src="https://dlh.kulonprogokab.go.id/files/news/normal/11775d082ee4a5c88968ebcab7795390.jpeg" style="width: 90px; height: 80px" class="rounded"></td>
-                    <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editProducts">Edit</button> <button type="button" class="btn btn-outline-danger">Del</button></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Sinta</td>
-                    <td>Sampah Plastik</td>
-                    <td>1 Kilogram</td>
-                    <td>Rp 12.000/Kg</td>
-                    <td><img src="https://dlh.kulonprogokab.go.id/files/news/normal/11775d082ee4a5c88968ebcab7795390.jpeg" style="width: 90px; height: 80px" class="rounded"></td>
-                    <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editProducts">Edit</button> <button type="button" class="btn btn-outline-danger">Del</button></td>
-                  </tr>
+                <tbody class="align-middle" id="bodyProduct">
+                  
                 </tbody>
               </table>
             </div>
@@ -177,6 +153,25 @@ const ProductsAdmin = {
 
   async afterRender() {
     console.log('afterrender items');
+
+    const bodyProduct = document.querySelector('#bodyProduct');
+    const fetchedDataProduct = await dataProduct._fetchAllDataProduct();
+    console.log(fetchedDataProduct);
+    let i = 1;
+
+    fetchedDataProduct.forEach((d) => {
+      // const sellerName = await dataProduct._fetchUserNameById(d.id_user);
+      bodyProduct.innerHTML += `<tr>
+      <th scope="row">${i}</th>
+      <td>${d.id_user}</td>
+      <td>${d.nama_product}</td>
+      <td>${d.stok} Kilogram</td>
+      <td>${d.harga}</td>
+      <td><img src="${d.foto}" style="width: 90px; height: 80px" class="rounded"></td>
+      <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editProducts">Edit</button> <button type="button" class="btn btn-outline-danger">Del</button></td>
+    </tr>`;
+      i += 1;
+    });
 
     $('#productTable').DataTable({
       // eslint-disable-next-line quotes

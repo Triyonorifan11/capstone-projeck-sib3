@@ -21,16 +21,16 @@ const dataProduct = {
     return docSnap;
   },
 
-  async _fetchAllDataProduct() { // digunakan untuk get all product di homepage
+  async _fetchAllDataProduct() { // digunakan untuk get all product
     const tempArr = [];
     const querySnapshot = await getDocs(collection(db, 'products'));
-    querySnapshot.forEach((d) => {
+    querySnapshot.forEach(async (d) => {
       tempArr.push(d.data());
     });
     return tempArr;
   },
 
-  async _fetchUserNameById(idUser) { // digunakan untuk convert user id ke nama di homepage
+  async _fetchUserNameById(idUser) { // digunakan untuk convert user id ke nama
     const q = doc(db, 'users', idUser);
     const docSnap = await getDoc(q);
     return docSnap.data();
