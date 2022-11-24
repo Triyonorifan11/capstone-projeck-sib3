@@ -22,7 +22,7 @@ const formEditProduk = (produk) => `
     <img src="${produk.foto}" alt="${produk.nama_product}" title="foto produk ${produk.nama_product}" class="rounded" style="object-fit: cover;width: 100%;">
     <div class="my-3">
         <label for="editFotoProduk" class="form-label">Ganti foto</label>
-        <input class="form-control" type="file" id="editFotoProduk" name="editFotoProduk" required accept=".jpg,.jpeg,.png">
+        <input class="form-control" type="file" id="editFotoProduk" name="editFotoProduk" accept=".jpg,.jpeg,.png">
         <small><span class="text-danger fst-italic">Pastikan file tidak lebih 3mb dan format jpg/jpeg/png</span></small>
     </div>
     
@@ -58,7 +58,7 @@ const formEditProduk = (produk) => `
     </div>
 </div>
 <div class="mb-3">
-  <label for="deskripsi" class="form-label">Example textarea</label>
+  <label for="deskripsi" class="form-label">Deskripsi Produk</label>
   <textarea class="form-control" id="deskripsi" placeholder="Deskripsi Produk" rows="4">${produk.deskripsi}</textarea>
 </div>
 <div class="d-grid gap-2 mt-3">

@@ -67,6 +67,7 @@ const editDataPenjualan = {
         ['view', ['help']],
       ],
     });
+    await editProduct.getValueInputEdit(url.id);
   },
 };
 
