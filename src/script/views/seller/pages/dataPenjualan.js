@@ -1,5 +1,5 @@
 import dataProduct from '../../../utils/dataProducts';
-import createRowTableProduct from '../templates/tableProduct';
+import { createRowTableProduct } from '../templates/tableProduct';
 import deleteProduct from '../../../utils/deleteProduct';
 
 /* eslint-disable no-undef */
