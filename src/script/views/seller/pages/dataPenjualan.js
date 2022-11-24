@@ -36,7 +36,7 @@ const DataPenjualan = {
                           <thead>
                             <tr>
                               <th scope="col">No</th>
-                              <th scope="col">Foto</th>
+                              <th scope="col" class="no-sort">Foto</th>
                               <th scope="col">Nama Produk</th>
                               <th scope="col">Harga</th>
                               <th scope="col">stock</th>
