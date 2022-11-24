@@ -3,8 +3,6 @@ import '../styles/homepage.css';
 import '../styles/about-blog.css';
 import HomepageApp from './views/homepage/app';
 
-console.log('seller index');
-
 const dashboardlink = document.getElementById('dashboardlink');
 function isLogin() {
   const userRT = localStorage.getItem('user_RTproject');
