@@ -1,3 +1,5 @@
+import dataAccount from '../../../utils/dataAccounts';
+
 /* eslint-disable no-undef */
 const AccountsAdmin = {
 
@@ -17,38 +19,14 @@ const AccountsAdmin = {
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Avatar</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
+      <th scope="col" class="no-sort">Avatar</th>
+      <th scope="col">Nama Lengkap</th>
+      <th scope="col">Nomor HP</th>
       <th scope="col">Username</th>
-      <th scope="col">Action</th>
+      <th scope="col" class="no-sort">Action</th>
     </tr>
   </thead>
-  <tbody class="align-middle">
-    <tr >
-      <th scope="row">1</th>
-      <td><img src="https://www.svgrepo.com/show/43426/profile.svg" class="rounded-circle img-fluid" alt="profilepic" style="max-width: 40px;"></td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Edit</button> <button type="button" class="btn btn-outline-danger">Del</button></td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td><img src="https://www.svgrepo.com/show/43426/profile.svg" class="rounded-circle img-fluid" alt="profilepic" style="max-width: 40px;"></td>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" >Edit</button> <button type="button" class="btn btn-outline-danger">Del</button></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td><img src="https://www.svgrepo.com/show/43426/profile.svg" class="rounded-circle img-fluid" alt="profilepic" style="max-width: 40px;"></td>
-      <td>Larry</td>
-      <td>Bird</td>
-      <td>@twitter</td>
-      <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Edit</button> <button type="button" class="btn btn-outline-danger">Del</button></td>
-    </tr>
+  <tbody class="align-middle" id="body-seller">
   </tbody>
 </table>
 </div>
@@ -72,31 +50,7 @@ const AccountsAdmin = {
       <th scope="col" class="no-sort">Action</th>
     </tr>
   </thead>
-  <tbody class="align-middle">
-    <tr>
-      <th scope="row">1</th>
-      <td><img src="https://www.svgrepo.com/show/43426/profile.svg" class="rounded-circle img-fluid" alt="profilepic" style="max-width: 40px;"></td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Edit</button> <button type="button" class="btn btn-outline-danger">Del</button></td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td><img src="https://www.svgrepo.com/show/43426/profile.svg" class="rounded-circle img-fluid" alt="profilepic" style="max-width: 40px;"></td>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Edit</button> <button type="button" class="btn btn-outline-danger">Del</button></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td><img src="https://www.svgrepo.com/show/43426/profile.svg" class="rounded-circle img-fluid" alt="profilepic" style="max-width: 40px;"></td>
-      <td>Larry</td>
-      <td>Bird</td>
-      <td>@twitter</td>
-      <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Edit</button> <button type="button" class="btn btn-outline-danger">Del</button></td>
-    </tr>
+  <tbody class="align-middle" id="body-buyer">
   </tbody>
 </table>
 </div>
@@ -278,6 +232,38 @@ const AccountsAdmin = {
 
   async afterRender() {
     console.log('afterrender accounts');
+
+    const bodyBuyer = document.querySelector('#body-buyer');
+    const bodySeller = document.querySelector('#body-seller');
+
+    const fetchedDataAccount = await dataAccount._fetchAllDataAccount();
+    console.log(fetchedDataAccount);
+    let numberCountSeller = 1;
+    let numberCountBuyer = 1;
+
+    fetchedDataAccount.forEach((data) => {
+      if (data.user.toLowerCase() === 'seller') {
+        bodySeller.innerHTML += `<tr>
+        <th scope="row">${numberCountSeller}</th>
+        <td><img src="${data.fotoprofile}" class="rounded-circle img-fluid" alt="profilepic" style="max-width: 40px;"></td>
+        <td>${data.namalengkap}</td>
+        <td>${data.no_hp_wa}</td>
+        <td>${data.email}</td>
+        <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Edit</button> <button type="button" class="btn btn-outline-danger">Del</button></td>
+      </tr>`;
+        numberCountSeller += 1;
+      } if (data.user.toLowerCase() === 'buyer') {
+        bodyBuyer.innerHTML += `<tr>
+        <th scope="row">${numberCountBuyer}</th>
+        <td><img src="${data.fotoprofile}" class="rounded-circle img-fluid" alt="profilepic" style="max-width: 40px;"></td>
+        <td>${data.namalengkap}</td>
+        <td>${data.no_hp_wa}</td>
+        <td>${data.email}</td>
+        <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Edit</button> <button type="button" class="btn btn-outline-danger">Del</button></td>
+      </tr>`;
+        numberCountBuyer += 1;
+      }
+    });
 
     $('#buyerTable').DataTable({
       // eslint-disable-next-line quotes
