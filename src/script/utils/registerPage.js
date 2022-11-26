@@ -141,12 +141,16 @@ const registerUser = {
       const checkEmail = await this._checkemail(user.email);
       if (checkEmail) {
         flassMessage('info', 'Email telah terdaftar', 'Silahkan Login!');
-        redirect('login.html');
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
       } else {
         const nanoid = customAlphabet('1234567890abcdef', 17);
         await setDoc(doc(db, 'users', `user_${nanoid()}`), user);
         flassMessage('success', 'Berhasil Daftar', 'Silahkan Login!');
-        redirect('login.html');
+        setTimeout(() => {
+          window.location.reload();
+        }, 5000);
       }
     } catch (error) {
       flassMessage('error', 'Gagal Daftar', `Error: ${error}`);

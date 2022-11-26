@@ -345,53 +345,53 @@ const elements = {
   shksBtn: document.querySelector('#blogs'),
 };
 
-elements.allBtn.addEventListener('click', () => {
-  renderArticles(allArticles);
-});
+// elements.allBtn.addEventListener('click', () => {
+//   renderArticles(allArticles);
+// });
 
-elements.breakBtn.addEventListener('click', () => {
-  filterArticles(tag = 'artikel');
-});
+// elements.breakBtn.addEventListener('click', () => {
+//   filterArticles(tag = 'artikel');
+// });
 
-elements.lnchBtn.addEventListener('click', () => {
-  filterArticles(tag = 'berita');
-});
+// elements.lnchBtn.addEventListener('click', () => {
+//   filterArticles(tag = 'berita');
+// });
 
-elements.shksBtn.addEventListener('click', () => {
-  filterArticles(tag = 'blog');
-});
+// elements.shksBtn.addEventListener('click', () => {
+//   filterArticles(tag = 'blog');
+// });
 
-function renderArticles(articles) {
-  elements.articleContainer.innerHTML = '';
-  for (article of articles) {
-    const newArticle = `
-    <div class="blog-card">
-      <div class="meta">
-        <div class="photo" style="background-image: url(${article.img})"></div>
-        <ul class="details">
-        <li class="author"><a href="#">${article.writer}</a></li>
-        <li class="date">${article.date}</li>
-        </ul>
-      </div>
-      <div class="description">
-        <h1>${article.name}</h1>
-        <h2>${article.region}</h2>
-        <p>${article.desc}</p>
-        <p class="read-more">
-        <a href="post-page.html">Read More</a>
-        </p>
-      </div>
-    </div>
-      `;
-    elements.articleContainer.insertAdjacentHTML('beforeend', newArticle);
-  }
-}
+// function renderArticles(articles) {
+//   elements.articleContainer.innerHTML = '';
+//   for (article of articles) {
+//     const newArticle = `
+//     <div class="blog-card">
+//       <div class="meta">
+//         <div class="photo" style="background-image: url(${article.img})"></div>
+//         <ul class="details">
+//         <li class="author"><a href="#">${article.writer}</a></li>
+//         <li class="date">${article.date}</li>
+//         </ul>
+//       </div>
+//       <div class="description">
+//         <h1>${article.name}</h1>
+//         <h2>${article.region}</h2>
+//         <p>${article.desc}</p>
+//         <p class="read-more">
+//         <a href="post-page.html">Read More</a>
+//         </p>
+//       </div>
+//     </div>
+//       `;
+//     elements.articleContainer.insertAdjacentHTML('beforeend', newArticle);
+//   }
+// }
 
 function filterArticles(taggie) {
   const filterList = allArticles.filter((article) => article.tag === taggie);
   renderArticles(filterList);
 }
 
-(function init() {
-  renderArticles(allArticles);
-}());
+// (function init() {
+//   renderArticles(allArticles);
+// }());
