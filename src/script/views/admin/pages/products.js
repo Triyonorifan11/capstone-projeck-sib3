@@ -149,13 +149,30 @@ const ProductsAdmin = {
       }],
     });
 
+    $('#deskripsi').summernote({
+      placeholder: 'Tulis Deskripsi postingan',
+      tabsize: 2,
+      height: 100,
+      toolbar: [
+        ['style', ['undo', 'redo', 'style', 'bold', 'underline', 'clear']],
+        ['font', ['strikethrough', 'superscript', 'subscript']],
+        ['fontsize', ['fontsize']],
+        ['fontname', ['fontname']],
+        ['height', ['height']],
+        ['color', ['color']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['table', ['table']],
+        ['insert', ['link', 'picture', 'video']],
+        ['view', ['help']],
+      ],
+    });
+
     // tambah data
     const selectID = document.getElementById('idSeller');
     const dataSeller = await dataAccount._fetchSellerDataAccount();
     dataSeller.forEach((d) => {
       const data = d.data();
       data.id = d.id;
-      console.log(data);
       selectID.innerHTML += `<option value="${data.id}">${data.namalengkap}</option>`;
     });
     await addProduct._getDataFormAdmin();
