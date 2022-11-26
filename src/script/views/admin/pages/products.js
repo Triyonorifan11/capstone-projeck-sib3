@@ -1,3 +1,5 @@
+import addProduct from '../../../utils/addProduct';
+import dataAccount from '../../../utils/dataAccounts';
 import dataProduct from '../../../utils/dataProducts';
 
 /* eslint-disable no-undef */
@@ -40,51 +42,64 @@ const ProductsAdmin = {
               aria-labelledby="addProductsLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-xl">
                   <div class="modal-content" id="form-edit">
-                      <form action="#" id="register" method="post">
+                    <form action="#" method="post" id="addProduct" enctype="multipart/form-data">
                           <div class="modal-header border-0 border-top border-4 border-primary">
                               <h1 class="modal-title fs-5" id="addProductsLabel">Add Barang</h1>
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body border-top">
                               <div class="row">
-                                  <div class="col-md-12">
-                                      <div class="mb-3">
-                                          <label for="productsSeller" class="form-label">Nama Penjual <span
-                                                  class="text-danger">*</span></label>
-                                          <select class="form-select" name="productsSeller" id="productsSeller" required>
-                                            <option selected disabled>Pilih penjual</option>
-                                            <option value="1">Joko</option>
-                                            <option value="2">Kevin</option>
-                                            <option value="3">Sinta</option>
-                                          </select>
-                                      </div>
-                                      <div class="mb-3">
-                                          <label for="productsName" class="form-label">Nama Barang <span
-                                                  class="text-danger">*</span></label>
-                                          <input type="text" required name="productsName" class="form-control" id="productsName"
-                                              placeholder="Barang jual">
-                                      </div>
-                                      <div class="mb-3">
-                                        <label for="productsGambar" class="form-label">Gambar <span
-                                        class="text-danger">*</span></label>
-                                        <input class="form-control" type="file" id="productsGambar" required>
-                                      </div>
+                                  <div class="mb-3">
+                                        <label for="idSeller" class="form-label">ID Seller</label>
+                                        <select class="form-select" aria-label="Default select example" name="idSeller" id="idSeller">
+                                          <option selected>Pilih nama penjual</option>
+                                        </select>
                                   </div>
                                   <div class="col-md-6">
                                     <div class="mb-3">
-                                      <label for="productsStock" class="form-label">Stok <span
-                                      class="text-danger">*</span></label>
-                                      <input class="form-control" type="number" id="productsStock" required
-                                          placeholder="....">
+                                        <label for="namaBarang" class="form-label">Nama</label>
+                                        <input type="text" class="form-control" name="namaBarang" id="namaBarang" aria-label="Nama barang" placeholder="Sampah Plastik" required>
+                                    </div>
+                                    <label for="beratBarang" class="form-label">Berat Sampah</label>
+                                    <div class="input-group mb-3">
+                                        <input type="number" class="form-control" name="beratBarang" id="beratBarang" placeholder="3" aria-label="Berat barang" aria-describedby="basic-addon2" required>
+                                        <span class="input-group-text" id="basic-addon2">Kg</span>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="jeniBarang" class="form-label">Jenis Sampah</label>
+                                        <select class="form-select" id="jenisBarang" name="jenisBarang" aria-label="Jenis sampah" required>
+                                            <option selected>Pilih Jenis</option>
+                                            <option value="Sampah Organik">Sampah Organik</option>
+                                            <option value="Sampah Anorganik">Sampah Anorganik</option>
+                                            <option value="Sampah B3">Sampah B3</option>
+                                        </select>
                                     </div>
                                   </div>
                                   <div class="col-md-6">
-                                    <div class="mb-3">
-                                      <label for="productsharga" class="form-label">Harga Satuan <span
-                                      class="text-danger">*</span></label>
-                                      <input class="form-control" type="number" id="productsharga" required
-                                          placeholder="Rp .....">
-                                    </div>
+                                      <label for="stokBarang" class="form-label">Stok</label>
+                                      <div class="input-group mb-3">
+                                          <input type="number" class="form-control" name="stokBarang" id="stokBarang" placeholder="2" aria-label="Stok barang" required>
+                                          <span class="input-group-text" id="basic-addon2">Pack</span>
+                                      </div>
+                                      <label for="hargaBarang" class="form-label">Harga</label>
+                                      <div class="input-group mb-3">
+                                          <span class="input-group-text" id="basic-addon2">Rp</span>
+                                          <input type="number" class="form-control" name="hargaBarang" id="hargaBarang" placeholder="13000" aria-label="Berat barang" aria-describedby="basic-addon2" required>
+                                      </div>
+                                      
+                                      <div class="mb-3">
+                                          <label for="fotoBarang" class="form-label">Foto Barang</label>
+                                          <input class="form-control" type="file" id="fotoBarang" name="fotoBarang" required accept=".jpg,.jpeg,.png">
+                                          <small><span class="text-danger fst-italic">Pastikan file tidak lebih 3mb dan format jpg/jpeg/png</span></small>
+                                      </div>
+                                      
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="deskripsi" class="form-label">Deskripsi Produk</label>
+                                    <textarea class="form-control" id="deskripsi" placeholder="Deskripsi Produk" rows="3"></textarea>
+                                  </div>
+                                  <div class="d-grid gap-2 mt-2">
+                                      <button class="btn btn-primary" type="submit" id="btnTambah">Tambah</button>
                                   </div>
                               </div>
                           </div>
@@ -93,61 +108,10 @@ const ProductsAdmin = {
                               <button type="submit" id="btn-submit" class="btn btn-primary">Tambah</button>
                           </div>
                       </form>
+                      
                   </div>
               </div>
       </div>
-
-      <!-- Modal Edit Products -->
-<div class="modal fade" id="editProducts" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="editProductsLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content" id="form-edit">
-                <form action="#" id="register" method="post">
-                    <div class="modal-header border-0 border-top border-4 border-primary">
-                        <h1 class="modal-title fs-5" id="editProductsLabel">Edit Barang</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body border-top">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="mb-3">
-                                    <label for="productsName" class="form-label">Nama Barang <span
-                                            class="text-danger">*</span></label>
-                                    <input type="text" required name="productsName" class="form-control" id="productsName"
-                                        placeholder="Barang jual">
-                                </div>
-                                <div class="mb-3">
-                                  <label for="productsGambar" class="form-label">Gambar <span
-                                  class="text-danger">*</span></label>
-                                  <input class="form-control" type="file" id="productsGambar" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                              <div class="mb-3">
-                                <label for="productsStock" class="form-label">Stok <span
-                                class="text-danger">*</span></label>
-                                <input class="form-control" type="number" id="productsStock" required
-                                    placeholder="....">
-                              </div>
-                            </div>
-                            <div class="col-md-6">
-                              <div class="mb-3">
-                                <label for="productsharga" class="form-label">Harga Satuan <span
-                                class="text-danger">*</span></label>
-                                <input class="form-control" type="number" id="productsharga" required
-                                    placeholder="Rp .....">
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" id="btn-submit" class="btn btn-primary">Edit</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-</div>
             `;
   },
 
@@ -181,6 +145,17 @@ const ProductsAdmin = {
         orderable: false,
       }],
     });
+
+    // tambah data
+    const selectID = document.getElementById('idSeller');
+    const dataSeller = await dataAccount._fetchSellerDataAccount();
+    dataSeller.forEach((d) => {
+      const data = d.data();
+      data.id = d.id;
+      console.log(data);
+      selectID.innerHTML += `<option value="${data.id}">${data.namalengkap}</option>`;
+    });
+    await addProduct._getDataFormAdmin();
   },
 };
 

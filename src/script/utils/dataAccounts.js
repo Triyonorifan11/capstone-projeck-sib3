@@ -27,6 +27,11 @@ const dataAccount = {
     return querySnapshot;
   },
 
+  async _fetchSellerDataAccount() { // get all account data without the admin
+    const querySnapshot = await getDocs(query(collection(db, 'users'), where('user', '==', 'seller')));
+    return querySnapshot;
+  },
+
   async _fetchUserNameById(idUser) { // get account data based on id
     const q = doc(db, 'users', idUser);
     const docSnap = await getDoc(q);
