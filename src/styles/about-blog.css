@@ -1,3 +1,30 @@
+/* Detail About Us */
+#section1 {
+  /* background-color:#FFD19A; */
+  padding: 4%;
+  height: auto;
+  clear: both;
+}
+.textbox {
+	padding: 4%;
+}
+#title {
+  font-family:"open sans", sans-serif;
+  font-weight: 300;
+  font-size: 200%;
+  color: #012970;
+  font-weight: bold;
+}
+#bio {
+  font-family: "roboto", sans-serif;
+  font-weight: 300;
+  font-size: 100%;
+}
+#adaPortrait {
+  padding: 15% 4%;
+  width: 80%;
+} 
+
 /*--------------------------------------------------------------
 # Filter
 --------------------------------------------------------------*/
@@ -255,51 +282,6 @@ header .filter-group-wrapper .filter-button:hover {
     text-align: justify;
 }
 
-/* Responsive Post Content*/
-@media (max-width: 1060px) {
-    .container {
-        margin: 0 auto;
-        width: 95%;
-    }
-}
-@media (max-width: 800px) {
-    .post-container{
-        margin: 0 auto;
-        width: 95%;
-    }
-}
-@media (max-width: 768px) {
-    .post-header {
-        height: 435px;
-    }
-    .post-content {
-        margin-top: 9rem !important;
-    }
-}
-@media (max-width: 570px){
-    .post-header {
-        height: 390px;
-    }
-    .footer {
-        flex-direction: column;
-        row-gap: 1rem;
-        padding: 20px 0;
-        text-align: center;
-    }
-}
-@media (max-width: 396px){
-    .post-header {
-        height: 335px;
-    }
-    .post-content {
-        margin-top: 5rem !important;
-    }
-    .post-text {
-        font-size: 0.875rem;
-        line-height: 1.5rem;
-        margin: 10px 0
-    }
-}
 
 /*--------------------------------------------------------------
 # Share
