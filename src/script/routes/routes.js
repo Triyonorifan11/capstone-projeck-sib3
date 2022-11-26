@@ -20,6 +20,7 @@ import editAccountsPage from '../views/admin/pages/editAccountsPage';
 import Home from '../views/homepage/pages/home';
 import Blog from '../views/homepage/pages/blog';
 import About from '../views/homepage/pages/about';
+import editProductPage from '../views/admin/pages/editProductPage';
 
 // login routes
 const loginRoutes = {
@@ -43,6 +44,7 @@ const adminRoutes = {
   '/items': ProductsAdmin,
   '/transactions': TransactionsAdmin,
   '/editakun/:id': editAccountsPage,
+  '/editproduct/:id': editProductPage,
 };
 
 // homepage dashboard routes

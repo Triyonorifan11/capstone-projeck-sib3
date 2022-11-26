@@ -134,7 +134,7 @@ const ProductsAdmin = {
       <td>${data.stok} Kilogram</td>
       <td>${data.harga}</td>
       <td><img src="${data.foto}" style="width: 90px; height: 80px" class="rounded"></td>
-      <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editProducts">Edit</button> 
+      <td><a href="#/editProduct/${data.id}" role="button" class="btn btn-outline-secondary">Edit</a>
       <button type="button" class="btn btn-outline-danger" id="deleteProduk" data-id="${data.id}">Del</button></td>
     </tr>`;
       i += 1;
