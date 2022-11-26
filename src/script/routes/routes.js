@@ -19,6 +19,7 @@ import TransactionsAdmin from '../views/admin/pages/transactions';
 import Home from '../views/homepage/pages/home';
 import Blog from '../views/homepage/pages/blog';
 import About from '../views/homepage/pages/about';
+import editAccounts from '../views/admin/pages/editAccountsPage';
 
 // login routes
 const loginRoutes = {
@@ -41,6 +42,7 @@ const adminRoutes = {
   '/accounts': AccountsAdmin,
   '/items': ProductsAdmin,
   '/transactions': TransactionsAdmin,
+  '/edit/:id': editAccounts,
 };
 
 // homepage dashboard routes

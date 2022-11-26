@@ -175,7 +175,7 @@ const AccountsAdmin = {
         <td>${data.namalengkap}</td>
         <td>${data.no_hp_wa}</td>
         <td>${data.email}</td>
-        <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Edit</button> <button type="button" class="btn btn-outline-danger" id="deleteAkun" data-id="${data.id}">Del</button></td>
+        <td><a href="#/edit/${data.id}" role="button" class="btn btn-outline-secondary"> Edit </a> <button type="button" class="btn btn-outline-danger" id="deleteAkun" data-id="${data.id}">Del</button></td>
       </tr>`;
         numberCountSeller += 1;
       } if (data.user.toLowerCase() === 'buyer') {
@@ -185,7 +185,7 @@ const AccountsAdmin = {
         <td>${data.namalengkap}</td>
         <td>${data.no_hp_wa}</td>
         <td>${data.email}</td>
-        <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Edit</button> <button type="button" class="btn btn-outline-danger" id="deleteAkun" data-id="${data.id}">Del</button></td>
+        <td><a href="#/edit/${data.id}" role="button" class="btn btn-outline-secondary"> Edit </a> <button type="button" class="btn btn-outline-danger" id="deleteAkun" data-id="${data.id}">Del</button></td>
       </tr>`;
         numberCountBuyer += 1;
       }
