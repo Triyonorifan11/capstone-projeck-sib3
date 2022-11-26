@@ -23,7 +23,7 @@ const deleteProduct = {
         Swal.fire({
           title: 'Produk ini akan dihapus? ',
           showCancelButton: true,
-          confirmButtonText: 'Save',
+          confirmButtonText: 'Confirm',
         }).then((result) => {
           if (result.isConfirmed) {
             this._deleteDataProduk(id);

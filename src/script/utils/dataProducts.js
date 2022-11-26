@@ -22,12 +22,8 @@ const dataProduct = {
   },
 
   async _fetchAllDataProduct() { // digunakan untuk get all product
-    const tempArr = [];
     const querySnapshot = await getDocs(collection(db, 'products'));
-    querySnapshot.forEach(async (d) => {
-      tempArr.push(d.data());
-    });
-    return tempArr;
+    return querySnapshot;
   },
 
   async _fetchUserNameById(idUser) { // digunakan untuk convert user id ke nama

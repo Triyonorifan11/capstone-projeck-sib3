@@ -1,6 +1,7 @@
 import addProduct from '../../../utils/addProduct';
 import dataAccount from '../../../utils/dataAccounts';
 import dataProduct from '../../../utils/dataProducts';
+import deleteProduct from '../../../utils/deleteProduct';
 
 /* eslint-disable no-undef */
 const ProductsAdmin = {
@@ -124,15 +125,18 @@ const ProductsAdmin = {
     let i = 1;
 
     fetchedDataProduct.forEach((d) => {
+      const data = d.data();
+      data.id = d.id;
       // const sellerName = await dataProduct._fetchUserNameById(d.id_user);
       bodyProduct.innerHTML += `<tr>
       <th scope="row">${i}</th>
-      <td>${d.id_user}</td>
-      <td>${d.nama_product}</td>
-      <td>${d.stok} Kilogram</td>
-      <td>${d.harga}</td>
-      <td><img src="${d.foto}" style="width: 90px; height: 80px" class="rounded"></td>
-      <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editProducts">Edit</button> <button type="button" class="btn btn-outline-danger">Del</button></td>
+      <td>${data.id_user}</td>
+      <td>${data.nama_product}</td>
+      <td>${data.stok} Kilogram</td>
+      <td>${data.harga}</td>
+      <td><img src="${data.foto}" style="width: 90px; height: 80px" class="rounded"></td>
+      <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editProducts">Edit</button> 
+      <button type="button" class="btn btn-outline-danger" id="deleteProduk" data-id="${data.id}">Del</button></td>
     </tr>`;
       i += 1;
     });
@@ -156,6 +160,9 @@ const ProductsAdmin = {
       selectID.innerHTML += `<option value="${data.id}">${data.namalengkap}</option>`;
     });
     await addProduct._getDataFormAdmin();
+
+    // delete data
+    await deleteProduct.init();
   },
 };
 
