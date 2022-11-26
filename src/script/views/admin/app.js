@@ -26,7 +26,6 @@ class AdminApp {
     try {
       const url = UrlParser.parseActiveUrlWithCombiner();
       const page = adminRoutes[url];
-      console.log('kode renderpage AdminApp jalan..');
       this._maincontent.innerHTML = await page.render();
       await page.afterRender();
     } catch (error) {

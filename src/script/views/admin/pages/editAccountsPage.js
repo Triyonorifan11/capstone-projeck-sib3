@@ -3,7 +3,7 @@ import UrlParser from '../../../routes/url-parser';
 import editAccount from '../../../utils/editAccounts';
 import { formEditAkun } from '../templates/edit';
 
-const editAccounts = {
+const editAccountsPage = {
 
   async render() {
     return `
@@ -52,25 +52,8 @@ const editAccounts = {
     console.log(dataAkun);
     const formEdit = document.getElementById('EditProduct');
     formEdit.innerHTML = formEditAkun(dataAkun);
-    // $('#deskripsi').summernote({
-    //   placeholder: 'Tulis Deskripsi postingan',
-    //   tabsize: 2,
-    //   height: 100,
-    //   toolbar: [
-    //     ['style', ['undo', 'redo', 'style', 'bold', 'underline', 'clear']],
-    //     ['font', ['strikethrough', 'superscript', 'subscript']],
-    //     ['fontsize', ['fontsize']],
-    //     ['fontname', ['fontname']],
-    //     ['height', ['height']],
-    //     ['color', ['color']],
-    //     ['para', ['ul', 'ol', 'paragraph']],
-    //     ['table', ['table']],
-    //     ['insert', ['link', 'picture', 'video']],
-    //     ['view', ['help']],
-    //   ],
-    // });
     await editAccount.getValueInputEdit(url.id);
   },
 };
 
-export default editAccounts;
+export default editAccountsPage;
