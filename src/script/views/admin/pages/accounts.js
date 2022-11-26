@@ -1,4 +1,5 @@
 import dataAccount from '../../../utils/dataAccounts';
+import deleteAccount from '../../../utils/deleteAccounts';
 import registerUser from '../../../utils/registerPage';
 
 /* eslint-disable no-undef */
@@ -164,7 +165,9 @@ const AccountsAdmin = {
     let numberCountSeller = 1;
     let numberCountBuyer = 1;
 
-    fetchedDataAccount.forEach((data) => {
+    fetchedDataAccount.forEach((d) => {
+      const data = d.data();
+      data.id = d.id;
       if (data.user.toLowerCase() === 'seller') {
         bodySeller.innerHTML += `<tr>
         <th scope="row">${numberCountSeller}</th>
@@ -172,7 +175,7 @@ const AccountsAdmin = {
         <td>${data.namalengkap}</td>
         <td>${data.no_hp_wa}</td>
         <td>${data.email}</td>
-        <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Edit</button> <button type="button" class="btn btn-outline-danger">Del</button></td>
+        <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Edit</button> <button type="button" class="btn btn-outline-danger" id="deleteAkun" data-id="${data.id}">Del</button></td>
       </tr>`;
         numberCountSeller += 1;
       } if (data.user.toLowerCase() === 'buyer') {
@@ -182,7 +185,7 @@ const AccountsAdmin = {
         <td>${data.namalengkap}</td>
         <td>${data.no_hp_wa}</td>
         <td>${data.email}</td>
-        <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Edit</button> <button type="button" class="btn btn-outline-danger">Del</button></td>
+        <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Edit</button> <button type="button" class="btn btn-outline-danger" id="deleteAkun" data-id="${data.id}">Del</button></td>
       </tr>`;
         numberCountBuyer += 1;
       }
@@ -196,6 +199,9 @@ const AccountsAdmin = {
       .then((provinces) => provinces.forEach((provinsi) => {
         datalist.innerHTML += `<option value="${provinsi.name}">`;
       }));
+
+    // delete
+    await deleteAccount.init();
 
     $('#buyerTable').DataTable({
       // eslint-disable-next-line quotes

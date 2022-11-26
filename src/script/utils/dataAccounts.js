@@ -23,12 +23,13 @@ const dataAccount = {
   //   },
 
   async _fetchAllDataAccount() { // get all account data without the admin
-    const tempArr = [];
+    // const tempArr = [];
     const querySnapshot = await getDocs(query(collection(db, 'users'), where('user', '!=', 'admin')));
-    querySnapshot.forEach((d) => {
-      tempArr.push(d.data());
-    });
-    return tempArr;
+    // querySnapshot.forEach((d) => {
+    //   tempArr.push(d.data());
+    //   tempArr[d].id = d.id;
+    // });
+    return querySnapshot;
   },
 
   async _fetchUserNameById(idUser) { // get account data based on id
