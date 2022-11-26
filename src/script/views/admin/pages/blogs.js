@@ -1,3 +1,5 @@
+import dataPosts from '../../../utils/dataBlogs';
+
 /* eslint-disable no-undef */
 const BlogsAdmin = {
 
@@ -7,60 +9,7 @@ const BlogsAdmin = {
       <button type="button" class="btn btn-primary btn" data-bs-toggle="modal" data-bs-target="#addBlog">Tambah Blog</button>
     </div>
 
-    <div class="card mb-12"  >
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="https://img.antaranews.com/cache/800x533/2022/11/11/antarafoto-kerja-bakti-gabungan-dki-jakarta-di-kali-ciliwung-101122-sth-5.jpg" style="width: 100%; height: 100%; max-height: 250px; object-fit: cover; object-position: center;" class="img-fluid" alt="...">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 id="titleBlog" class="card-title" style="margin-bottom: 0; padding: 10px 0 0 0; font-weight:bold; font-size: 25px; color: black;">Judul Blog</h5>
-            <p id="dateBlog" class="card-text"><small class="text-muted">3 Agustus 2022</small></p>
-            <p class="card-text" id="mainBlog" style="overflow: hidden; max-height:100px; ">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-            This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-            This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-            This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-            This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <div class="row justify-content-between">
-              <div class="col-4 align-self-center">
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-              <div class="col-4 align-self-center text-end"  >
-                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editBlog">Edit</button>
-                <button type="button" class="btn btn-outline-danger">Delete</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card mb-12"  >
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="https://img.antaranews.com/cache/800x533/2022/11/11/antarafoto-kerja-bakti-gabungan-dki-jakarta-di-kali-ciliwung-101122-sth-5.jpg" style="width: 100%; height: 100%; max-height: 250px; object-fit: cover; object-position: center;" class="img-fluid" alt="...">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 id="titleBlog" class="card-title" style="margin-bottom: 0; padding: 10px 0 0 0; font-weight:bold; font-size: 25px; color: black;">Judul Blog</h5>
-            <p id="dateBlog" class="card-text"><small class="text-muted">3 Agustus 2022</small></p>
-            <p class="card-text" id="mainBlog" style="overflow: hidden; max-height:100px; ">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-            This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-            This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-            This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-            This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <div class="row justify-content-between">
-              <div class="col-4 align-self-center">
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-              <div class="col-4 align-self-center text-end"  >
-                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editBlog">Edit</button>
-                <button type="button" class="btn btn-outline-danger">Delete</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="posts" id="posts">
     </div>
     
     <!-- Modal Edit Blog -->
@@ -150,6 +99,40 @@ const BlogsAdmin = {
 
   async afterRender() {
     console.log('afterrender blogs');
+    const postsList = document.getElementById('posts');
+
+    const fetchedPosts = await dataPosts._fetchAllDataPosts();
+
+    fetchedPosts.forEach((d) => {
+      const data = d.data();
+      data.id = d.id;
+
+      postsList.innerHTML += `
+      <div class="card mb-12">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="${data.foto}" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" class="img-fluid" alt="Gambar Postingan">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 id="titleBlog" class="card-title" style="margin-bottom: 0; padding: 10px 0 0 0; font-weight:bold; font-size: 25px; color: black;">${data.judul}</h5>
+            <p id="dateBlog" class="card-text text-success text-capitalize">${data.id_label}</p>
+            <p id="dateBlog" class="card-text"><small class="text-muted">${data.tgl_dibuat}</small></p>
+            <p class="card-text" id="mainBlog" style="overflow: hidden; max-height:100px; ">${data.deskripsi}</p>
+            <div class="row justify-content-between">
+              <div class="col-4 align-self-center">
+                <p class="card-text"><small class="text-muted">Last updated ${data.tgl_update}</small></p>
+              </div>
+              <div class="col-4 align-self-center text-end">
+                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editBlog">Edit</button>
+                <button type="button" class="btn btn-outline-danger">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+    });
   },
 };
 
