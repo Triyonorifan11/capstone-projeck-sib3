@@ -15,20 +15,15 @@ const dataAccount = {
     return getdata;
   },
 
-  //   async _fetchDataProduct() {
-  //     const idUser = getUserInfo().id;
-  //     const q = query(collection(db, 'products'), where('id_user', '==', idUser));
-  //     const docSnap = await getDocs(q);
-  //     return docSnap;
-  //   },
+  async _fetchDataProduct() {
+    const idUser = getUserInfo().id;
+    const q = query(collection(db, 'products'), where('id_user', '==', idUser));
+    const docSnap = await getDocs(q);
+    return docSnap;
+  },
 
   async _fetchAllDataAccount() { // get all account data without the admin
-    // const tempArr = [];
     const querySnapshot = await getDocs(query(collection(db, 'users'), where('user', '!=', 'admin')));
-    // querySnapshot.forEach((d) => {
-    //   tempArr.push(d.data());
-    //   tempArr[d].id = d.id;
-    // });
     return querySnapshot;
   },
 
