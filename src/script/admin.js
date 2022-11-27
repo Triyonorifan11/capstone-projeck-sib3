@@ -10,6 +10,13 @@ function isLoginSeller() {
   }
   if (data.user !== 'admin') {
     window.location.href = '../';
+  } else {
+    document.getElementById('username').innerText = data.namalengkap;
+    document.getElementById('namauser').innerText = data.namalengkap;
+    document.getElementById('user').innerText = data.user;
+    if (data.fotoprofile) {
+      document.querySelector('.imgnav').setAttribute('src', data.fotoprofile);
+    }
   }
 }
 
