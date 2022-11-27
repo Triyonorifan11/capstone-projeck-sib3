@@ -41,10 +41,10 @@ const addBlogs = {
         kategori: escapeHtml(kategori.value),
         id_user: getUserInfo().id,
         tgl_dibuat: new Date().toISOString(),
-        tgl_diupdate: new Date().toISOString(),
+        tgl_update: new Date().toISOString(),
       };
       const nanoid = customAlphabet('1234567890abcdef', 17);
-      const idPosts = `product_${nanoid()}`;
+      const idPosts = `post_${nanoid()}`;
       await uploadFile(fileimage, `posts/${idPosts}`).then((url) => {
         dataPosts.foto = url;
       });

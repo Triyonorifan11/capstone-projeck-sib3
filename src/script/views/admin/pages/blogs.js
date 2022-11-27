@@ -1,5 +1,6 @@
 import addBlogs from '../../../utils/addBlogs';
 import dataPosts from '../../../utils/dataBlogs';
+import deleteBlog from '../../../utils/deleteBlogs';
 
 /* eslint-disable no-undef */
 const BlogsAdmin = {
@@ -90,7 +91,7 @@ const BlogsAdmin = {
               </div>
               <div class="col-4 align-self-center text-end">
                 <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editBlog">Edit</button>
-                <button type="button" class="btn btn-outline-danger">Delete</button>
+                <button type="button" class="btn btn-outline-danger" id="deleteBlog" data-id="${data.id}">Delete</button>
               </div>
             </div>
           </div>
@@ -119,6 +120,9 @@ const BlogsAdmin = {
 
     // create
     await addBlogs.init();
+
+    // delete
+    await deleteBlog.init();
   },
 };
 
