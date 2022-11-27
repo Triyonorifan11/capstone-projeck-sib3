@@ -6,6 +6,37 @@ const Blog = {
 
   async render() {
     return `
+    <!-- Blog -->
+    <div class="container main-container mt-5" id="blog">
+      <header id="header">
+        <div class="row">
+          <div class="col-sm-12 head-column">
+            <h1 class="fw-bold text-center" style="color: #012970;">Blog</h1>
+          </div>
+
+          <div class="col-sm-12 filter-group-wrapper">
+            <div class="filter-group">
+              <button class="filter-button" id="all-articles">All</button>
+              <button class="filter-button" id="artikel">Artikel</button>
+              <button class="filter-button" id="berita">Berita</button>
+              <button class="filter-button" id="blogs">Blogs</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+
+      <section class="mt-5 mb-2">
+
+        <div class="row">
+          <div class="d-flex justify-content-center">
+            <div class="article-display-container"></div>
+          </div>
+        </div>
+
+      </section>
+    </div>
+
     <div class="blog-card">
     <div class="meta">
       <div class="photo" style="background-image: url(https://akcdn.detik.net.id/community/media/visual/2022/09/14/ilustrasi-sampah-plastik_43.jpeg?w=700&q=90)"></div>
