@@ -246,8 +246,10 @@ const Home = {
     const products = document.querySelector('#products');
     const fetchedDataProduct = await dataProduct._fetchAllDataProduct();
     fetchedDataProduct.forEach(async (d) => {
-      const sellerName = await dataProduct._fetchUserNameById(d.id_user);
-      products.innerHTML += createAllProducts(d.nama_product, d.foto, d.harga, sellerName.namalengkap, d.deskripsi, d.stok);
+      const data = d.data();
+      data.id = d.id;
+      const sellerName = await dataProduct._fetchUserNameById(data.id_user);
+      products.innerHTML += createAllProducts(data.nama_product, data.foto, data.harga, sellerName.namalengkap, data.deskripsi, data.stok);
     });
   },
 };
