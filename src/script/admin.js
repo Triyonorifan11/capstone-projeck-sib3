@@ -2,6 +2,17 @@ import 'regenerator-runtime';
 import AdminApp from './views/admin/app';
 import '../styles/homepage.css';
 
+function isLoginSeller() {
+  const userRT = localStorage.getItem('user_RTproject');
+  const data = JSON.parse(userRT);
+  if (!userRT) {
+    window.location.href = '../';
+  }
+  if (data.user !== 'admin') {
+    window.location.href = '../';
+  }
+}
+
 const loader = document.querySelector('#js-preloader');
 const appAdmin = new AdminApp({
   header: document.querySelector('#header'),
@@ -19,6 +30,7 @@ window.addEventListener('hashchange', () => {
 });
 
 window.addEventListener('load', () => {
+  isLoginSeller();
   loader.classList.remove('loaded');
   setTimeout(() => {
     loader.classList.add('loaded');

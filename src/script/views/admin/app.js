@@ -21,8 +21,18 @@ class AdminApp {
     }, 250);
   }
 
+  _logoutAdmin() {
+    const logoutButton = document.getElementById('logoutButton');
+    logoutButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      localStorage.removeItem('user_RTproject');
+      window.location.href = '../';
+    });
+  }
+
   async renderPage() {
     this._loaderActive();
+    this._logoutAdmin();
     try {
       const url = UrlParser.parseActiveUrlWithCombiner();
       const page = adminRoutes[url];
