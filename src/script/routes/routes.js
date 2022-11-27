@@ -15,12 +15,13 @@ import AccountsAdmin from '../views/admin/pages/accounts';
 import ProductsAdmin from '../views/admin/pages/products';
 import TransactionsAdmin from '../views/admin/pages/transactions';
 import editAccountsPage from '../views/admin/pages/editAccountsPage';
+import editProductsPage from '../views/admin/pages/editProductsPage';
+import editBlogsPage from '../views/admin/pages/editBlogsPage';
 
 // homepage
 import Home from '../views/homepage/pages/home';
 import Blog from '../views/homepage/pages/blog';
 import About from '../views/homepage/pages/about';
-import editProductPage from '../views/admin/pages/editProductPage';
 
 // login routes
 const loginRoutes = {
@@ -44,7 +45,8 @@ const adminRoutes = {
   '/items': ProductsAdmin,
   '/transactions': TransactionsAdmin,
   '/editakun/:id': editAccountsPage,
-  '/editproduct/:id': editProductPage,
+  '/editproduct/:id': editProductsPage,
+  '/editblog/:id': editBlogsPage,
 };
 
 // homepage dashboard routes

@@ -92,4 +92,41 @@ const formEditProduk = (produk) => `
 </div>
 `;
 
-export { formEditAkun, formEditProduk };
+const formEditBlog = (blog) => `
+<div class="row">
+    <div class="col-md-6">
+        <img src="${blog.foto}" alt="gambar postingan" title="foto tentang ${blog.judul}" class="img-fluid rounded img-thumbnail" style="object-fit: cover;width: 100%; max-height: 450px;">
+    </div>
+
+    <div class="col-md-6">
+        <div class="mb-3">
+            <label for="judul" class="form-label">Nama Blog <span class="text-danger">*</span></label>
+            <input type="text" required name="judul" class="form-control" id="judul" placeholder="Judul Blog" value="${blog.judul}">
+        </div>
+        <div class="mb-3">
+          <label for="deskripsi" class="form-label">Konten Blog <span class="text-danger">*</span></label>
+          <textarea class="form-control" id="deskripsi" name="deskripsi">${blog.deskripsi}</textarea>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="mb-3">
+            <label for="foto" class="form-label">Gambar <span class="text-danger">*</span></label>
+            <input class="form-control" type="file" id="foto" name="foto">
+          </div>
+        <div class="mb-3">
+          <label for="kategori" class="form-label">Kategori <span class="text-danger">*</span></label>
+          <select id="kategori" class="form-select" name="kategori">
+            <option value="berita">Berita</option>
+            <option value="blog">Blog</option>
+            <option value="artikel">Artikel</option>
+          </select>
+        </div>
+        <div class="mb-3">
+            <button type="submit" id="btn-submit" class="btn btn-primary">Edit</button>
+        </div>
+    </div>
+</div>
+`
+
+export { formEditAkun, formEditProduk, formEditBlog };

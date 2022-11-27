@@ -90,7 +90,7 @@ const BlogsAdmin = {
                 <p class="card-text"><small class="text-muted">Last updated ${data.tgl_update}</small></p>
               </div>
               <div class="col-4 align-self-center text-end">
-                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editBlog">Edit</button>
+                <a type="button" class="btn btn-outline-secondary" href="#/editBlog/${data.id}">Edit</a>
                 <button type="button" class="btn btn-outline-danger" id="deleteBlog" data-id="${data.id}">Delete</button>
               </div>
             </div>
