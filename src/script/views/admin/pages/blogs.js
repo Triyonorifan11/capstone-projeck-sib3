@@ -1,3 +1,4 @@
+import addBlogs from '../../../utils/addBlogs';
 import dataPosts from '../../../utils/dataBlogs';
 
 /* eslint-disable no-undef */
@@ -11,54 +12,13 @@ const BlogsAdmin = {
 
     <div class="posts" id="posts">
     </div>
-    
-    <!-- Modal Edit Blog -->
-<div class="modal fade" id="editBlog" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="editBlogLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content" id="form-edit">
-                <form action="#" id="register" method="post">
-                    <div class="modal-header border-0 border-top border-4 border-primary">
-                        <h1 class="modal-title fs-5" id="editBlogLabel">Edit Blog</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body border-top">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="mb-3">
-                                    <label for="blogName" class="form-label">Nama Blog <span
-                                            class="text-danger">*</span></label>
-                                    <input type="text" required name="blogName" class="form-control" id="blogName"
-                                        placeholder="Judul Blog">
-                                </div>
-                                <div class="mb-3">
-                                  <label for="blogContent" class="form-label">Konten Blog <span
-                                  class="text-danger">*</span></label>
-                                  <textarea class="form-control" id="blogContent" rows="8" required></textarea>
-                                </div>
-                                <div class="mb-3">
-                                  <label for="blogGambar" class="form-label">Gambar <span
-                                  class="text-danger">*</span></label>
-                                  <input class="form-control" type="file" id="blogGambar" required>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" id="btn-submit" class="btn btn-primary">Edit</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-</div>
 
 <!-- Modal Add Blog -->
 <div class="modal fade" id="addBlog" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="addBlogLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content" id="form-edit">
-                <form action="#" id="register" method="post">
+                <form action="#" id="addBlog" method="post" enctype="multipart/form-data">
                     <div class="modal-header border-0 border-top border-4 border-primary">
                         <h1 class="modal-title fs-5" id="addBlogLabel">Tambah Blog</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -67,27 +27,31 @@ const BlogsAdmin = {
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mb-3">
-                                    <label for="blogName" class="form-label">Nama Blog <span
-                                            class="text-danger">*</span></label>
-                                    <input type="text" required name="blogName" class="form-control" id="blogName"
-                                        placeholder="Judul Blog">
+                                    <label for="judul" class="form-label">Nama Blog <span class="text-danger">*</span></label>
+                                    <input type="text" required name="judul" class="form-control" id="judul" placeholder="Judul Blog">
                                 </div>
                                 <div class="mb-3">
-                                  <label for="blogContent" class="form-label">Konten Blog <span
-                                  class="text-danger">*</span></label>
-                                  <textarea class="form-control" id="blogContent" rows="8"></textarea>
+                                  <label for="deskripsi" class="form-label">Konten Blog <span class="text-danger">*</span></label>
+                                  <textarea class="form-control" id="deskripsi" name="deskripsi"></textarea>
                                 </div>
                                 <div class="mb-3">
-                                  <label for="blogGambar" class="form-label">Gambar <span
-                                  class="text-danger">*</span></label>
-                                  <input class="form-control" type="file" id="blogGambar">
+                                  <label for="foto" class="form-label">Gambar <span class="text-danger">*</span></label>
+                                  <input class="form-control" type="file" id="foto" name="foto">
+                                </div>
+                                <div class="mb-3">
+                                  <label for="kategori" class="form-label">Kategori <span class="text-danger">*</span></label>
+                                  <select id="kategori" class="form-select" name="kategori">
+                                    <option value="berita">Berita</option>
+                                    <option value="blog">Blog</option>
+                                    <option value="artikel">Artikel</option>
+                                  </select>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" id="btn-submit" class="btn btn-primary">Edit</button>
+                        <button type="submit" id="btn-submit" class="btn btn-primary">Tambah</button>
                     </div>
                 </form>
             </div>
@@ -103,6 +67,7 @@ const BlogsAdmin = {
 
     const fetchedPosts = await dataPosts._fetchAllDataPosts();
 
+    // read posts
     fetchedPosts.forEach((d) => {
       const data = d.data();
       data.id = d.id;
@@ -116,7 +81,7 @@ const BlogsAdmin = {
         <div class="col-md-8">
           <div class="card-body">
             <h5 id="titleBlog" class="card-title" style="margin-bottom: 0; padding: 10px 0 0 0; font-weight:bold; font-size: 25px; color: black;">${data.judul}</h5>
-            <p id="dateBlog" class="card-text text-success text-capitalize">${data.id_label}</p>
+            <p id="dateBlog" class="card-text text-success text-capitalize">${data.kategori}</p>
             <p id="dateBlog" class="card-text"><small class="text-muted">${data.tgl_dibuat}</small></p>
             <p class="card-text" id="mainBlog" style="overflow: hidden; max-height:100px; ">${data.deskripsi}</p>
             <div class="row justify-content-between">
@@ -133,6 +98,27 @@ const BlogsAdmin = {
       </div>
     </div>`;
     });
+
+    $('#deskripsi').summernote({
+      placeholder: 'Tulis Deskripsi postingan',
+      tabsize: 2,
+      height: 300,
+      toolbar: [
+        ['style', ['undo', 'redo', 'style', 'bold', 'underline', 'clear']],
+        ['font', ['strikethrough', 'superscript', 'subscript']],
+        ['fontsize', ['fontsize']],
+        ['fontname', ['fontname']],
+        ['height', ['height']],
+        ['color', ['color']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['table', ['table']],
+        ['insert', ['link', 'picture', 'video']],
+        ['view', ['help']],
+      ],
+    });
+
+    // create
+    await addBlogs.init();
   },
 };
 

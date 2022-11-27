@@ -97,7 +97,7 @@ const ProductsAdmin = {
                                   </div>
                                   <div class="mb-3">
                                     <label for="deskripsi" class="form-label">Deskripsi Produk</label>
-                                    <textarea class="form-control" id="deskripsi" placeholder="Deskripsi Produk" rows="3"></textarea>
+                                    <textarea class="form-control" id="deskripsi" name="deskripsi" placeholder="Deskripsi Produk" rows="3"></textarea>
                                   </div>
                                   <div class="d-grid gap-2 mt-2">
                                       <button class="btn btn-primary" type="submit" id="btnTambah">Tambah</button>
