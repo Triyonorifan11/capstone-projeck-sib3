@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import {
-  getFirestore, doc, getDoc,
+  getFirestore, doc, getDoc, updateDoc,
 } from 'firebase/firestore';
 import firebaseConfig from '../global/firebase-config';
 import { getUserInfo } from './functions';
@@ -19,6 +19,22 @@ const DataDashboardSeller = {
     const q = doc(db, 'dashboardSellers', idSeller);
     const docSnap = await getDoc(q);
     return docSnap.data();
+  },
+
+  async tambahTotalProduk() {
+    const idSeller = getUserInfo().id;
+    const q = doc(db, 'dashboardSellers', idSeller);
+    const docSnap = await getDoc(q);
+    const jumlProduk = docSnap.data().jumlah_barang;
+    await updateDoc(q, { jumlah_barang: jumlProduk + 1 });
+  },
+
+  async kurangTotalProduk() {
+    const idSeller = getUserInfo().id;
+    const q = doc(db, 'dashboardSellers', idSeller);
+    const docSnap = await getDoc(q);
+    const jumlProduk = docSnap.data().jumlah_barang;
+    await updateDoc(q, { jumlah_barang: jumlProduk - 1 });
   },
 };
 
