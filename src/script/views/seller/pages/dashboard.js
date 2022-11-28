@@ -102,11 +102,11 @@ const DashboardSeller = {
                   <table class="table table-borderless" id="dataseller">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Customer</th>
-                        <th scope="col">Product</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Status</th>
+                        <th scope="col">No</th>
+                        <th scope="col">Pembeli</th>
+                        <th scope="col">Produk</th>
+                        <th scope="col">Harga</th>
+                        <th scope="col">Total Harga</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -166,7 +166,13 @@ const DashboardSeller = {
     document.getElementById('total_pendapatan').innerText = `Rp${formatRupiah(dataDashboard.jumlah_pendapatan.toString())}`;
     document.getElementById('total_produk').innerText = dataDashboard.jumlah_barang;
 
-    $('#dataseller').DataTable();
+    $('#dataseller').DataTable({
+      lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, 'All']],
+      columnDefs: [{
+        targets: 'no-sort',
+        orderable: false,
+      }],
+    });
   },
 };
 
