@@ -179,7 +179,7 @@ const DashboardSeller = {
   async afterRender() {
     const dataDashboard = await DataDashboardSeller.init();
     document.getElementById('total_pembeli').innerText = dataDashboard.jumlah_pembeli;
-    document.getElementById('total_pendapatan').innerText = `Rp${formatRupiah(dataDashboard.jumlah_pendapatan)}`;
+    document.getElementById('total_pendapatan').innerText = `Rp${formatRupiah(dataDashboard.jumlah_pendapatan.toString())}`;
     document.getElementById('total_produk').innerText = dataDashboard.jumlah_barang;
 
     $('#dataseller').DataTable();
