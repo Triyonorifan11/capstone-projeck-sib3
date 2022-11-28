@@ -358,3 +358,139 @@ body::-webkit-scrollbar {
     flex-basis: 100%;
   }
 }
+
+/* Card */
+:root {
+  --title-font-size: 25px;
+  --subtitle-font-size: 23px;
+  --body-font-size: 15px;
+  --base-font-color: #4D4F62;
+  --grayish-blue: #a3a5ae;
+  --very-light-gray: #83A6D2;
+  --cyan: #44D3D2;
+  --red: 	#ea5353;
+  --blue: #549ef2;
+  --orange: #fcaf4a;
+}
+
+.main-container {
+  padding: 80px 165px;
+  text-align: center;
+}
+
+.header p {
+  margin-top: 24px;
+  line-height: calc(var(--body-font-size) + 10px);
+}
+
+.content {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+  margin-top: 65px;
+}
+
+.card {
+  box-shadow: 0 15px 30px -11px var(--very-light-gray);
+  border-radius: 5px;
+  padding: 32px;
+  text-align: left;
+}
+
+.card p {
+  margin-top: 8px;
+  line-height: calc(var(--body-font-size) + 10px);
+}
+
+.card svg {
+  margin-top: 40px;
+}
+
+.card-middle {
+  grid-row: 2/span 2;
+}
+
+.card-column-1 {
+  grid-column: 1/2; 
+}
+
+.card-column-2 {
+  grid-column: 2/3;
+}
+
+.card-column-3 {
+  grid-column: 3/3;
+}
+
+.card-top {
+  grid-row: 1/span 2;
+}
+
+.card-bottom {
+  grid-row: 3/span 2;
+}
+
+.card .card-icon {
+  width: 64px;
+  height: 64px;
+  float: right;
+  text-align: left;
+}
+
+.border-cyan {
+  border-top: 3px solid var(--cyan);
+}
+
+.border-red {
+  border-top: 3px solid var(--red);
+}
+
+.border-blue {
+  border-top: 3px solid var(--blue);
+}
+
+.border-orange {
+  border-top: 3px solid var(--orange);
+}
+
+@media (max-width: 769px) {
+  .main-container {
+    padding: 85px 32px;
+  } 
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: calc(var(--title-font-size) - 3px);
+  }
+
+  h2 {
+    font-size: calc(var(--subtitle-font-size) - 3px);
+  }
+  
+  .content {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 25px;
+    margin-top: 76px;
+  }
+  
+  .card-column-1 {
+    grid-column: 1/2; 
+  }
+
+  .card-column-2 {
+    grid-column: 1/2;
+  }
+  
+  .card-column-3 {
+    grid-column: 1/2;
+  }
+  
+  .card-top, 
+  .card-bottom ,
+  .card-middle {
+    grid-row: span 1;
+  }
+}
