@@ -97,7 +97,7 @@ const DashboardSeller = {
               <div class="card recent-sales overflow-auto">
 
                 <div class="card-body">
-                  <h5 class="card-title">Recent Sales <span>| Today</span></h5>
+                  <h5 class="card-title">Rekap Penjualan <span>| update</span></h5>
 
                   <table class="table table-borderless" id="dataseller">
                     <thead>
