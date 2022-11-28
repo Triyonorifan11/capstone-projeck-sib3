@@ -145,15 +145,17 @@ const registerUser = {
           window.location.reload();
         }, 2000);
       } else {
-        const dataDashboard = {
-          jumlah_barang: 0,
-          jumlah_pembeli: 0,
-          jumlah_pendapatan: 0,
-        };
         const nanoid = customAlphabet('1234567890abcdef', 17);
         const idUser = `user_${nanoid()}`;
         await setDoc(doc(db, 'users', idUser), user);
-        await setDoc(doc(db, 'dashboardSellers', idUser), dataDashboard);
+        if (user.user === 'seller') {
+          const dataDashboard = {
+            jumlah_barang: 0,
+            jumlah_pembeli: 0,
+            jumlah_pendapatan: 0,
+          };
+          await setDoc(doc(db, 'dashboardSellers', idUser), dataDashboard);
+        }
         flassMessage('success', 'Berhasil Daftar', 'Silahkan Login!');
         setTimeout(() => {
           window.location.reload();
