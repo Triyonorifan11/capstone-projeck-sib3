@@ -2,6 +2,7 @@ import 'regenerator-runtime';
 import '../styles/homepage.css';
 import '../styles/about-blog.css';
 import HomepageApp from './views/homepage/app';
+import swRegister from './utils/sw-register';
 
 const dashboardlink = document.getElementById('dashboardlink');
 function isLogin() {
@@ -33,14 +34,6 @@ function isLogin() {
 }
 
 const loader = document.querySelector('#js-preloader');
-window.addEventListener('load', () => {
-  isLogin();
-  loader.classList.remove('loaded');
-  setTimeout(() => {
-    loader.classList.add('loaded');
-  }, 2000);
-});
-
 const appHomepage = new HomepageApp({
   header: document.querySelector('#header'),
   // aside: document.querySelector('#sidebar'),
@@ -58,8 +51,10 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   loader.classList.remove('loaded');
+  isLogin();
   setTimeout(() => {
     loader.classList.add('loaded');
     appHomepage.renderPage();
+    swRegister();
   }, 1000);
 });

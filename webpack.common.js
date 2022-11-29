@@ -10,7 +10,7 @@ module.exports = {
     buyer: path.resolve(__dirname, 'src/script/buyer.js'),
     login: path.resolve(__dirname, 'src/script/login.js'),
     app: path.resolve(__dirname, 'src/script/index.js'),
-    // homepage: path.resolve(__dirname, 'src/script/homepage.js'),
+    sw: path.resolve(__dirname, 'src/script/sw.js'),
   },
   output: {
     filename: '[name].bundle.js',
