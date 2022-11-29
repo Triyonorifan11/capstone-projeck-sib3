@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { initializeApp } from 'firebase/app';
 import {
   getFirestore, query, where, collection, getDocs, doc, getDoc, updateDoc,
@@ -64,14 +65,43 @@ const RekapProdukSeller = {
     });
   },
 
+  async kirimProduk() {
+    const btnKirim = document.querySelectorAll('#kirimBarang');
+    btnKirim.forEach((btndelete) => {
+      btndelete.addEventListener('click', (e) => {
+        const id = btndelete.getAttribute('data-id');
+        e.preventDefault();
+        Swal.fire({
+          title: 'Produk ini akan dikirim? ',
+          showCancelButton: true,
+          confirmButtonText: 'Confirm',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            const data = {
+              status: 'dikirim',
+            };
+            this._updateStatusCheckOut(data, id);
+          }
+        });
+      });
+    });
+  },
+
   async _updateStatusCheckOut(data, idCheckOut) {
     try {
       const docRef = doc(db, 'checkouts', idCheckOut);
       await updateDoc(docRef, data);
-      flassMessage('success', 'Berhasil!', 'Produk sedang dikemas');
-      setTimeout(() => {
-        redirect('#/datacheckout');
-      }, 2000);
+      if (data.status === 'dikirim') {
+        flassMessage('success', 'Berhasil!', 'Produk akan dikirim');
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      } else {
+        flassMessage('success', 'Berhasil!', 'Produk sedang dikemas');
+        setTimeout(() => {
+          redirect('#/datacheckout');
+        }, 2000);
+      }
     } catch (error) {
       flassMessage('error', 'Error!', `error:${error}`);
     }

@@ -34,7 +34,7 @@ const createTableCheckoutInDataCheckOut = (data, i) => `
         <td><span class="badge ${data.bedge}" id="statuspengiriman">${data.status}</span></td>
         <td>
             <a href="#/checkout/${data.id_checkout}" type="button" class="btn btn-sm btn-secondary rounded-circle ${data.kemas}" title="Kemas Produk" id="kemasBarang"><i class="bi bi-bag-plus"></i></a>
-            <button type="button" class="btn btn-sm btn-primary rounded-circle" title="Kirim Produk" id="kirimBarang" ${data.kirim}><i class="bi bi-send-plus"></i></button>
+            <button type="button" class="btn btn-sm btn-primary rounded-circle" title="Kirim Produk" id="kirimBarang" ${data.kirim} data-id="${data.id_checkout}"><i class="bi bi-send-plus"></i></button>
         </td>
     </tr>
 `;

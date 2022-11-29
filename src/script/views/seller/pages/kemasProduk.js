@@ -52,9 +52,6 @@ const KemasProduk = {
       btnKemasProduk.classList.add('disabled');
     }
     await RekapProdukSeller.checkOutAndKemasProduk(url.id);
-
-    console.log(dataProdukChecOut);
-    console.log(realDataCheckout);
   },
 };
 

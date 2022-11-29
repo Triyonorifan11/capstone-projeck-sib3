@@ -73,6 +73,7 @@ const DataCheckout = {
         data.kemas = 'disabled';
       } else if (status === 'dikirim') {
         data.bedge = 'text-bg-primary';
+        data.kemas = 'disabled';
         data.kirim = 'disabled';
       } else if (status === 'selesai') {
         data.kemas = 'disabled';
@@ -92,6 +93,8 @@ const DataCheckout = {
         orderable: false,
       }],
     });
+
+    await RekapProdukSeller.kirimProduk();
   },
 };
 
