@@ -33,7 +33,8 @@ const createTableCheckoutInDataCheckOut = (data, i) => `
         <td>Rp${formatRupiah(data.total_harga.toString())}</td>
         <td><span class="badge ${data.bedge}" id="statuspengiriman">${data.status}</span></td>
         <td>
-            <button type="button" class="btn btn-sm btn-primary rounded-circle" title="Kirim Barang" id="kirimBarang"><i class="bi bi-send-plus"></i></button>
+            <button type="button" class="btn btn-sm btn-secondary rounded-circle" title="Kemas Produk" id="kemasBarang" ${data.kemas}><i class="bi bi-bag-plus"></i></button>
+            <button type="button" class="btn btn-sm btn-primary rounded-circle" title="Kirim Produk" id="kirimBarang" ${data.kirim}><i class="bi bi-send-plus"></i></button>
         </td>
     </tr>
 `;

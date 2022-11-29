@@ -148,6 +148,8 @@ const DashboardSeller = {
         data.bedge = 'text-bg-primary';
       } else if (status === 'selesai') {
         data.bedge = 'text-bg-success';
+      } else {
+        data.bedge = 'text-bg-warning';
       }
       tbody.innerHTML += createTableCheckoutInDashboard(data, i);
     });

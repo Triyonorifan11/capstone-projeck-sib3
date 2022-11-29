@@ -70,10 +70,16 @@ const DataCheckout = {
       data.id_checkout = doc.id;
       if (status === 'sedang dikemas') {
         data.bedge = 'text-bg-secondary';
+        data.kemas = 'disabled';
       } else if (status === 'dikirim') {
         data.bedge = 'text-bg-primary';
+        data.kirim = 'disabled';
       } else if (status === 'selesai') {
+        data.kemas = 'disabled';
+        data.kirim = 'disabled';
         data.bedge = 'text-bg-success';
+      } else {
+        data.bedge = 'text-bg-warning';
       }
       tbody.innerHTML += createTableCheckoutInDataCheckOut(data, i);
     });
