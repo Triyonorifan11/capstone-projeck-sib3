@@ -1,9 +1,9 @@
 import { initializeApp } from 'firebase/app';
 import {
-  getFirestore, query, where, collection, getDocs, doc, getDoc,
+  getFirestore, query, where, collection, getDocs, doc, getDoc, updateDoc,
 } from 'firebase/firestore';
 import firebaseConfig from '../global/firebase-config';
-import { getUserInfo } from './functions';
+import { getUserInfo, redirect } from './functions';
 import dataProduct from './dataProducts';
 import flassMessage from './flassMessage';
 
@@ -41,10 +41,40 @@ const RekapProdukSeller = {
     realData.fotoBarang = databarang.foto;
     realData.stokTersedia = Math.floor(databarang.stok);
     realData.stokDiminta = data.total_beli;
+    realData.totalHarga = data.total_harga;
+    realData.hargaProduk = Math.floor(databarang.harga);
     if (realData.stokDiminta > realData.stokTersedia) {
       flassMessage('info', 'Maaf!', 'Tidak Dapat Kemas barang. Stok tidak mencukupi');
     }
     return realData;
+  },
+
+  async checkOutAndKemasProduk(id) {
+    const formkemasProduk = document.getElementById('kemasProduk');
+    const btnKemasProduk = document.getElementById('btnKemasProduk');
+    const idCheckOut = id;
+    formkemasProduk.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = {
+        status: 'sedang dikemas',
+      };
+      btnKemasProduk.classList.add('disabled');
+      btnKemasProduk.innerText = 'Loading ...';
+      await this._updateStatusCheckOut(data, idCheckOut);
+    });
+  },
+
+  async _updateStatusCheckOut(data, idCheckOut) {
+    try {
+      const docRef = doc(db, 'checkouts', idCheckOut);
+      await updateDoc(docRef, data);
+      flassMessage('success', 'Berhasil!', 'Produk sedang dikemas');
+      setTimeout(() => {
+        redirect('#/datacheckout');
+      }, 2000);
+    } catch (error) {
+      flassMessage('error', 'Error!', `error:${error}`);
+    }
   },
 };
 

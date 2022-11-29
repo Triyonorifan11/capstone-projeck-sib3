@@ -79,6 +79,7 @@ const DataCheckout = {
         data.kirim = 'disabled';
         data.bedge = 'text-bg-success';
       } else {
+        data.kirim = 'disabled';
         data.bedge = 'text-bg-warning';
       }
       tbody.innerHTML += createTableCheckoutInDataCheckOut(data, i);

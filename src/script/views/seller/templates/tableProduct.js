@@ -57,11 +57,19 @@ const kemasProduk = (produk) => `
         </div>
         <div class="mb-3">
             <h5 for="jeniBarang" class="form-label fw-bold">Stok Tersedia</h5>
-            <span class="badge text-bg-primary" id="stokTersedia">${produk.stokTersedia}</span>
+            <span class="badge text-bg-primary" id="stokTersedia">${produk.stokTersedia} pack</span>
         </div>
         <div class="mb-3">
             <h5 for="jeniBarang" class="form-label fw-bold">Stok Diminta</h5>
-            <h6 class="" id="stokDiminta">${produk.stokDiminta}</h6>
+            <h6 class="" id="stokDiminta">${produk.stokDiminta} pack</h6>
+        </div>
+        <div class="mb-3">
+            <h5 for="jeniBarang" class="form-label fw-bold">Harga Produk</h5>
+            <h6 class="" id="stokDiminta">Rp${formatRupiah(produk.hargaProduk.toString())}</h6>
+        </div>
+        <div class="mb-3">
+            <h5 for="jeniBarang" class="form-label fw-bold">Total Harga</h5>
+            <h6 class="" id="stokDiminta">Rp${formatRupiah(produk.totalHarga.toString())}</h6>
         </div>
         
     </div>
