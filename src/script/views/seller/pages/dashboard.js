@@ -2,7 +2,6 @@
 import DataDashboardSeller from '../../../utils/dashboardSeller';
 import { formatRupiah } from '../../../utils/functions';
 import RekapProdukSeller from '../../../utils/rekapProduk';
-import dataProduct from '../../../utils/dataProducts';
 import { createTableCheckoutInDashboard } from '../templates/tableProduct';
 
 const DashboardSeller = {
@@ -107,8 +106,9 @@ const DashboardSeller = {
                       <tr>
                         <th scope="col">No</th>
                         <th scope="col">ID Pembelian</th>
-                        <th scope="col">Jumlah</th>
+                        <th scope="col">Jumlah Barang</th>
                         <th scope="col">Total Harga</th>
+                        <th scope="col">Status</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -132,37 +132,27 @@ const DashboardSeller = {
     document.getElementById('total_pembeli').innerText = dataDashboard.jumlah_pembeli;
     document.getElementById('total_pendapatan').innerText = `Rp${formatRupiah(dataDashboard.jumlah_pendapatan.toString())}`;
     document.getElementById('total_produk').innerText = dataDashboard.jumlah_barang;
+    const tbody = document.querySelector('tbody');
 
     // data rekap checkout
+    let i = 0;
     const fetchDataCheckout = await RekapProdukSeller.init();
-    console.log(fetchDataCheckout);
-
-    const showDataCheckout = {};
-    const data = fetchDataCheckout;
-    // fetchDataCheckout.forEach(async (doc) => {
-    //   const dataCheckout = doc.data();
-    //   const getNamaByid = await dataProduct._fetchUserNameById(dataCheckout.id_buyer);
-    //   const getNamaProduk = await dataProduct._fetchDataProductByIdProduk(dataCheckout.id_barang);
-    //   const getTbody = document.querySelector('tbody');
-    //   i += 1;
-    //   showDataCheckout.nomor = i;
-    //   showDataCheckout.nama_pembeli = getNamaByid.namalengkap;
-    //   showDataCheckout.nama_produk = getNamaProduk.nama_product;
-    //   showDataCheckout.id_checkout = doc.id;
-    //   showDataCheckout.total_barang = dataCheckout.total_beli;
-    //   showDataCheckout.total_harga = dataCheckout.total_harga;
-    //   getTbody.innerHTML += createTableCheckoutInDashboard(showDataCheckout, i);
-    //   data.push(JSON.stringify(showDataCheckout));
-    // });
+    fetchDataCheckout.forEach((doc) => {
+      i += 1;
+      const data = doc.data();
+      const status = data.status.toLowerCase();
+      data.id_checkout = doc.id;
+      if (status === 'sedang dikemas') {
+        data.bedge = 'text-bg-secondary';
+      } else if (status === 'dikirim') {
+        data.bedge = 'text-bg-primary';
+      } else if (status === 'selesai') {
+        data.bedge = 'text-bg-success';
+      }
+      tbody.innerHTML += createTableCheckoutInDashboard(data, i);
+    });
 
     $('#dataseller').DataTable({
-      data,
-      columns: [
-        { data: 'nomor' },
-        { data: 'id_checkout' },
-        { data: 'total_barang' },
-        { data: 'total_harga' },
-      ],
       lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, 'All']],
       columnDefs: [{
         targets: 'no-sort',

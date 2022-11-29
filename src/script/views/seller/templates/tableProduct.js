@@ -18,10 +18,23 @@ const createRowTableProduct = (data, i) => `
 const createTableCheckoutInDashboard = (data, i) => `
     <tr>
         <th scope="row"><a href="#">${i}</a></th>
-        <td>${data.nama_pembeli}</td>
-        <td><a href="#" class="text-primary">${data.nama_produk}</a></td>
-        <td>${data.total_barang}</td>
+        <td><a href="#/checkout/${data.id_checkout}" class="link-primary">${data.id_checkout}</a></td>
+        <td>${data.total_beli}</td>
         <td>Rp${formatRupiah(data.total_harga.toString())}</td>
+        <td><span class="badge ${data.bedge}" id="statuspengiriman">${data.status}</span></td>
+    </tr>
+`;
+
+const createTableCheckoutInDataCheckOut = (data, i) => `
+    <tr>
+        <th scope="row"><a href="#">${i}</a></th>
+        <td><a href="#/checkout/${data.id_checkout}" class="link-primary">${data.id_checkout}</a></td>
+        <td>${data.total_beli}</td>
+        <td>Rp${formatRupiah(data.total_harga.toString())}</td>
+        <td><span class="badge ${data.bedge}" id="statuspengiriman">${data.status}</span></td>
+        <td>
+            <button type="button" class="btn btn-sm btn-primary rounded-circle" title="Kirim Barang" id="kirimBarang"><i class="bi bi-send-plus"></i></button>
+        </td>
     </tr>
 `;
 
@@ -77,4 +90,6 @@ const formEditProduk = (produk) => `
 </div>
 `;
 
-export { formEditProduk, createRowTableProduct, createTableCheckoutInDashboard };
+export {
+  formEditProduk, createRowTableProduct, createTableCheckoutInDashboard, createTableCheckoutInDataCheckOut,
+};
