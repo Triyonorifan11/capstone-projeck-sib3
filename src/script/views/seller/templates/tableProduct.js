@@ -33,10 +33,43 @@ const createTableCheckoutInDataCheckOut = (data, i) => `
         <td>Rp${formatRupiah(data.total_harga.toString())}</td>
         <td><span class="badge ${data.bedge}" id="statuspengiriman">${data.status}</span></td>
         <td>
-            <button type="button" class="btn btn-sm btn-secondary rounded-circle" title="Kemas Produk" id="kemasBarang" ${data.kemas}><i class="bi bi-bag-plus"></i></button>
+            <a href="#/checkout/${data.id_checkout}" type="button" class="btn btn-sm btn-secondary rounded-circle ${data.kemas}" title="Kemas Produk" id="kemasBarang"><i class="bi bi-bag-plus"></i></a>
             <button type="button" class="btn btn-sm btn-primary rounded-circle" title="Kirim Produk" id="kirimBarang" ${data.kirim}><i class="bi bi-send-plus"></i></button>
         </td>
     </tr>
+`;
+
+const kemasProduk = (produk) => `
+
+<div class="row mt-3">
+    <div class="col-md-6">
+        <img src="${produk.fotoBarang}" alt="${produk.namaBarang}" title="foto produk ${produk.namaBarang}" class="rounded" style="object-fit: cover;width: 100%;">        
+    </div>
+    <div class="col-md-6">
+        <div class="mb-3">
+            <h5 for="namaBarang" class="form-label fw-bold">Nama Barang</h5>
+            <h6 class="" id="namaBarang">${produk.namaBarang}</h6>
+        </div>
+        
+        <div class="mb-3">
+            <h5 for="jeniBarang" class="form-label fw-bold">Nama Pembeli</h5>
+            <h6 class="" id="namaPembeli">${produk.namaPembeli}</h6>
+        </div>
+        <div class="mb-3">
+            <h5 for="jeniBarang" class="form-label fw-bold">Stok Tersedia</h5>
+            <span class="badge text-bg-primary" id="stokTersedia">${produk.stokTersedia}</span>
+        </div>
+        <div class="mb-3">
+            <h5 for="jeniBarang" class="form-label fw-bold">Stok Diminta</h5>
+            <h6 class="" id="stokDiminta">${produk.stokDiminta}</h6>
+        </div>
+        
+    </div>
+
+    <div class="d-grid gap-2 mt-3">
+        <button class="btn btn-secondary" type="submit" id="btnKemasProduk"><i class="bi bi-bag-plus"></i> Kemas Produk</button>
+    </div>
+</div>
 `;
 
 const formEditProduk = (produk) => `
@@ -92,5 +125,5 @@ const formEditProduk = (produk) => `
 `;
 
 export {
-  formEditProduk, createRowTableProduct, createTableCheckoutInDashboard, createTableCheckoutInDataCheckOut,
+  formEditProduk, createRowTableProduct, createTableCheckoutInDashboard, createTableCheckoutInDataCheckOut, kemasProduk,
 };

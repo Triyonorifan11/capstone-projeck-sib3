@@ -8,6 +8,7 @@ import DataPenjualan from '../views/seller/pages/dataPenjualan';
 import tambahDataPenjualan from '../views/seller/pages/tambahDataPenjualan';
 import editDataPenjualan from '../views/seller/pages/editDataPenjualan';
 import DataCheckout from '../views/seller/pages/dataCheckout';
+import KemasProduk from '../views/seller/pages/kemasProduk';
 
 // admin
 import DashboardAdmin from '../views/admin/pages/dashboard';
@@ -37,6 +38,7 @@ const sellerDashboardRoutes = {
   '/addsales': tambahDataPenjualan,
   '/update/:id': editDataPenjualan,
   '/datacheckout': DataCheckout,
+  '/checkout/:id': KemasProduk,
 };
 
 // admin dashboard routes
