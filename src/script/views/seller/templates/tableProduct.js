@@ -15,6 +15,16 @@ const createRowTableProduct = (data, i) => `
     </tr>
 `;
 
+const createTableCheckoutInDashboard = (data, i) => `
+    <tr>
+        <th scope="row"><a href="#">${i}</a></th>
+        <td>${data.nama_pembeli}</td>
+        <td><a href="#" class="text-primary">${data.nama_produk}</a></td>
+        <td>${data.total_barang}</td>
+        <td>Rp${formatRupiah(data.total_harga.toString())}</td>
+    </tr>
+`;
+
 const formEditProduk = (produk) => `
 <label class="form-label">Last Update : <span class="badge bg-secondary mb-3">${formatDate(produk.tgl_diupdate)}</span></label>
 <div class="row">
@@ -67,4 +77,4 @@ const formEditProduk = (produk) => `
 </div>
 `;
 
-export { formEditProduk, createRowTableProduct };
+export { formEditProduk, createRowTableProduct, createTableCheckoutInDashboard };

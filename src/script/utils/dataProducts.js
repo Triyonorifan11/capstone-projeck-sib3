@@ -31,6 +31,12 @@ const dataProduct = {
     const docSnap = await getDoc(q);
     return docSnap.data();
   },
+
+  async _fetchDataProductByIdProduk(idProduk) {
+    const q = doc(db, 'products', idProduk);
+    const docSnap = await getDoc(q);
+    return docSnap.data();
+  },
 };
 
 export default dataProduct;

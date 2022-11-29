@@ -1,6 +1,9 @@
 /* eslint-disable no-undef */
 import DataDashboardSeller from '../../../utils/dashboardSeller';
 import { formatRupiah } from '../../../utils/functions';
+import RekapProdukSeller from '../../../utils/rekapProduk';
+import dataProduct from '../../../utils/dataProducts';
+import { createTableCheckoutInDashboard } from '../templates/tableProduct';
 
 const DashboardSeller = {
 
@@ -103,48 +106,12 @@ const DashboardSeller = {
                     <thead>
                       <tr>
                         <th scope="col">No</th>
-                        <th scope="col">Pembeli</th>
-                        <th scope="col">Produk</th>
-                        <th scope="col">Harga</th>
+                        <th scope="col">ID Pembelian</th>
+                        <th scope="col">Jumlah</th>
                         <th scope="col">Total Harga</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row"><a href="#">#2457</a></th>
-                        <td>Brandon Jacob</td>
-                        <td><a href="#" class="text-primary">At praesentium minu</a></td>
-                        <td>$64</td>
-                        <td><span class="badge bg-success">Approved</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2147</a></th>
-                        <td>Bridie Kessler</td>
-                        <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>
-                        <td>$47</td>
-                        <td><span class="badge bg-warning">Pending</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2049</a></th>
-                        <td>Ashleigh Langosh</td>
-                        <td><a href="#" class="text-primary">At recusandae consectetur</a></td>
-                        <td>$147</td>
-                        <td><span class="badge bg-success">Approved</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2644</a></th>
-                        <td>Angus Grady</td>
-                        <td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td>
-                        <td>$67</td>
-                        <td><span class="badge bg-danger">Rejected</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2644</a></th>
-                        <td>Raheem Lehner</td>
-                        <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>
-                        <td>$165</td>
-                        <td><span class="badge bg-success">Approved</span></td>
-                      </tr>
                     </tbody>
                   </table>
 
@@ -166,7 +133,36 @@ const DashboardSeller = {
     document.getElementById('total_pendapatan').innerText = `Rp${formatRupiah(dataDashboard.jumlah_pendapatan.toString())}`;
     document.getElementById('total_produk').innerText = dataDashboard.jumlah_barang;
 
+    // data rekap checkout
+    const fetchDataCheckout = await RekapProdukSeller.init();
+    console.log(fetchDataCheckout);
+
+    const showDataCheckout = {};
+    const data = fetchDataCheckout;
+    // fetchDataCheckout.forEach(async (doc) => {
+    //   const dataCheckout = doc.data();
+    //   const getNamaByid = await dataProduct._fetchUserNameById(dataCheckout.id_buyer);
+    //   const getNamaProduk = await dataProduct._fetchDataProductByIdProduk(dataCheckout.id_barang);
+    //   const getTbody = document.querySelector('tbody');
+    //   i += 1;
+    //   showDataCheckout.nomor = i;
+    //   showDataCheckout.nama_pembeli = getNamaByid.namalengkap;
+    //   showDataCheckout.nama_produk = getNamaProduk.nama_product;
+    //   showDataCheckout.id_checkout = doc.id;
+    //   showDataCheckout.total_barang = dataCheckout.total_beli;
+    //   showDataCheckout.total_harga = dataCheckout.total_harga;
+    //   getTbody.innerHTML += createTableCheckoutInDashboard(showDataCheckout, i);
+    //   data.push(JSON.stringify(showDataCheckout));
+    // });
+
     $('#dataseller').DataTable({
+      data,
+      columns: [
+        { data: 'nomor' },
+        { data: 'id_checkout' },
+        { data: 'total_barang' },
+        { data: 'total_harga' },
+      ],
       lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, 'All']],
       columnDefs: [{
         targets: 'no-sort',

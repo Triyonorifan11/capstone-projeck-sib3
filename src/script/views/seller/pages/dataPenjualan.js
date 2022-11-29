@@ -28,7 +28,7 @@ const DataPenjualan = {
                 <div class="card recent-sales overflow-auto">
                   <div class="card-body">
                     <h5 class="card-title">
-                    Recent Sales
+                    Daftar Produk
                     <a href="#/addsales" class="btn btn-primary ms-4"><i class="bi bi-plus-circle"></i> Tambah Data</a>
                     </h5>
                     <div class="table-responsive p-1">
