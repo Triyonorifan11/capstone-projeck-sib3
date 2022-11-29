@@ -1,6 +1,6 @@
 import 'regenerator-runtime';
 import App from './views/seller/app';
-import '../styles/homepage.css';
+import '../styles/loader.css';
 
 function isLoginSeller() {
   const userRT = localStorage.getItem('user_RTproject');
