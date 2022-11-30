@@ -112,6 +112,7 @@ body {
   scrollbar-width: none; /* for Firefox */
   overflow-y: scroll; 
   overflow-x: hidden;
+
 }
 
 body::-webkit-scrollbar {
