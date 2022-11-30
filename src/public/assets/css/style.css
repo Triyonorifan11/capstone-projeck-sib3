@@ -1003,6 +1003,20 @@ h6 {
   color: #666;
 }
 
+.icons{
+  size: 1rem;
+}
+.icons a{
+  cursor: pointer;
+  margin-left: .5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  width: 2.5rem;
+  text-align: center;
+  font-size: 1.3rem;
+  color: var(--black);
+  border-radius: 50%;
+}
 /*--------------------------------------------------------------
 # Blog
 --------------------------------------------------------------*/
