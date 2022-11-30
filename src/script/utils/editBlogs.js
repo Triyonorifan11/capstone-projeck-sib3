@@ -3,7 +3,9 @@ import {
 } from 'firebase/firestore';
 import { initializeApp } from 'firebase/app';
 import firebaseConfig from '../global/firebase-config';
-import { uploadFile, escapeHtml, getUserInfo } from './functions';
+import {
+  uploadFile, escapeHtml, getUserInfo, redirect,
+} from './functions';
 import flassMessage from './flassMessage';
 
 const app = initializeApp(firebaseConfig);
@@ -38,7 +40,7 @@ const editBlogs = {
       btnEdit.classList.add('disabled');
       const dataPosts = {
         judul: escapeHtml(judul.value),
-        deskripsi: escapeHtml(deskripsi.value),
+        deskripsi: deskripsi.value,
         kategori: escapeHtml(kategori.value),
         id_user: getUserInfo().id,
         tgl_update: new Date().toISOString(),
@@ -53,7 +55,7 @@ const editBlogs = {
       await updateDoc(docRef, data);
       flassMessage('success', 'Berhasil!', 'Produk berhasil di edit');
       setTimeout(() => {
-        location.reload();
+        redirect('#/blogs');
       }, 2000);
     } catch (error) {
       flassMessage('error', 'Error!', `error:${error}`);

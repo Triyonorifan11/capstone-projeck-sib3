@@ -37,7 +37,7 @@ const addBlogs = {
       btnTambah.classList.add('disabled');
       const dataPosts = {
         judul: escapeHtml(judul.value),
-        deskripsi: escapeHtml(deskripsi.value),
+        deskripsi: deskripsi.value,
         kategori: escapeHtml(kategori.value),
         id_user: getUserInfo().id,
         tgl_dibuat: new Date().toISOString(),
