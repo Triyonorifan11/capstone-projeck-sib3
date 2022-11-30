@@ -18,14 +18,12 @@ function isLogin() {
 
   if (userRT) {
     if (data.user === 'seller') {
-      dashboardlink.innerHTML = 'Dashboard';
-      dashboardlink.href = './seller/dashboard/';
+      window.location.href = 'seller/dashboard';
     } else if (data.user === 'buyer') {
-      dashboardlink.innerHTML = 'Dashboard';
-      dashboardlink.href = './buyer/';
+      dashboardlink.innerHTML = 'Home';
+      // dashboardlink.href = './';
     } else if (data.user === 'admin') {
-      dashboardlink.innerHTML = 'Dashboard';
-      dashboardlink.href = './admin/';
+      window.location.href = 'admin/';
     } else {
       dashboardlink.innerHTML = 'Login';
       dashboardlink.href = './login.html';
