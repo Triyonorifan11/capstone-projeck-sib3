@@ -2,6 +2,8 @@
 // import allArticles from '../../../../public/assets/js/blog-creator';
 // import '../../../../public/assets/js/blog-creator';
 
+import dataPosts from '../../../utils/dataBlogs';
+
 const Blog = {
 
   async render() {
@@ -37,6 +39,8 @@ const Blog = {
       </section>
     </div>
 
+    <div id="postsList">
+    </div>
     <div class="blog-card">
     <div class="meta">
       <div class="photo" style="background-image: url(https://akcdn.detik.net.id/community/media/visual/2022/09/14/ilustrasi-sampah-plastik_43.jpeg?w=700&q=90)"></div>
