@@ -7,6 +7,7 @@ import firebaseConfig from '../global/firebase-config';
 import { getUserInfo } from './functions';
 import dataProduct from './dataProducts';
 import flassMessage from './flassMessage';
+import editProduct from './editProduct';
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -95,8 +96,11 @@ const RekapProdukSeller = {
   async BatalkanProduk() {
     const btnBatalKirim = document.querySelectorAll('#batalBarang');
     btnBatalKirim.forEach((batal) => {
-      batal.addEventListener('click', (e) => {
+      batal.addEventListener('click', async (e) => {
         const id = batal.getAttribute('data-id');
+        const gettotalBeli = await this.fetchDataRekapById(id);
+        const totalBeli = gettotalBeli.total_beli;
+        const idBarang = gettotalBeli.id_barang;
         e.preventDefault();
         Swal.fire({
           title: 'Produk ini akan dibatalkan? ',
@@ -107,11 +111,27 @@ const RekapProdukSeller = {
             const data = {
               status: 'dibatalkan',
             };
+            this._updateStokAfterDibatalkan(totalBeli, idBarang);
             this._updateStatusCheckOut(data, id);
           }
         });
       });
     });
+  },
+
+  async _updateStokAfterDibatalkan(stokCount, id) {
+    const getProdukbyId = await editProduct._fetchDataByIdProduct(id);
+    const stok = Math.floor(getProdukbyId.stok);
+    const jumlahStok = stok + Math.floor(stokCount);
+    const updatedataStok = {
+      stok: jumlahStok.toString(),
+    };
+    try {
+      const docRef = doc(db, 'products', id);
+      await updateDoc(docRef, updatedataStok);
+    } catch (error) {
+      flassMessage('error', 'Error', `Error${error}`);
+    }
   },
 
   async hapusDataCheckout() {
