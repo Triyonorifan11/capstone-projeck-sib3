@@ -126,7 +126,6 @@ const ProductsAdmin = {
     fetchedDataProduct.forEach((d) => {
       const data = d.data();
       data.id = d.id;
-      // const sellerName = await dataProduct._fetchUserNameById(d.id_user);
       bodyProduct.innerHTML += `<tr>
       <th scope="row">${i}</th>
       <td>${data.id_user}</td>
@@ -139,6 +138,19 @@ const ProductsAdmin = {
     </tr>`;
       i += 1;
     });
+
+    // tambah data
+    const selectID = document.getElementById('idSeller');
+    const dataSeller = await dataAccount._fetchSellerDataAccount();
+    dataSeller.forEach((d) => {
+      const data = d.data();
+      data.id = d.id;
+      selectID.innerHTML += `<option value="${data.id}">${data.namalengkap}</option>`;
+    });
+    await addProduct._getDataFormAdmin();
+
+    // delete data
+    await deleteProduct.init();
 
     $('#productTable').DataTable({
       // eslint-disable-next-line quotes
@@ -166,19 +178,6 @@ const ProductsAdmin = {
         ['view', ['help']],
       ],
     });
-
-    // tambah data
-    const selectID = document.getElementById('idSeller');
-    const dataSeller = await dataAccount._fetchSellerDataAccount();
-    dataSeller.forEach((d) => {
-      const data = d.data();
-      data.id = d.id;
-      selectID.innerHTML += `<option value="${data.id}">${data.namalengkap}</option>`;
-    });
-    await addProduct._getDataFormAdmin();
-
-    // delete data
-    await deleteProduct.init();
   },
 };
 
