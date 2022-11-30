@@ -1,10 +1,10 @@
 /* eslint-disable no-undef */
 import { initializeApp } from 'firebase/app';
 import {
-  getFirestore, query, where, collection, getDocs, doc, getDoc, updateDoc,
+  getFirestore, query, where, collection, getDocs, doc, getDoc, updateDoc, deleteDoc,
 } from 'firebase/firestore';
 import firebaseConfig from '../global/firebase-config';
-import { getUserInfo, redirect } from './functions';
+import { getUserInfo } from './functions';
 import dataProduct from './dataProducts';
 import flassMessage from './flassMessage';
 
@@ -19,7 +19,15 @@ const RekapProdukSeller = {
 
   async _fetcDataRekap() { // fetch data from checkout table
     const getiId = getUserInfo().id;
-    const q = query(collection(db, 'checkouts'), where('id_seller', '==', getiId));
+    const status = ['diminta', 'sedang dikemas', 'dikirim', 'selesai'];
+    const q = query(collection(db, 'checkouts'), where('id_seller', '==', getiId), where('status', 'in', status));
+    const docSnap = await getDocs(q);
+    return docSnap;
+  },
+
+  async getDataCheckoutDibatalkan() {
+    const getiId = getUserInfo().id;
+    const q = query(collection(db, 'checkouts'), where('id_seller', '==', getiId), where('status', '==', 'dibatalkan'));
     const docSnap = await getDocs(q);
     return docSnap;
   },
@@ -44,9 +52,6 @@ const RekapProdukSeller = {
     realData.stokDiminta = data.total_beli;
     realData.totalHarga = data.total_harga;
     realData.hargaProduk = Math.floor(databarang.harga);
-    if (realData.stokDiminta > realData.stokTersedia) {
-      flassMessage('info', 'Maaf!', 'Tidak Dapat Kemas barang. Stok tidak mencukupi');
-    }
     return realData;
   },
 
@@ -87,6 +92,59 @@ const RekapProdukSeller = {
     });
   },
 
+  async BatalkanProduk() {
+    const btnBatalKirim = document.querySelectorAll('#batalBarang');
+    btnBatalKirim.forEach((batal) => {
+      batal.addEventListener('click', (e) => {
+        const id = batal.getAttribute('data-id');
+        e.preventDefault();
+        Swal.fire({
+          title: 'Produk ini akan dibatalkan? ',
+          showCancelButton: true,
+          confirmButtonText: 'Batalkan',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            const data = {
+              status: 'dibatalkan',
+            };
+            this._updateStatusCheckOut(data, id);
+          }
+        });
+      });
+    });
+  },
+
+  async hapusDataCheckout() {
+    const hapusCheckout = document.querySelectorAll('#hapusCheckout');
+    hapusCheckout.forEach((btnHapusChekout) => {
+      btnHapusChekout.addEventListener('click', (e) => {
+        e.preventDefault();
+        const idCheckout = btnHapusChekout.getAttribute('data-id');
+        Swal.fire({
+          title: 'Checkout data akan dihapus? ',
+          showCancelButton: true,
+          confirmButtonText: 'Batalkan',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this._deleteDataCheckOut(idCheckout);
+          }
+        });
+      });
+    });
+  },
+
+  // for delete data checkout by id
+  async _deleteDataCheckOut(id) {
+    try {
+      const docRef = doc(db, 'checkouts', id);
+      await deleteDoc(docRef);
+      flassMessage('success', 'Berhasil!', 'Data Checkout Dihapus');
+    } catch (error) {
+      flassMessage('error', 'Error', `Error${error}`);
+    }
+  },
+
+  // for update status checkout
   async _updateStatusCheckOut(data, idCheckOut) {
     try {
       const docRef = doc(db, 'checkouts', idCheckOut);
@@ -95,12 +153,17 @@ const RekapProdukSeller = {
         flassMessage('success', 'Berhasil!', 'Produk akan dikirim');
         setTimeout(() => {
           location.reload();
-        }, 2000);
+        }, 1000);
+      } else if (data.status === 'dibatalkan') {
+        flassMessage('success', 'Berhasil!', 'Produk sedang dibatalkan');
+        setTimeout(() => {
+          location.reload();
+        }, 1000);
       } else {
         flassMessage('success', 'Berhasil!', 'Produk sedang dikemas');
         setTimeout(() => {
-          redirect('#/datacheckout');
-        }, 2000);
+          location.reload();
+        }, 1000);
       }
     } catch (error) {
       flassMessage('error', 'Error!', `error:${error}`);

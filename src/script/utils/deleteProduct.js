@@ -6,7 +6,6 @@ import { initializeApp } from 'firebase/app';
 import { getStorage, ref, deleteObject } from 'firebase/storage';
 import firebaseConfig from '../global/firebase-config';
 import flassMessage from './flassMessage';
-import DataDashboardSeller from './dashboardSeller';
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -55,7 +54,6 @@ const deleteProduct = {
     try {
       await this._deleteFileproduct(dataproduk.foto);
       await deleteDoc(doc(db, 'products', id));
-      await DataDashboardSeller.kurangTotalProduk();
       flassMessage('success', 'Berhasil!', 'Data produk dihapus!');
       setTimeout(() => {
         location.reload();

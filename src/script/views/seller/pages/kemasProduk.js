@@ -48,8 +48,9 @@ const KemasProduk = {
     const formkemasProduk = document.querySelector('#kemasProduk');
     formkemasProduk.innerHTML = kemasProduk(realDataCheckout);
     const btnKemasProduk = document.querySelector('#btnKemasProduk');
-    if (realDataCheckout.stokDiminta > realDataCheckout.stokTersedia || dataProdukChecOut.status.toLowerCase() !== 'diminta') {
+    if (dataProdukChecOut.status.toLowerCase() !== 'diminta') {
       btnKemasProduk.classList.add('disabled');
+      btnKemasProduk.classList.add('d-none');
     }
     await RekapProdukSeller.checkOutAndKemasProduk(url.id);
   },

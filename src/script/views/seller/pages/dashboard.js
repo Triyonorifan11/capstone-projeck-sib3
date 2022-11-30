@@ -129,7 +129,6 @@ const DashboardSeller = {
 
   async afterRender() {
     const dataDashboard = await DataDashboardSeller.init();
-    console.log(dataDashboard.jumlahProduk);
     document.getElementById('total_pembeli').innerText = dataDashboard.jumlahCheckOut.toString();
     document.getElementById('total_pendapatan').innerText = `Rp${formatRupiah(dataDashboard.jumlahPendapatan.toString())}`;
     document.getElementById('total_produk').innerText = dataDashboard.jumlahProduk.toString();
