@@ -67,14 +67,14 @@ const RekapProdukSeller = {
 
   async kirimProduk() {
     const btnKirim = document.querySelectorAll('#kirimBarang');
-    btnKirim.forEach((btndelete) => {
-      btndelete.addEventListener('click', (e) => {
-        const id = btndelete.getAttribute('data-id');
+    btnKirim.forEach((btnkirim) => {
+      btnkirim.addEventListener('click', (e) => {
+        const id = btnkirim.getAttribute('data-id');
         e.preventDefault();
         Swal.fire({
           title: 'Produk ini akan dikirim? ',
           showCancelButton: true,
-          confirmButtonText: 'Confirm',
+          confirmButtonText: 'Kirim',
         }).then((result) => {
           if (result.isConfirmed) {
             const data = {
