@@ -19,7 +19,7 @@ const ProductsAdmin = {
             <div class="table-responsive">
               <table class="table table-hover" id="productTable">
                 <thead>
-                  <tr>
+                  <tr class="table-secondary">
                     <th scope="col">#</th>
                     <th scope="col">Penjual</th>
                     <th scope="col">Barang</th>

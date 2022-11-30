@@ -19,7 +19,7 @@ const AccountsAdmin = {
       <div class="table-responsive">
       <table class="table table-hover" id="buyerSeller">
   <thead>
-    <tr>
+    <tr class="table-secondary">
       <th scope="col">#</th>
       <th scope="col" class="no-sort">Avatar</th>
       <th scope="col">Nama Lengkap</th>
@@ -43,7 +43,7 @@ const AccountsAdmin = {
       <div class="table-responsive">
       <table class="table table-hover" id="buyerTable">
   <thead>
-    <tr>
+    <tr class="table-secondary">
       <th scope="col">#</th>
       <th scope="col" class="no-sort">Avatar</th>
       <th scope="col">First</th>

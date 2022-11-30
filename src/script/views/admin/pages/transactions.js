@@ -12,7 +12,7 @@ const TransactionsAdmin = {
       <div class="table-responsive">
       <table class="table table-hover" id="transactionTable">
   <thead>
-    <tr>
+    <tr class="table-secondary">
       <th scope="col">#</th>
       <th scope="col">Pembeli</th>
       <th scope="col">Barang</th>
