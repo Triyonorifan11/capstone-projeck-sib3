@@ -1,4 +1,5 @@
 import dataTransactions from '../../../utils/dataTransactions';
+import deleteTransaction from '../../../utils/deleteTransactions';
 import { formatRupiah } from '../../../utils/functions';
 
 /* eslint-disable no-undef */
@@ -93,7 +94,7 @@ const TransactionsAdmin = {
       <td>Rp${formatRupiah(data.total_harga.toString())}</td>
       <td><span class="badge ${data.bedge}">${data.status}</span></td>
       <td><a type="button" class="btn btn-outline-secondary" href="#/edittransaction/${data.id}">Edit</a>
-      <button type="button" class="btn btn-outline-danger" id="deleteBlog" data-id="$r{data.id}">Delete</button></td>
+      <button type="button" class="btn btn-outline-danger" id="deleteTransaction" data-id="${data.id}">Delete</button></td>
       </tr>
       `;
       // eslint-disable-next-line no-plusplus
@@ -129,12 +130,14 @@ const TransactionsAdmin = {
       <td>Rp${formatRupiah(data.total_harga.toString())}</td>
       <td><span class="badge ${data.bedge}">${data.status}</span></td>
       <td><a type="button" class="btn btn-outline-secondary" href="#/edittransaction/${data.id}">Edit</a>
-      <button type="button" class="btn btn-outline-danger" id="deleteBlog" data-id="${data.id}">Delete</button></td>
+      <button type="button" class="btn btn-outline-danger" id="deleteTransaction" data-id="${data.id}">Delete</button></td>
       </tr>
       `;
       // eslint-disable-next-line no-plusplus
       newcount++;
     });
+
+    await deleteTransaction.init();
 
     $('#transactionTable').DataTable({
       // eslint-disable-next-line quotes
