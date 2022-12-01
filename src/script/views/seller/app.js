@@ -28,7 +28,7 @@ class App {
     setTimeout(() => {
       const loader = document.querySelector('#js-preloader');
       loader.classList.add('loaded');
-    }, 2000);
+    }, 250);
   }
 
   async renderPage() {
