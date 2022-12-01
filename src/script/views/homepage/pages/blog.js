@@ -3,13 +3,14 @@
 // import '../../../../public/assets/js/blog-creator';
 
 import dataPosts from '../../../utils/dataBlogs';
+import { formatDate } from '../../../utils/functions';
 
 const Blog = {
 
   async render() {
     return `
     <!-- Blog -->
-    <div class="container main-container mt-5" id="blog">
+    <div class="container main-container" id="blog">
       <header id="header">
         <div class="row">
           <div class="col-sm-12 head-column">
@@ -27,14 +28,13 @@ const Blog = {
         </div>
       </header>
     </div>
-    <div id="postsList">
+    <div id="postsList" class="mb-5 pb-5">
     </div>
     
     `;
   },
 
   async afterRender() {
-    console.log('blog');
     const fetchedBlog = await dataPosts._fetchAllDataPosts();
     const postsList = document.getElementById('postsList');
 
@@ -48,7 +48,7 @@ const Blog = {
           <div class="photo" style="background-image: url(${data.foto})"></div>
           <ul class="details">
             <li class="author">${data.kategori}</li>
-            <li class="date">${data.tgl_dibuat}</li>
+            <li class="date">${formatDate(data.tgl_dibuat)}</li>
           </ul>
         </div>
         <div class="description">
@@ -56,7 +56,7 @@ const Blog = {
           <p class="read-more">
             <a href="#">Read More</a>
           </p>
-          <p class="detail">${data.deskripsi}</p>
+          <span class="detail">${data.deskripsi}</span>
         </div>
       </div>`;
     });
