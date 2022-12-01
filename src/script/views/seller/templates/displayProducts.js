@@ -13,7 +13,7 @@ const createAllProducts = (name, image, price, seller, description, stock) => `
       </div>
       <div class="card-read-more">
         <center>
-        <a href="#" class="btn btn-link btn-block"><i class="fa-solid fa-magnifying-glass"></i>&nbsp; Read More</a>
+        <a href="#" class="btn btn-link btn-block"><i class="fa-solid"></i>Deskripsi Produk</a>
         </center>
       </div>
     </div>
