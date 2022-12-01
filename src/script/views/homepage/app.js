@@ -5,7 +5,6 @@ import UrlParser from '../../routes/url-parser';
 class HomepageApp {
   constructor({ header, maincontent }) {
     this._header = header;
-    // this._aside = aside;
     this._maincontent = maincontent;
   }
 
