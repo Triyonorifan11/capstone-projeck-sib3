@@ -1,4 +1,4 @@
-const createAllProducts = (name, image, price, seller, description, stock) => `
+const createAllProducts = (name, image, price, seller, description, stock, id) => `
   <div class="col-xs-12 col-sm-4">
     <div class="card_product">
       <a class="img-card">
@@ -13,7 +13,7 @@ const createAllProducts = (name, image, price, seller, description, stock) => `
       </div>
       <div class="card-read-more">
         <center>
-        <a href="#" class="btn btn-link btn-block"><i class="fa-solid"></i>Deskripsi Produk</a>
+        <a href="#/deskripsi/${id}" class="btn btn-link btn-block"><i class="fa-solid"></i>Deskripsi Produk</a>
         </center>
       </div>
     </div>

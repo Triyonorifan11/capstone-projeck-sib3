@@ -144,7 +144,7 @@ const Home = {
       // if (data.stok <= 0) {
       //   products.innerHTML = '';
       // }
-      products.innerHTML += createAllProducts(data.nama_product, data.foto, data.harga, sellerName.namalengkap, data.deskripsi, data.stok);
+      products.innerHTML += createAllProducts(data.nama_product, data.foto, data.harga, sellerName.namalengkap, data.deskripsi, data.stok, data.id);
     });
   },
 };

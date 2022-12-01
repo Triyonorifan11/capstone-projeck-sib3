@@ -61,7 +61,7 @@ const homepageRoutes = {
   '/blog': Blog,
   '/about': About,
   '/checkout': Checkout,
-  '/deskripsi': Deskripsi,
+  '/deskripsi/:id': Deskripsi,
 };
 
 export {
