@@ -28,7 +28,11 @@ const Blog = {
         </div>
       </header>
     </div>
-    <div id="postsList" class="mb-5 pb-5">
+    <div class="container">
+      <div class="col-md-12">
+        <div id="postsList" class="mb-5 pb-5">
+        </div>
+      </div>
     </div>
     
     `;
