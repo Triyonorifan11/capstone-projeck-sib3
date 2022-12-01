@@ -1,5 +1,5 @@
 import dataProduct from '../../../utils/dataProducts';
-import createAllProducts from '../../seller/templates/displayProducts';
+import createAllProducts from '../templates/displayProducts';
 
 const Home = {
 
