@@ -139,19 +139,19 @@ const formEditTransaksi = (produk, seller, transaksi) => `
 <div class="col-md-6">
     <div class="mb-3">
         <h3 class="fw-bold">Nama Barang</h3>
-        <h5>${produk.nama_product}</h5>
+        <h5 id="produkDetail" value="${transaksi.id_barang}">${produk.nama_product}</h5>
     </div>
     <div class="mb-3">
         <h3 class="fw-bold">Penjual</h3>
         <h5>${seller.namalengkap}</h5>
     </div>
     <div class="mb-3">
-        <h3 class="fw-bold">Stok yang Tersedia</h3>
+        <h3 class="fw-bold">Stok yang Tersisa</h3>
         <h5>${produk.stok} Pack</h5>
     </div>
     <h3 ><label for="stokRequest" class="form-label fw-bold">Stok yang Diminta</label></h3>
     <div class="input-group mb-3">
-        <input type="number" class="form-control" value="${transaksi.total_beli}" name="stokRequest" id="stokBarang" placeholder="2" aria-label="Stok yang Diminta" max=${produk.stok} required>
+        <input type="number" class="form-control" value="${transaksi.total_beli}" prev-value="${transaksi.total_beli}" name="stokRequest" id="stokBarang" placeholder="2" aria-label="Stok yang Diminta" max=${produk.stok} required>
         <span class="input-group-text" id="basic-addon2">pack</span>
     </div>
     <div class="mb-3">

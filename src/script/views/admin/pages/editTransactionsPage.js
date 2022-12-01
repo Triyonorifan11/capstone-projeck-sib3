@@ -60,7 +60,7 @@ const editTransactionsPage = {
     container.innerHTML = formEditTransaksi(dataProduk, dataseller, fetchedDataTransactions);
     // await editProduct.getValueInputEdit(url.id);
 
-    await editTransaction.getValueInputEdit(url.id);
+    await editTransaction.getValueInputEdit(url.id, dataProduk.stok, fetchedDataTransactions.total_beli);
   },
 };
 
