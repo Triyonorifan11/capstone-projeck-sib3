@@ -10,8 +10,6 @@ import {
   getUserInfo, escapeHtml, uploadFile,
 } from './functions';
 
-import DataDashboardSeller from './dashboardSeller';
-
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 let fileimage;
@@ -63,7 +61,6 @@ const addProduct = {
   async _insertDataProduct(data, id) {
     try {
       await setDoc(doc(db, 'products', id), data);
-      await DataDashboardSeller.tambahTotalProduk();
       flassMessage('success', 'Berhasil!', 'Tambah data produk berhasil!');
       setTimeout(() => {
         location.reload();

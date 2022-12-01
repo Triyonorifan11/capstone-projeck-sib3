@@ -1,6 +1,6 @@
+import registerUserInAdmin from '../../../utils/addAccount';
 import dataAccount from '../../../utils/dataAccounts';
 import deleteAccount from '../../../utils/deleteAccounts';
-import registerUser from '../../../utils/registerPage';
 
 /* eslint-disable no-undef */
 const AccountsAdmin = {
@@ -19,7 +19,7 @@ const AccountsAdmin = {
       <div class="table-responsive">
       <table class="table table-hover" id="buyerSeller">
   <thead>
-    <tr>
+    <tr class="table-secondary">
       <th scope="col">#</th>
       <th scope="col" class="no-sort">Avatar</th>
       <th scope="col">Nama Lengkap</th>
@@ -43,7 +43,7 @@ const AccountsAdmin = {
       <div class="table-responsive">
       <table class="table table-hover" id="buyerTable">
   <thead>
-    <tr>
+    <tr class="table-secondary">
       <th scope="col">#</th>
       <th scope="col" class="no-sort">Avatar</th>
       <th scope="col">First</th>
@@ -69,7 +69,7 @@ const AccountsAdmin = {
                     <div class="modal-header border-0 border-top border-4 border-primary">
                         <h1 class="modal-title fs-5" id="staticBackdropLabel">Daftar sebagai</h1>
                         <div class="col-4 ms-3">
-                            <select class="form-select" name="user" id="user" required aria-label="seller or buyer">
+                            <select class="form-select" name="user" id="userRole" required aria-label="seller or buyer">
                                 <option value="seller">Penjual</option>
                                 <option value="buyer">Pembeli</option>
                             </select>
@@ -192,7 +192,7 @@ const AccountsAdmin = {
     });
 
     // register
-    await registerUser.init();
+    await registerUserInAdmin.init();
     const datalist = document.querySelector('#datalistOptions');
     fetch('https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json')
       .then((response) => response.json())

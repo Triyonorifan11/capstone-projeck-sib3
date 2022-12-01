@@ -141,9 +141,9 @@ const Home = {
       const data = d.data();
       data.id = d.id;
       const sellerName = await dataProduct._fetchUserNameById(data.id_user);
-      if (data.stok <= 0) {
-        products.innerHTML = '';
-      }
+      // if (data.stok <= 0) {
+      //   products.innerHTML = '';
+      // }
       products.innerHTML += createAllProducts(data.nama_product, data.foto, data.harga, sellerName.namalengkap, data.deskripsi, data.stok);
     });
   },

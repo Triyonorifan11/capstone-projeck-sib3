@@ -75,7 +75,7 @@ const DashboardSeller = {
               <div class="card info-card customers-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">Jumlah Pembeli</h5>
+                  <h5 class="card-title">Jumlah Checkout</h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -129,9 +129,9 @@ const DashboardSeller = {
 
   async afterRender() {
     const dataDashboard = await DataDashboardSeller.init();
-    document.getElementById('total_pembeli').innerText = dataDashboard.jumlah_pembeli;
-    document.getElementById('total_pendapatan').innerText = `Rp${formatRupiah(dataDashboard.jumlah_pendapatan.toString())}`;
-    document.getElementById('total_produk').innerText = dataDashboard.jumlah_barang;
+    document.getElementById('total_pembeli').innerText = dataDashboard.jumlahCheckOut.toString();
+    document.getElementById('total_pendapatan').innerText = `Rp${formatRupiah(dataDashboard.jumlahPendapatan.toString())}`;
+    document.getElementById('total_produk').innerText = dataDashboard.jumlahProduk.toString();
     const tbody = document.querySelector('tbody');
 
     // data rekap checkout

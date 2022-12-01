@@ -17,12 +17,9 @@ const DataCheckout = {
 
     <section class="section dashboard">
         <div class="row">
-          <!-- Left side columns -->
           <div class="col-lg-12">
             <div class="row">
-              <!-- Recent Sales -->
               <div class="col-12">
-              
                 <div class="card recent-sales overflow-auto">
                   <div class="card-body">
                     <h5 class="card-title">
@@ -40,7 +37,35 @@ const DataCheckout = {
                                 <th scope="col" class="no-sort">Action</th>
                             </tr>
                           </thead>
-                        <tbody>
+                        <tbody id="daftarCheckout">
+                        </tbody>
+                      </table>
+                    </div>
+                    
+
+                  </div>
+
+                </div>
+
+                <!-- data dibatalkan -->
+                <div class="card recent-sales overflow-auto">
+                  <div class="card-body">
+                    <h5 class="card-title">
+                    Daftar dibatalkan
+                    </h5>
+                    <div class="table-responsive p-1">
+                      <table class="table table-bordered table-hover" id="BatalData">
+                          <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">ID Pembelian</th>
+                                <th scope="col">Jumlah Barang</th>
+                                <th scope="col">Total Harga</th>
+                                <th scope="col">Status</th>
+                                <th scope="col" class="no-sort">Action</th>
+                            </tr>
+                          </thead>
+                        <tbody id="dibatalkan">
                         </tbody>
                       </table>
                     </div>
@@ -62,7 +87,7 @@ const DataCheckout = {
     // data rekap checkout
     let i = 0;
     const fetchDataCheckout = await RekapProdukSeller.init();
-    const tbody = document.querySelector('tbody');
+    const tbody = document.querySelector('#daftarCheckout');
     fetchDataCheckout.forEach((doc) => {
       i += 1;
       const data = doc.data();
@@ -71,19 +96,45 @@ const DataCheckout = {
       if (status === 'sedang dikemas') {
         data.bedge = 'text-bg-secondary';
         data.kemas = 'disabled';
+        data.delete = 'd-none';
       } else if (status === 'dikirim') {
         data.bedge = 'text-bg-primary';
+        data.delete = 'd-none';
         data.kemas = 'disabled';
         data.kirim = 'disabled';
+        data.batal = 'disabled';
       } else if (status === 'selesai') {
         data.kemas = 'disabled';
+        data.delete = 'd-none';
         data.kirim = 'disabled';
         data.bedge = 'text-bg-success';
+      } else if (status === 'dibatalkan') {
+        data.bedge = 'text-bg-danger';
+        data.batal = 'disabled';
+        data.d_none = 'd-none';
+        data.delete = 'd-none';
       } else {
+        data.delete = 'd-none';
         data.kirim = 'disabled';
         data.bedge = 'text-bg-warning';
       }
       tbody.innerHTML += createTableCheckoutInDataCheckOut(data, i);
+    });
+
+    // table checkout dibatalkan
+    const dataDibatalkan = await RekapProdukSeller.getDataCheckoutDibatalkan();
+    const dibatalkan = document.querySelector('#dibatalkan');
+    let j = 0;
+    dataDibatalkan.forEach((doc) => {
+      const data = doc.data();
+      data.id_checkout = doc.id;
+      const status = data.status.toLowerCase();
+      if (status === 'dibatalkan') {
+        data.d_none = 'd-none';
+        data.bedge = 'text-bg-danger';
+      }
+      j += 1;
+      dibatalkan.innerHTML += createTableCheckoutInDataCheckOut(data, j);
     });
 
     $('#dataCheckout').DataTable({
@@ -93,8 +144,16 @@ const DataCheckout = {
         orderable: false,
       }],
     });
-
+    $('#BatalData').DataTable({
+      lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, 'All']],
+      columnDefs: [{
+        targets: 'no-sort',
+        orderable: false,
+      }],
+    });
+    await RekapProdukSeller.BatalkanProduk();
     await RekapProdukSeller.kirimProduk();
+    await RekapProdukSeller.hapusDataCheckout();
   },
 };
 

@@ -26,19 +26,7 @@ const Blog = {
           </div>
         </div>
       </header>
-
-
-      <section class="mt-5 mb-2">
-
-        <div class="row">
-          <div class="d-flex justify-content-center">
-            <div class="article-display-container"></div>
-          </div>
-        </div>
-
-      </section>
     </div>
-
     <div id="postsList">
     </div>
     
@@ -55,31 +43,22 @@ const Blog = {
       data.id = d.id;
 
       postsList.innerHTML += `
-      <div class="blog-card">
-    <div class="meta">
-      <div class="photo" style="background-image: url(${data.foto})"></div>
-      <ul class="details">
-        <li class="author">${data.kategori}</li>
-        <li class="date">${data.tgl_dibuat}</li>
-        <li class="tags">
-          <ul>
-            <li><a href="#">Learn</a></li>
-            <li><a href="#">Code</a></li>
-            <li><a href="#">HTML</a></li>
-            <li><a href="#">CSS</a></li>
+      <div class="blog-card" style="background-color:#AEBDCA;">
+        <div class="meta">
+          <div class="photo" style="background-image: url(${data.foto})"></div>
+          <ul class="details">
+            <li class="author">${data.kategori}</li>
+            <li class="date">${data.tgl_dibuat}</li>
           </ul>
-        </li>
-      </ul>
-    </div>
-    <div class="description">
-      <h1>${data.judul}</h1>
-      <h2>Nasional</h2>
-      <p>${data.deskripsi}</p>
-      <p class="read-more">
-        <a href="#">Read More</a>
-      </p>
-    </div>
-  </div>`;
+        </div>
+        <div class="description">
+          <h1>${data.judul}</h1>
+          <p class="read-more">
+            <a href="#">Read More</a>
+          </p>
+          <p class="detail">${data.deskripsi}</p>
+        </div>
+      </div>`;
     });
   },
 };
