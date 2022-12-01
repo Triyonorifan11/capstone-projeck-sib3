@@ -17,24 +17,24 @@ const Home = {
 
 <section class='hero'>
   <div class='hero-box-container'>
-    <a href='' class='hero-box'>
+    <span class='hero-box'>
       <span class='hero-box__circle hero-box__circle--blue'></span>
       <h2 class='hero-box__title'>Reduce</h2>
       <p class='hero-box__text'>Mengurangi penggunaan</p>
       <p class='hero-box__body'>Membawa botol minum atau alat makan sendiri</p>
-    </a>
-    <a href='' class='hero-box'>
+    </span>
+    <span class='hero-box'>
       <span class='hero-box__circle hero-box__circle--green'></span>
       <h2 class='hero-box__title'>Reuse</h2>
       <p class='hero-box__text'>Menggunakan kembali</p>
       <p class='hero-box__body'>Menggunakan botol plastik sebagai pot tanaman</p>
-    </a>
-    <a href='' class='hero-box'>
+    </span>
+    <span class='hero-box'>
       <span class='hero-box__circle hero-box__circle--orange'></span>
       <h2 class='hero-box__title'>Recycle</h2>
       <p class='hero-box__text'>Mendaur ulang</p>
       <p class='hero-box__body'>Membuat kerajinan tangan dengan botol plastik</p>
-    </a>
+    </span>
   </div>
 </section>
 
