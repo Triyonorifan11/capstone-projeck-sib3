@@ -123,12 +123,12 @@ const ProductsAdmin = {
     console.log(fetchedDataProduct);
     let i = 1;
 
-    fetchedDataProduct.forEach((d) => {
+    fetchedDataProduct.forEach(async (d) => {
       const data = d.data();
       data.id = d.id;
       bodyProduct.innerHTML += `<tr>
       <th scope="row">${i}</th>
-      <td>${data.id_user}</td>
+      <td id='sellerName' value='${data.id_user}'>${data.id_user}</td>
       <td>${data.nama_product}</td>
       <td>${data.stok} Kilogram</td>
       <td>${data.harga}</td>
@@ -138,6 +138,8 @@ const ProductsAdmin = {
     </tr>`;
       i += 1;
     });
+
+    await dataAccount._convertIDtoName();
 
     // tambah data
     const selectID = document.getElementById('idSeller');

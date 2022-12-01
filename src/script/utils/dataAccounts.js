@@ -37,6 +37,18 @@ const dataAccount = {
     const docSnap = await getDoc(q);
     return docSnap.data();
   },
+
+  async _convertIDtoName() { // dipakai di halaman account admin
+    const container = document.querySelectorAll('#sellerName');
+    container.forEach(async (content) => {
+      const sellerID = content.getAttribute('value');
+      console.log(sellerID);
+      const fetchedDataSeller = await this._fetchUserNameById(sellerID);
+      console.log(fetchedDataSeller.namalengkap);
+      // eslint-disable-next-line no-param-reassign
+      content.innerHTML = fetchedDataSeller.namalengkap;
+    });
+  },
 };
 
 export default dataAccount;
