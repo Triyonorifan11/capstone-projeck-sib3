@@ -3,7 +3,7 @@ import {
 } from 'firebase/firestore';
 import { initializeApp } from 'firebase/app';
 import firebaseConfig from '../global/firebase-config';
-import { uploadFile, escapeHtml } from './functions';
+import { uploadFile, escapeHtml, redirect } from './functions';
 import flassMessage from './flassMessage';
 
 const app = initializeApp(firebaseConfig);
@@ -58,7 +58,7 @@ const editProduct = {
       await updateDoc(docRef, data);
       flassMessage('success', 'Berhasil!', 'Produk berhasil di edit');
       setTimeout(() => {
-        location.reload();
+        redirect('#/items');
       }, 2000);
     } catch (error) {
       flassMessage('error', 'Error!', `error:${error}`);

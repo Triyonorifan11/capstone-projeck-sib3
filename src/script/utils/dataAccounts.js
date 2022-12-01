@@ -33,7 +33,7 @@ const dataAccount = {
   },
 
   async _fetchUserNameById(idUser) { // get account data based on id
-    const q = doc(db, 'users', idUser);
+    const q = doc(db, 'users', `${idUser}`);
     const docSnap = await getDoc(q);
     return docSnap.data();
   },

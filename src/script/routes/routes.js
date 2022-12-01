@@ -19,6 +19,7 @@ import TransactionsAdmin from '../views/admin/pages/transactions';
 import editAccountsPage from '../views/admin/pages/editAccountsPage';
 import editProductsPage from '../views/admin/pages/editProductsPage';
 import editBlogsPage from '../views/admin/pages/editBlogsPage';
+import editTransactionsPage from '../views/admin/pages/editTransactionsPage';
 
 // homepage
 import Home from '../views/homepage/pages/home';
@@ -53,6 +54,7 @@ const adminRoutes = {
   '/editakun/:id': editAccountsPage,
   '/editproduct/:id': editProductsPage,
   '/editblog/:id': editBlogsPage,
+  '/edittransaction/:id': editTransactionsPage,
 };
 
 // homepage dashboard routes

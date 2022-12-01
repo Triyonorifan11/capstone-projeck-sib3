@@ -92,7 +92,8 @@ const TransactionsAdmin = {
       <td>${data.total_beli}</td>
       <td>Rp${formatRupiah(data.total_harga.toString())}</td>
       <td><span class="badge ${data.bedge}">${data.status}</span></td>
-      <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Edit</button> <button type="button" class="btn btn-outline-danger">Del</button></td>
+      <td><a type="button" class="btn btn-outline-secondary" href="#/edittransaction/${data.id}">Edit</a>
+      <button type="button" class="btn btn-outline-danger" id="deleteBlog" data-id="$r{data.id}">Delete</button></td>
       </tr>
       `;
       // eslint-disable-next-line no-plusplus
@@ -127,7 +128,8 @@ const TransactionsAdmin = {
       <td>${data.total_beli}</td>
       <td>Rp${formatRupiah(data.total_harga.toString())}</td>
       <td><span class="badge ${data.bedge}">${data.status}</span></td>
-      <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Edit</button> <button type="button" class="btn btn-outline-danger">Del</button></td>
+      <td><a type="button" class="btn btn-outline-secondary" href="#/edittransaction/${data.id}">Edit</a>
+      <button type="button" class="btn btn-outline-danger" id="deleteBlog" data-id="${data.id}">Delete</button></td>
       </tr>
       `;
       // eslint-disable-next-line no-plusplus

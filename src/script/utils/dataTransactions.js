@@ -15,6 +15,12 @@ const dataTransactions = {
     return querySnapshot;
   },
 
+  async _fetchDataById(id) {
+    const q = doc(db, 'checkouts', `${id}`);
+    const docSnap = await getDoc(q);
+    return docSnap.data();
+  },
+
   async _fetchDataTransactions() {
     const querySnapshot = await getDocs(query(collection(db, 'checkouts'), where('status', '!=', 'dibatalkan'), orderBy('status')));
     return querySnapshot;

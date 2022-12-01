@@ -1,3 +1,4 @@
+import { formatRupiah } from '../../../utils/functions';
 const formEditAkun = (data) => `
 <div class="row">
 <div class="col-md-6">
@@ -127,6 +128,50 @@ const formEditBlog = (blog) => `
         </div>
     </div>
 </div>
-`
+`;
 
-export { formEditAkun, formEditProduk, formEditBlog };
+const formEditTransaksi = (produk, seller, transaksi) => `
+
+<div class="row">
+<div class="col-md-6">
+    <img src="${produk.foto}" alt="${produk.nama_product}" title="foto produk ${produk.nama_product}" class="rounded" style="object-fit: cover;width: 100%;">
+</div>
+<div class="col-md-6">
+    <div class="mb-3">
+        <h3 class="fw-bold">Nama Barang</h3>
+        <h5>${produk.nama_product}</h5>
+    </div>
+    <div class="mb-3">
+        <h3 class="fw-bold">Penjual</h3>
+        <h5>${seller.namalengkap}</h5>
+    </div>
+    <div class="mb-3">
+        <h3 class="fw-bold">Stok yang Tersedia</h3>
+        <h5>${produk.stok} Pack</h5>
+    </div>
+    <h3 ><label for="stokRequest" class="form-label fw-bold">Stok yang Diminta</label></h3>
+    <div class="input-group mb-3">
+        <input type="number" class="form-control" value="${transaksi.total_beli}" name="stokRequest" id="stokBarang" placeholder="2" aria-label="Stok yang Diminta" max=${produk.stok} required>
+        <span class="input-group-text" id="basic-addon2">pack</span>
+    </div>
+    <div class="mb-3">
+        <h3 class="fw-bold">Harga Satuan</h3>
+        <h5>Rp ${formatRupiah(produk.harga.toString())}</h5>
+    </div>
+    <div class="mb-3">
+        <h3><label for="status" class="form-label fw-bold">Status</label></h3>
+        <select class="form-select" id="status" name="status" aria-label="Status" style="text-transform: capitalize;" required>
+            <option selected value="${transaksi.status}" disabled>${transaksi.status}</option>
+            <option value="diminta">Diminta</option>
+            <option value="sedang dikemas">Sedang Dikemas</option>
+            <option value="dibatalkan">Batalkan</option>
+        </select>
+    </div>
+</div>
+<div class="d-grid gap-2 mt-3">
+    <button class="btn btn-primary" type="submit" id="btnEditTransaksi">Update Data</button>
+</div>
+</div>
+`;
+
+export { formEditAkun, formEditProduk, formEditBlog, formEditTransaksi };
