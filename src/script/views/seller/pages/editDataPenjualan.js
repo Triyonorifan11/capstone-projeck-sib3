@@ -50,6 +50,7 @@ const editDataPenjualan = {
     const dataProduk = await editProduct.init(url.id);
     const formEdit = document.getElementById('EditProduct');
     formEdit.innerHTML = formEditProduk(dataProduk);
+    await editProduct.getValueInputEdit(url.id);
     $('#deskripsi').summernote({
       placeholder: 'Tulis Deskripsi postingan',
       tabsize: 2,
@@ -67,7 +68,6 @@ const editDataPenjualan = {
         ['view', ['help']],
       ],
     });
-    await editProduct.getValueInputEdit(url.id);
   },
 };
 

@@ -74,6 +74,7 @@ const DataPenjualan = {
       tbody.innerHTML += createRowTableProduct(data, i);
     });
 
+    await deleteProduct.init();
     $('#dataseller2').DataTable({
       lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, 'All']],
       columnDefs: [{
@@ -81,7 +82,6 @@ const DataPenjualan = {
         orderable: false,
       }],
     });
-    await deleteProduct.init();
   },
 
 };
