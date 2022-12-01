@@ -1,8 +1,7 @@
-const Checkout = {
-
+const Deskripsi = {
   async render() {
     return `
-    <section class="deskripsi my-5 pt-5">
+      <section class="deskripsi my-5 pt-5">
         <div class="row mt-5">
             <div class="col-lg05 col-md-12 col-12">
                 <img class="img-fluid w-100" src="./download.jpg" alt="" />
@@ -26,8 +25,8 @@ const Checkout = {
   },
 
   async afterRender() {
-    console.log('after render checkout');
+    console.log("after render deskripsi");
   },
 };
 
-export default Checkout;
+export default Deskripsi;
