@@ -18,6 +18,8 @@ const editTransaction = {
     const stokBeli = document.getElementById('stokBarang');
     const namaProduk = document.getElementById('produkDetail');
     const idProduk = namaProduk.getAttribute('value');
+    const hargaProduk = document.getElementById('hargaproduk');
+    const hargaSatuan = hargaProduk.getAttribute('value');
     const status = document.getElementById('status');
     const formEditTransaksi = document.getElementById('EditTransaksi');
     const btnEditTransaksi = document.getElementById('btnEditTransaksi');
@@ -29,20 +31,13 @@ const editTransaction = {
       const stokRequest = Math.floor(stokBeli.value);
       const previousVal = Math.floor(prevvalue);
       const currentStock = Math.floor(stokBarang);
-      console.log('stokBar', stokBarang);
-      console.log('curStok', currentStock);
-      // eslint-disable-next-line space-infix-ops
+
+      const totalHarga = Math.floor(hargaSatuan) * stokRequest;
 
       if (stokRequest > previousVal) {
         const calculate = stokRequest - previousVal;
-        console.log('stok', stokRequest);
-        console.log('prev', previousVal);
         console.log('calcilate', calculate);
         const dataToDB = currentStock - calculate;
-        console.log(typeof calculate);
-        console.log(typeof dataToDB);
-        console.log(dataToDB);
-
         const updatedataStok = {
           stok: dataToDB.toString(),
         };
@@ -50,9 +45,6 @@ const editTransaction = {
       } if (stokRequest < previousVal) {
         const calculate = previousVal - stokRequest;
         const dataToDB = currentStock + calculate;
-        console.log(typeof calculate);
-        console.log(typeof dataToDB);
-        console.log('data to db', dataToDB);
         const updatedataStok = {
           stok: dataToDB.toString(),
         };
@@ -62,6 +54,7 @@ const editTransaction = {
       const dataTransaksi = {
         status: escapeHtml(status.value),
         total_beli: escapeHtml(stokRequest.toString()),
+        total_harga: escapeHtml(totalHarga.toString()),
       };
       await this._insertEditdata(dataTransaksi, id);
     });

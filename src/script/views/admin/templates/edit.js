@@ -156,7 +156,7 @@ const formEditTransaksi = (produk, seller, transaksi) => `
     </div>
     <div class="mb-3">
         <h3 class="fw-bold">Harga Satuan</h3>
-        <h5>Rp ${formatRupiah(produk.harga.toString())}</h5>
+        <h5 value="${produk.harga}" id="hargaproduk">Rp ${formatRupiah(produk.harga.toString())}</h5>
     </div>
     <div class="mb-3">
         <h3><label for="status" class="form-label fw-bold">Status</label></h3>
