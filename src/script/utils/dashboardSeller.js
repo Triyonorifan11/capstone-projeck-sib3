@@ -33,7 +33,8 @@ const DataDashboardSeller = {
   async _getCountCheckOutByIdSeller() {
     const idSeller = getUserInfo().id;
     const coll = collection(db, 'checkouts');
-    const q = query(coll, where('id_seller', '==', idSeller));
+    const status = ['diminta', 'sedang dikemas', 'dikirim', 'selesai'];
+    const q = query(coll, where('id_seller', '==', idSeller), where('status', 'in', status));
     const snap = await getCountFromServer(q);
     return snap.data().count;
   },
