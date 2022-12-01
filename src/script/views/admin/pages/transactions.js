@@ -90,7 +90,7 @@ const TransactionsAdmin = {
       <tr>
       <th scope="row">${counter}</th>
       <td>${data.id}</td>
-      <td>${data.total_beli}</td>
+      <td id='totalBeli' product-id='${data.id_barang}'>${data.total_beli}</td>
       <td>Rp${formatRupiah(data.total_harga.toString())}</td>
       <td><span class="badge ${data.bedge}">${data.status}</span></td>
       <td><a type="button" class="btn btn-outline-secondary" href="#/edittransaction/${data.id}">Edit</a>
@@ -105,7 +105,7 @@ const TransactionsAdmin = {
     const transactionBodyCancelled = document.getElementById('transactionCancelledBody');
     let newcount = 1;
 
-    fetchDataCheckoutCancelled.forEach((d) => {
+    fetchDataCheckoutCancelled.forEach(async (d) => {
       const data = d.data();
       data.id = d.id;
 
@@ -126,7 +126,7 @@ const TransactionsAdmin = {
       <tr>
       <th scope="row">${newcount}</th>
       <td>${data.id}</td>
-      <td>${data.total_beli}</td>
+      <td id='totalBeli' product-id='${data.id_barang}'>${data.total_beli}</td>
       <td>Rp${formatRupiah(data.total_harga.toString())}</td>
       <td><span class="badge ${data.bedge}">${data.status}</span></td>
       <td><a type="button" class="btn btn-outline-secondary" href="#/edittransaction/${data.id}">Edit</a>
