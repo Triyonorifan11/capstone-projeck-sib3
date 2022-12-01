@@ -54,5 +54,5 @@ window.addEventListener('load', () => {
     loader.classList.add('loaded');
     appHomepage.renderPage();
     swRegister();
-  }, 1000);
+  }, 500);
 });
