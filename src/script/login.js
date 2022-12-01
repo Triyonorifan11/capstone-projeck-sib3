@@ -1,6 +1,6 @@
 import 'regenerator-runtime';
 import '../styles/login.css';
-import '../styles/homepage.css';
+import '../styles/loader.css';
 import AppLogin from './views/login/app';
 
 const appLogin = new AppLogin({
@@ -13,5 +13,5 @@ window.addEventListener('load', () => {
   setTimeout(() => {
     loader.classList.add('loaded');
     appLogin.renderPage();
-  }, 2000);
+  }, 500);
 });
