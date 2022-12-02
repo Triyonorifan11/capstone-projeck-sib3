@@ -10,9 +10,9 @@ const About = {
         </div>
         
         <div class="col-md-8 textbox">
-          <p class="text-center" id="title">Tentang Reforma Trash</p>
+          <h1 class="text-center fw-bold" style="color: #012970;">Tentang Reforma Trash</h1>
           <br>
-          <p class="text-justify text-center" id="bio">
+          <p class="text-justify text-center fs-5" id="bio">
           Reforma Trash merupakan sistem yang dapat memberikan informasi kepada masyarakat untuk mencari informasi terkait sampah di Indonesia. Penggunaan sistem berbasis website ini diharapkan dapat memudahkan masyarakat untuk melakukan jual beli sampah daur ulang secara online. Selain itu dapat membantu pengepul sampah di Indonesia untuk mengumpulkan sampah. Website tersebut memiliki beberapa fitur antara lain jenis-jenis sampah daur ulang, berita sampah di Indonesia, bahkan memiliki sistem monitoring penjualan sampah seperti barang, rekap penjualan, dan akun penjual serta pembeli.
           </p>
         </div>
@@ -22,9 +22,9 @@ const About = {
     <div class="container-fluid body bg-white shadow-sm">
       <div class="row" id="section1">
         <div class="col-md-7 textbox">
-          <p class="text-center" id="title">Alasan Penggunaan</p>
+          <h1 class="text-center fw-bold" style="color: #012970;">Alasan Penggunaan</h1>
           <br>
-          <p class="text-justify text-center" id="bio">
+          <p class="text-justify text-center fs-5" id="bio">
           Reforma Trash dapat memberikan akses kepada administrator untuk dapat memasukan data penjual, pembeli, blog, dan rekap penjualan sehingga setiap data yang diinputkan dapat menjadikan bahan evaluasi bahkan untuk blog akan ditampilkan kepada pengguna. Website ini dapat berkembang melalui dukungan masyarakat. Sehingga diharapkan dapat memberikan kesadaran masyarakat bahwa sampah memiliki nilai serta menjaga lingkungan tetap bersih. Selain itu diharapkan dapat meningkatkan produktivitas pengepul sampah sehingga efisisensi tenaga dan waktu dalam mengumpulkan sampah.
           </p>
         </div>
@@ -37,17 +37,18 @@ const About = {
     </div>
 
     <div class="container-fluid body">
-      <div class="row container-fluid" id="section1">
+      <div class="row" id="section1">
         <div class="col-md-5 col-sm-6 d-flex justify-content-center align-items-center">
           <img src="../../assets/img/how-to-use.png" alt="Ada Lovelace Portrait" class="img-responsive center-block img-circle" id="adaPortrait">
           </a>
         </div>
         
         <div class="col-md-7 textbox d-block justify-content-center align-items-center">
-          <p class="text-center" id="title">Cara Penggunaan</p>
+          <h1 class="text-center fw-bold my-3" style="color: #012970;">Cara Penggunaan</h1>
           <br>
-          <p class="text-justify text-center" id="bio">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ullamcorper neque ut sodales ornare. Pellentesque vel nisi nulla. Proin ultricies nisl nec tristique ultricies. Quisque volutpat diam et mattis auctor. Curabitur ac neque felis. Proin sed rutrum felis. Vestibulum hendrerit purus at odio facilisis, eu commodo nibh varius. Proin dapibus vulputate metus, at luctus orci pellentesque at. Mauris et sollicitudin massa.
+          <p class="text-justify text-center fs-5" id="bio">
+          Pengguna baru dapat melakukan registrasi melalui <a href="./login.html" class="text-link fw-bold">Login</a> dan pilih untuk daftar sebagai penjual atau pembeli. Lalu mengisikan data sesuai inputan yang telah tersedia untuk data profile dari pengguna. Pastikan inputan daftar sebagai untuk pemilihan user sebagai pengguna dan pembeli. setelah registrasi bisa login.
+          untuk pembeli dapat melakukan checkout barang dari halaman home. Untuk penjual akan diarahkan ke halaman dashboard penjual dan dapat menambahkan produk yang akan dijual.
           </p>
         </div>
       </div>
