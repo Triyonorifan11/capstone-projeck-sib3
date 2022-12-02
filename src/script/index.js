@@ -34,7 +34,6 @@ function isLogin() {
 const loader = document.querySelector('#js-preloader');
 const appHomepage = new HomepageApp({
   header: document.querySelector('#header'),
-  // aside: document.querySelector('#sidebar'),
   maincontent: document.querySelector('#home'),
 });
 
@@ -42,7 +41,7 @@ window.addEventListener('hashchange', () => {
   document.querySelector('body').classList.remove('toggle-sidebar');
   loader.classList.remove('loaded');
   setTimeout(() => {
-    // loader.classList.add('loaded');
+    loader.classList.add('loaded');
     appHomepage.renderPage();
   }, 500);
 });

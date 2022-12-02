@@ -5,7 +5,6 @@ import { loginRoutes } from '../../routes/routes';
 class AppLogin {
   constructor({ maincontent }) {
     this._maincontent = maincontent;
-    // this._initialAppShell();
   }
 
   _loaderActive() {

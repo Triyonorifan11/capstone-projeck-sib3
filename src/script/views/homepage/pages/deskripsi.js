@@ -25,7 +25,7 @@ const Deskripsi = {
   },
 
   async afterRender() {
-    console.log("after render deskripsi");
+    console.log('after render deskripsi');
   },
 };
 

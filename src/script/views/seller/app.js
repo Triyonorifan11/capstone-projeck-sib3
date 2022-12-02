@@ -7,7 +7,6 @@ class App {
     this._header = header;
     this._aside = aside;
     this._maincontent = maincontent;
-    // this._initialAppShell();
   }
 
   _loaderActive() {
