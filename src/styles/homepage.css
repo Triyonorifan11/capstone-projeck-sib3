@@ -626,3 +626,15 @@ body::-webkit-scrollbar {
 .footer-copyright {
   background-color: #027b9a;
 }
+
+.col-2 {
+  flex-basis: 50%;
+  min-width: 300px;
+  
+}
+
+.col-2 h1 {
+  font-size: 50px;
+  line-height: 60px;
+  margin: 25px 0;
+}
