@@ -10,7 +10,7 @@ const Blog = {
   async render() {
     return `
     <!-- Blog -->
-    <div class="container main-container" id="blog">
+    <div class="container my-5 pt-3 " id="blog">
       <header id="header">
         <div class="row">
           <div class="col-sm-12 head-column">
