@@ -136,6 +136,7 @@ const Home = {
 
   async afterRender() {
     const products = document.querySelector('#products');
+    document.querySelector('#navHome').classList.add('active');
     const fetchedDataProduct = await dataProduct._fetchAllDataProduct();
     fetchedDataProduct.forEach(async (d) => {
       const data = d.data();

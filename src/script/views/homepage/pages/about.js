@@ -154,7 +154,7 @@ const About = {
   },
 
   async afterRender() {
-    console.log('about');
+    document.querySelector('#navAbout').classList.add('active');
   },
 };
 

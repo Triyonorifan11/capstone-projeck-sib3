@@ -41,7 +41,7 @@ const Blog = {
   async afterRender() {
     const fetchedBlog = await dataPosts._fetchAllDataPosts();
     const postsList = document.getElementById('postsList');
-
+    document.querySelector('#navBlog').classList.add('active');
     fetchedBlog.forEach((d) => {
       const data = d.data();
       data.id = d.id;
