@@ -15,7 +15,7 @@ const Home = {
   <img src="./assets/img/jumbotron.PNG" class="" alt="jumbotron" width="100%">
 </section>
 
-<section class='hero'>
+<section class='hero mt-5'>
   <div class='hero-box-container'>
     <span class='hero-box'>
       <span class='hero-box__circle hero-box__circle--blue'></span>
