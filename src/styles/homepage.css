@@ -6,6 +6,10 @@
   transform: translateY(-15px);
 }
 
+.html, body {
+  background-color: #e3f2fd;
+}
+
 /* 
 ---------------------------------------------
 Pre-loader Style
