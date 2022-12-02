@@ -21,12 +21,12 @@ const Deskripsi = {
                 udara,tanah dan dapat menyebabkan banjir.</p>
                 
                 <div class="btn-group my-3" role="group" aria-label="Basic example">
-                  <button type="button" class="btn btn-sm btn-primary"><i class="bi bi-dash-circle"></i></button>
-                  <input type="number" class="form-control mx-2" id="exampleFormControlInput1" placeholder="1">
-                  <button type="button" class="btn btn-sm btn-primary"><i class="bi bi-plus-circle"></i></button>
+                  <button type="button" id="btnMin" class="btn btn-sm btn-primary"><i class="bi bi-dash-circle"></i></button>
+                  <input type="number" class="form-control mx-2" id="totalBeli" value="0">
+                  <button type="button" id="btnPlus" class="btn btn-sm btn-primary"><i class="bi bi-plus-circle"></i></button>
                 </div>
                 <div class="d-grid gap-2">
-                  <button class="btn btn-primary" title="checkout" type="button"><i class="bi bi-cart-plus fs-5"></i></button>
+                  <button class="btn btn-primary" id="btnCheckout" title="checkout" type="button"><i class="bi bi-cart-plus fs-5"></i></button>
                 </div>
             </div>
         </div>
@@ -35,8 +35,28 @@ const Deskripsi = {
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    console.log(url.id);
-    console.log('after render deskripsi');
+    const btnPlus = document.querySelector('#btnPlus');
+    const btnMin = document.querySelector('#btnMin');
+    const btnCheckout = document.getElementById('btnCheckout');
+    let totalBeli = parseInt(document.querySelector('#totalBeli').value, 10);
+    btnPlus.addEventListener('click', (e) => {
+      e.preventDefault();
+      totalBeli = isNaN(totalBeli) ? 0 : totalBeli;
+      totalBeli += 1;
+      document.querySelector('#totalBeli').value = totalBeli;
+    });
+
+    btnMin.addEventListener('click', (e) => {
+      e.preventDefault();
+      totalBeli = isNaN(totalBeli) ? 0 : totalBeli;
+      totalBeli -= 1;
+      document.querySelector('#totalBeli').value = totalBeli;
+    });
+
+    btnCheckout.addEventListener('click', (e) => {
+      e.preventDefault();
+      console.log(totalBeli);
+    });
   },
 };
 
