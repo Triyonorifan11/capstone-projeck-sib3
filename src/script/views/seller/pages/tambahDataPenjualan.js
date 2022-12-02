@@ -92,6 +92,7 @@ const tambahDataPenjualan = {
   },
 
   async afterRender() {
+    document.querySelector('#navDataseller').classList.remove('collapsed');
     await addProduct.init();
     $('#deskripsi').summernote({
       placeholder: 'Tulis Deskripsi postingan',

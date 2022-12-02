@@ -42,6 +42,7 @@ const KemasProduk = {
   },
 
   async afterRender() {
+    document.querySelector('#navCheckout').classList.remove('collapsed');
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const dataProdukChecOut = await RekapProdukSeller.fetchDataRekapById(url.id);
     const realDataCheckout = await RekapProdukSeller.getRealDataCheckout(dataProdukChecOut);

@@ -46,6 +46,7 @@ const editDataPenjualan = {
   },
 
   async afterRender() {
+    document.querySelector('#navDataseller').classList.remove('collapsed');
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const dataProduk = await editProduct.init(url.id);
     const formEdit = document.getElementById('EditProduct');
