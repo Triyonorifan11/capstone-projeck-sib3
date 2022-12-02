@@ -89,7 +89,7 @@ const DataCheckout = {
   },
 
   async afterRender() {
-    // data rekap checkout
+    document.querySelector('#navCheckout').classList.remove('collapsed');
     let i = 0;
     const fetchDataCheckout = await RekapProdukSeller.init();
     const tbody = document.querySelector('#daftarCheckout');

@@ -128,6 +128,7 @@ const DashboardSeller = {
   },
 
   async afterRender() {
+    document.querySelector('#navDashboard').classList.remove('collapsed');
     const dataDashboard = await DataDashboardSeller.init();
     document.getElementById('total_pembeli').innerText = dataDashboard.jumlahCheckOut.toString();
     document.getElementById('total_pendapatan').innerText = `Rp${formatRupiah(dataDashboard.jumlahPendapatan.toString())}`;

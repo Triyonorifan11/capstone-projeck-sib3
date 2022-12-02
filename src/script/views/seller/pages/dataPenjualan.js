@@ -64,6 +64,7 @@ const DataPenjualan = {
   },
 
   async afterRender() {
+    document.querySelector('#navDataseller').classList.remove('collapsed');
     const dataproduc = await dataProduct.init();
     const tbody = document.querySelector('tbody');
     let i = 0;

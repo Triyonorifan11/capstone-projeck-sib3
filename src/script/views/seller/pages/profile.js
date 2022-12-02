@@ -197,6 +197,7 @@ const Profile = {
   },
 
   async afterRender() {
+    document.querySelector('#navProfile').classList.remove('collapsed');
     const datalist = document.querySelector('#datalistOptions');
     fetch('https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json')
       .then((response) => response.json())
