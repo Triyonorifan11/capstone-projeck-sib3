@@ -44,7 +44,7 @@ const Home = {
     <h1 class="fw-bold text-center" style="color: #012970;">Daftar Produk</h1>
     </div>
   </div>
-  <div class="row .d-flex" id="products">
+  <div class="row d-flex" id="products">
   </div>
 </section>
 
