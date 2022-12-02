@@ -1,4 +1,3 @@
-import createAllProducts from '../templates/displayProducts';
 import UrlParser from '../../../routes/url-parser';
 
 const Deskripsi = {
@@ -57,6 +56,8 @@ const Deskripsi = {
       e.preventDefault();
       console.log(totalBeli);
     });
+
+    console.log(url.id);
   },
 };
 
