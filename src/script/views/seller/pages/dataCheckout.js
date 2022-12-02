@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 import RekapProdukSeller from '../../../utils/rekapProduk';
+import dataProduct from '../../../utils/dataProducts';
 import { createTableCheckoutInDataCheckOut } from '../templates/tableProduct';
 
 const DataCheckout = {
@@ -31,6 +32,8 @@ const DataCheckout = {
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">ID Pembelian</th>
+                                <th scope="col">Nama Barang</th>
+                                <th scope="col">Pembeli</th>
                                 <th scope="col">Jumlah Barang</th>
                                 <th scope="col">Total Harga</th>
                                 <th scope="col">Status</th>
@@ -59,6 +62,8 @@ const DataCheckout = {
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">ID Pembelian</th>
+                                <th scope="col">Nama Barang</th>
+                                <th scope="col">Pembeli</th>
                                 <th scope="col">Jumlah Barang</th>
                                 <th scope="col">Total Harga</th>
                                 <th scope="col">Status</th>
@@ -105,6 +110,7 @@ const DataCheckout = {
         data.batal = 'disabled';
       } else if (status === 'selesai') {
         data.kemas = 'disabled';
+        data.batal = 'disabled';
         data.delete = 'd-none';
         data.kirim = 'disabled';
         data.bedge = 'text-bg-success';
@@ -140,6 +146,8 @@ const DataCheckout = {
     await RekapProdukSeller.BatalkanProduk();
     await RekapProdukSeller.kirimProduk();
     await RekapProdukSeller.hapusDataCheckout();
+    await dataProduct.convertIdProductToName();
+    await dataProduct.convertIDBuyerToName();
 
     $('#dataCheckout').DataTable({
       lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, 'All']],

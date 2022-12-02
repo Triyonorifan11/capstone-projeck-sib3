@@ -29,6 +29,8 @@ const createTableCheckoutInDataCheckOut = (data, i) => `
     <tr>
         <th scope="row"><a href="#">${i}</a></th>
         <td><a href="#/checkout/${data.id_checkout}" class="link-primary">${data.id_checkout}</a></td>
+        <td id="nama_Barang" value="${data.id_barang}">${data.id_barang}</td>
+        <td id="nama_Pembeli" value="${data.id_buyer}">${data.id_buyer}</td>
         <td>${data.total_beli}</td>
         <td>Rp${formatRupiah(data.total_harga.toString())}</td>
         <td><span class="badge ${data.bedge}" id="statuspengiriman">${data.status}</span></td>

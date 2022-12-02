@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import {
   query, where, collection, getFirestore, getDocs, doc, getDoc,
 } from 'firebase/firestore';
@@ -36,6 +37,24 @@ const dataProduct = {
     const q = doc(db, 'products', idProduk);
     const docSnap = await getDoc(q);
     return docSnap.data();
+  },
+
+  async convertIdProductToName() {
+    const rowIdBarang = document.querySelectorAll('#nama_Barang');
+    rowIdBarang.forEach(async (colIdBarang) => {
+      const attr = colIdBarang.getAttribute('value');
+      const getNamaBarang = await this._fetchDataProductByIdProduk(attr);
+      colIdBarang.innerHTML = getNamaBarang.nama_product;
+    });
+  },
+
+  async convertIDBuyerToName() {
+    const rowIdBuyer = document.querySelectorAll('#nama_Pembeli');
+    rowIdBuyer.forEach(async (colIdPembeli) => {
+      const attrBuyer = colIdPembeli.getAttribute('value');
+      const getNamaPembeli = await this._fetchUserNameById(attrBuyer);
+      colIdPembeli.innerHTML = getNamaPembeli.namalengkap;
+    });
   },
 };
 

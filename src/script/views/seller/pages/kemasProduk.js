@@ -51,6 +51,7 @@ const KemasProduk = {
     if (dataProdukChecOut.status.toLowerCase() !== 'diminta') {
       btnKemasProduk.classList.add('disabled');
       btnKemasProduk.classList.add('d-none');
+      btnKemasProduk.remove();
     }
     await RekapProdukSeller.checkOutAndKemasProduk(url.id);
   },

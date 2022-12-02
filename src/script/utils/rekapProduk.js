@@ -42,7 +42,7 @@ const RekapProdukSeller = {
     return null;
   },
 
-  async getRealDataCheckout(data) {
+  async getRealDataCheckout(data) { // dipakai saat kemas barang
     const realData = {};
     const databuye = await dataProduct._fetchUserNameById(data.id_buyer);
     const databarang = await dataProduct._fetchDataProductByIdProduk(data.id_barang);
