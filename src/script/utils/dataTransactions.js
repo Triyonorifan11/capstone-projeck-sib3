@@ -26,6 +26,11 @@ const dataTransactions = {
     return querySnapshot;
   },
 
+  async _fetchDataTransactionsByIdBuyer(idBuyer) {
+    const querySnapshot = await getDocs(query(collection(db, 'checkouts'), where('id_buyer', '==', 'user_fb7f22bc80df706d4')));
+    return querySnapshot;
+  },
+
   async _fetchCancelledDataTransactions() {
     const querySnapshot = await getDocs(query(collection(db, 'checkouts'), where('status', '==', 'dibatalkan')));
     return querySnapshot;

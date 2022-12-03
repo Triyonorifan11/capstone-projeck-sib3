@@ -1,32 +1,79 @@
+import dataTransactions from '../../../utils/dataTransactions';
+import { formatRupiah, getUserInfo } from '../../../utils/functions';
+
+/* eslint-disable no-undef */
 const Checkout = {
 
   async render() {
     return `
-    <section class="deskripsi my-5 pt-5">
-        <div class="row mt-5">
-            <div class="col-lg05 col-md-12 col-12">
-                <img class="img-fluid w-100" src="./download.jpg" alt="" />
-            </div>
+    <section class="section mt-5 mx-5 position-relative">
+          <div class="table-responsive">
+            <table class="table table-hover" id="transactionTable">
+              <thead>
+                <tr class="table-secondary">
+                  <th scope="col">#</th>
+                  <th scope="col">ID Pembelian</th>
+                  <th scope="col">Jumlah Barang</th>
+                  <th scope="col">Total Harga</th>
+                  <th scope="col" class="no-sort">Status</th>
+                </tr>
+              </thead>
+              <tbody class="align-middle" id="transactionBody">
 
-            <div class="col-lg-6 col-md-12 col-12">
-                <h6>Home / Sampah</h6>
-                <h3 class="py-4">Sampah Botol</h3>
-                <h2>Rp 15.000</h2>
-                <input type="number" value="1" />
-                <button class="buy-btn">Add to Cart</button>\
-                <h4 class="mt-5 mb-5">Deskripsi Produk</h4>
-                <span
-                    >Sampah botol plastik merupakan bahan padat buangan dari kegiatan manusia yang sudah terpakai. Sampah merupakan konsekuensi dari adanya aktivitas manusia yang begitu kompleks dari mulai bangun tidur hingga tidur lagi, manusia pasti
-                    menghasilkan buangan atau sampah. Oleh karena itu pengelolaan sampah tidak terlepas dari gaya hidup masyarakat. Jika sampah tersebut terus dibiarkan, tentu akan menimbulkan dampak serius bagi lingkungan yang mengakibatkan pencemaran
-                    udara,tanah dan dapat menyebabkan banjir.
-                </span>
-            </div>
-        </div>
+              </tbody>
+            </table>
+          </div>
     </section>`;
   },
 
   async afterRender() {
     console.log('after render checkout');
+
+    const transactionBody = document.getElementById('transactionBody');
+    const idBuyer = getUserInfo().id;
+    console.log(idBuyer);
+
+    const fetchedTranscations = await dataTransactions._fetchDataTransactionsByIdBuyer(idBuyer);
+    let counter = 1;
+
+    fetchedTranscations.forEach((d) => {
+      const data = d.data();
+      data.id = d.id;
+
+      if (data.status === 'sedang dikemas') {
+        data.bedge = 'text-bg-secondary';
+      } else if (data.status === 'dikirim') {
+        data.bedge = 'text-bg-primary';
+      } else if (data.status === 'selesai') {
+        data.kirim = 'disabled';
+        data.bedge = 'text-bg-success';
+      } else if (data.status === 'dibatalkan') {
+        data.bedge = 'text-bg-danger';
+      } else {
+        data.bedge = 'text-bg-warning';
+      }
+
+      transactionBody.innerHTML += `
+      <tr>
+      <th scope="row">${counter}</th>
+      <td>${data.id}</td>
+      <td id='totalBeli' product-id='${data.id_barang}'>${data.total_beli}</td>
+      <td>Rp${formatRupiah(data.total_harga.toString())}</td>
+      <td><span class="badge ${data.bedge}">${data.status}</span></td>
+      </tr>
+      `;
+      // eslint-disable-next-line no-plusplus
+      counter++;
+    });
+
+    $('#transactionTable').DataTable({
+      // eslint-disable-next-line quotes
+      lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+      columnDefs: [{
+        targets: 'no-sort',
+        orderable: false,
+      }],
+    });
   },
 };
 
