@@ -15,26 +15,34 @@ const Home = {
   <img src="./assets/img/jumbotron.PNG" class="" alt="jumbotron" width="100%">
 </section>
 
-<section class='hero mt-5'>
-  <div class='hero-box-container'>
-    <span class='hero-box'>
-      <span class='hero-box__circle hero-box__circle--blue'></span>
-      <h2 class='hero-box__title'>Reduce</h2>
-      <p class='hero-box__text'>Mengurangi penggunaan</p>
-      <p class='hero-box__body'>Membawa botol minum atau alat makan sendiri</p>
-    </span>
-    <span class='hero-box'>
-      <span class='hero-box__circle hero-box__circle--green'></span>
-      <h2 class='hero-box__title'>Reuse</h2>
-      <p class='hero-box__text'>Menggunakan kembali</p>
-      <p class='hero-box__body'>Menggunakan botol plastik sebagai pot tanaman</p>
-    </span>
-    <span class='hero-box'>
-      <span class='hero-box__circle hero-box__circle--orange'></span>
-      <h2 class='hero-box__title'>Recycle</h2>
-      <p class='hero-box__text'>Mendaur ulang</p>
-      <p class='hero-box__body'>Membuat kerajinan tangan dengan botol plastik</p>
-    </span>
+<div class="d-grid justify-content-center">
+  <h1 class="fw-bold text-center" style="color: #012970;">Mari Jaga Bumi Kita dengan 3R</h1>
+</div>
+<section id="gogreen">
+  <div class="gogreen-center">
+    <article class="gogreen">
+        <div class="gogreen-icon"><i class="fas fa-minimize"></i></div>
+        <div class="gogreen-text">
+            <h2 class="gogreen-title"><b>Reduce</b></h2>
+            <p class="gogreen-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, temporibus!</p>
+        </div>
+    </article>
+    
+    <article class="gogreen">
+        <div class="gogreen-icon"><i class="fas fa-hands-holding-circle"></i></div>
+        <div class="gogreen-text">
+            <h2 class="gogreen-title"><b>Reuse</b></h2>
+            <p class="gogreen-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, temporibus!</p>
+        </div>
+    </article>
+    
+    <article class="gogreen">
+        <div class="gogreen-icon"><i class="fas fa-recycle"></i></div>
+        <div class="gogreen-text">
+            <h2 class="gogreen-title"><b>Recycle</b></h2>
+            <p class="gogreen-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, temporibus!</p>
+        </div>
+    </article>
   </div>
 </section>
 
