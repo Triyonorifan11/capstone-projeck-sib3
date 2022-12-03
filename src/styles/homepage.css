@@ -431,6 +431,7 @@ footer .container {
   justify-content: space-between;
   align-items: center;
   text-align: center;
+  font-family: Poppins,sans-serif;
 }
 footer .container > :first-child .brand {
   margin: 0 auto;
@@ -442,7 +443,7 @@ footer .container > :first-child .brand b {
   color: white;
 }
 footer .container > :first-child p {
-  max-width: 800px;
+  max-width: 850px;
   color: white;
   text-align: center;
 }
