@@ -58,7 +58,7 @@ const Blog = {
         <div class="description">
           <h1>${data.judul}</h1>
           <p class="read-more">
-            <a href="#">Read More</a>
+            <a href="#/detailBlog/${data.id}">Read More</a>
           </p>
           <span class="detail">${data.deskripsi}</span>
         </div>

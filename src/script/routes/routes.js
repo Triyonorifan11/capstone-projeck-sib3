@@ -27,6 +27,7 @@ import Blog from '../views/homepage/pages/blog';
 import About from '../views/homepage/pages/about';
 import Checkout from '../views/homepage/pages/checkout';
 import Deskripsi from '../views/homepage/pages/deskripsi';
+import DetailBlog from '../views/homepage/pages/detailBlog';
 
 // login routes
 const loginRoutes = {
@@ -64,6 +65,7 @@ const homepageRoutes = {
   '/about': About,
   '/checkout': Checkout,
   '/deskripsi/:id': Deskripsi,
+  '/detailBlog/:id': DetailBlog,
 };
 
 export {
