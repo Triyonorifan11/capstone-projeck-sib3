@@ -24,7 +24,7 @@ const Home = {
         <div class="gogreen-icon"><i class="fas fa-minimize"></i></div>
         <div class="gogreen-text">
             <h2 class="gogreen-title"><b>Reduce</b></h2>
-            <p class="gogreen-info">Mengurangi pemakaian suatu barang yang dapat mengurangi produksi sampah. Contoh: mengurangi penggunaan kantomg plastik sekali pakai</p>
+            <p class="gogreen-info">Mengurangi pemakaian suatu barang yang dapat mengurangi produksi sampah. Contoh: mengurangi penggunaan kantong plastik sekali pakai</p>
         </div>
     </article>
     
@@ -45,6 +45,26 @@ const Home = {
     </article>
   </div>
 </section>
+
+<div class="container-fluid body bg-white shadow-sm">
+  <div class="row" id="section1">
+    <div class="col-md-7 textbox">
+      <h1 class="text-center fw-bold" style="color: #012970;">Ayo Berkontribusi Bersama Kami!</h1>
+      <br>
+      <p class="text-justify text-center fs-5" id="bio">
+      Jadilah bagian dari agen perubahan dalam upaya menyelamatkan lingkungan dengan cara send and order trash melalui langkah yang sangat mudah
+      </p>
+      <center>
+      <a class="me-3 btn btn-info fw-bold text-light" href="#/about">Cara Penggunaan</a>
+      </center>
+    </div>
+    
+    <div class="col-md-5 col-sm-6 d-flex justify-content-center align-items-center">
+        <img src="./assets/img/save-earth.png" alt="Ada Lovelace Portrait" class="img-responsive center-block img-circle" width="80%">
+      </a>
+    </div>
+  </div>
+</div>
 
 <section class="container pb-3" style="margin: 7rem auto;">
   <div class="d-grid justify-content-center">
