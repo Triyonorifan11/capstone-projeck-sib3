@@ -145,6 +145,7 @@ body::-webkit-scrollbar {
 .gogreen-info{
   margin-top: 10px;
   line-height: 1.5;
+  text-align: justify;
 }
 .gogreen-icon:hover .fas,
 .gogreen-title:hover{
@@ -456,6 +457,10 @@ footer .container .sosmed b {
   margin-bottom: 10px;
   display: block;
 }
+/* footer .container .sosmed > :first-child p {
+  color: white;
+  text-align: center;
+} */
 footer .container .sosmed .sosmed-list {
   display: flex;
   gap: 10px;
@@ -480,4 +485,12 @@ footer .container .copyright {
   color: white;
   text-align: center;
   line-height: 50%;
+}
+footer .container .copyright p {
+  text-align: center;
+  color: #fafafa;
+  font-size: 15px;
+  padding: 10px 0;
+  margin-bottom: 0;
+  line-height: 100%;
 }
