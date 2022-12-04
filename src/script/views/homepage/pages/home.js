@@ -24,7 +24,7 @@ const Home = {
         <div class="gogreen-icon"><i class="fas fa-minimize"></i></div>
         <div class="gogreen-text">
             <h2 class="gogreen-title"><b>Reduce</b></h2>
-            <p class="gogreen-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, temporibus!</p>
+            <p class="gogreen-info">Mengurangi pemakaian suatu barang yang dapat mengurangi produksi sampah. Contoh: mengurangi penggunaan kantomg plastik sekali pakai</p>
         </div>
     </article>
     
@@ -32,7 +32,7 @@ const Home = {
         <div class="gogreen-icon"><i class="fas fa-hands-holding-circle"></i></div>
         <div class="gogreen-text">
             <h2 class="gogreen-title"><b>Reuse</b></h2>
-            <p class="gogreen-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, temporibus!</p>
+            <p class="gogreen-info">Menggunakan kembali barang atau material yang masih layak pakai. Contoh: penggunaan botol bekas untuk pot tanaman</p>
         </div>
     </article>
     
@@ -40,7 +40,7 @@ const Home = {
         <div class="gogreen-icon"><i class="fas fa-recycle"></i></div>
         <div class="gogreen-text">
             <h2 class="gogreen-title"><b>Recycle</b></h2>
-            <p class="gogreen-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, temporibus!</p>
+            <p class="gogreen-info">Mengelola kembali barang-barang yang telah digunakan untuk dapat digunakan kembali. Contoh: mengolah sampah organik menjadi pupuk kompos</p>
         </div>
     </article>
   </div>
