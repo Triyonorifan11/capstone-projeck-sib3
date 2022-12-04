@@ -21,17 +21,21 @@ const Deskripsi = {
           <div class="row mt-5">
             <div class="col-md-5 p-5">
                 <div class="d-flex justify-content-center align-items-center">
-                  <img class="img-fluid" src="${dataProduk.foto}" width="80%"/>
+                  <img class="img-fluid" style="border-radius: 20px;" src="${dataProduk.foto}" width="300%"/>
                 </div>
             </div>
 
             <div class="col-md-7">
-                <h3 class="tittle py-4 fw-bold">${dataProduk.nama_product}</h3>
-                <h2>Rp ${formatRupiah(dataProduk.harga)}</h2>
-                <h2>${dataSeller.namalengkap}</h2>
-                <h2>${dataProduk.berat_product} Kg</h2>
-                <h2 id='stokProduk' value='${dataProduk.stok}'>${dataProduk.stok}</h2>
-                <h4 class="mt-4 mb-2">Deskripsi Produk</h4>
+                <h2 class="tittle py-4 fw-bold">${dataProduk.nama_product}</h2>
+                <h5 class="fw-bold"><i class="fa-solid fa-money-bill-wave"></i>&nbsp; Harga</h5>
+                <p>Rp ${formatRupiah(dataProduk.harga)}</p>
+                <h5 class="fw-bold"><i class="fa-solid fa-users"></i>&nbsp; Penjual</h5>
+                <p>${dataSeller.namalengkap}</p>
+                <h5 class="fw-bold"><i class="fa-solid fa-scale-balanced"></i>&nbsp; Berat Produk</h5>
+                <p>${dataProduk.berat_product} Kg</p>
+                <h5 class="fw-bold"><i class="fa-solid fa-layer-group"></i>&nbsp; Total Stok</h5>
+                <p id='stokProduk' value='${dataProduk.stok}'>${dataProduk.stok}</p>
+                <h5 class="mt-4 mb-2 fw-bold"><i class="fa-regular fa-pen-to-square"></i>&nbsp; Deskripsi Produk</h5>
                 <p>${dataProduk.deskripsi}</p>
                 
                 <form action="#" method="post" id="addCheckout" enctype="multipart/form-data">
