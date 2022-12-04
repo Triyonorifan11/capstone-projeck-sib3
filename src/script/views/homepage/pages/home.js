@@ -66,7 +66,7 @@ const Home = {
   </div>
 </div>
 
-<section class="container pb-3" style="margin: 7rem auto;">
+<section class="container pb-3" style="margin: 1rem auto;">
   <div class="d-grid justify-content-center">
     <div class="col-12 container p-3">
     <h1 class="fw-bold text-center" style="color: #012970;">Daftar Produk</h1>

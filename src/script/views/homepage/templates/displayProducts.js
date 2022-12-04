@@ -1,8 +1,8 @@
 import { formatRupiah } from '../../../utils/functions';
 
 const createAllProducts = (name, image, price, seller, description, stock, id) => `
-  <div class="col-md-4 col-lg-3">
-    <div class="card_product">
+  <div class="col-md-8 col-lg-3 col-sm-6 rounded">
+    <div class="card_product p-2">
       <a class="img-card">
         <img src="${image}" />
       </a>
