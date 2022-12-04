@@ -5,12 +5,14 @@ import HomepageApp from './views/homepage/app';
 import swRegister from './utils/sw-register';
 
 const dashboardlink = document.getElementById('dashboardlink');
+const checkoutNav = document.getElementById('checkout');
 function isLogin() {
   const userRT = localStorage.getItem('user_RTproject');
   const data = JSON.parse(userRT);
   if (!userRT) {
     dashboardlink.innerHTML = 'Login';
     dashboardlink.href = './login.html';
+    checkoutNav.setAttribute('class', '.d-none');
   } else if ((data.user !== 'seller') || (data.user !== 'admin') || data.user !== 'buyer') {
     dashboardlink.href = './login.html';
     dashboardlink.innerHTML = 'Login';
@@ -27,6 +29,7 @@ function isLogin() {
     } else {
       dashboardlink.innerHTML = 'Login';
       dashboardlink.href = './login.html';
+      checkoutNav.setAttribute('class', '.d-none');
     }
   }
 }
