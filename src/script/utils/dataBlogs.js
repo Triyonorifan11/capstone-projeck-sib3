@@ -15,6 +15,12 @@ const dataPosts = {
     const querySnapshot = await getDocs(collection(db, 'posts'));
     return querySnapshot;
   },
+
+  async _fetchDataPostsByIdPost(idPost) {
+    const q = doc(db, 'posts', idPost);
+    const docSnap = await getDoc(q);
+    return docSnap.data();
+  },
 };
 
 export default dataPosts;

@@ -1,6 +1,5 @@
 // import Blog from './blog';
 import UrlParser from '../../../routes/url-parser';
-import addBlogs from '../../../utils/addBlogs';
 import dataPosts from '../../../utils/dataBlogs';
 import { formatDate } from '../../../utils/functions';
 
@@ -41,7 +40,6 @@ const DetailBlog = {
       </div>
     </div>
         `;
-    await addBlogs.addToDatabase(url.id, dataPost);
   },
 };
 
