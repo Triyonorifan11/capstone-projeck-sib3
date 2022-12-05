@@ -29,7 +29,7 @@ const Deskripsi = {
                 <h2 class="tittle py-4 fw-bold">${dataProduk.nama_product}</h2>
                 <h5 class="fw-bold"><i class="fa-solid fa-money-bill-wave"></i>&nbsp; Harga</h5>
                 <p>Rp ${formatRupiah(dataProduk.harga)}</p>
-                <h5 class="fw-bold"><i class="fa-solid fa-users"></i>&nbsp; Penjual</h5>
+                <h5 class="fw-bold"><i class="fa-solid fa-user"></i>&nbsp; Penjual</h5>
                 <p>${dataSeller.namalengkap}</p>
                 <h5 class="fw-bold"><i class="fa-solid fa-scale-balanced"></i>&nbsp; Berat Produk</h5>
                 <p>${dataProduk.berat_product} Kg</p>
