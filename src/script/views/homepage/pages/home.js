@@ -1,6 +1,3 @@
-import dataProduct from '../../../utils/dataProducts';
-import createAllProducts from '../templates/displayProducts';
-
 const Home = {
 
   async render() {
@@ -65,16 +62,6 @@ const Home = {
     </div>
   </div>
 </div>
-
-<section class="container pb-3" style="margin: 1rem auto;">
-  <div class="d-grid justify-content-center">
-    <div class="col-12 container p-3">
-    <h1 class="fw-bold text-center" style="color: #012970;">Daftar Produk</h1>
-    </div>
-  </div>
-  <div class="row d-flex" id="products">
-  </div>
-</section>
 
 <section class="bg-white shadow">
   <div class="container" style="padding: 7rem 0;">
@@ -165,18 +152,7 @@ const Home = {
   },
 
   async afterRender() {
-    const products = document.querySelector('#products');
     document.querySelector('#navHome').classList.add('active');
-    const fetchedDataProduct = await dataProduct._fetchAllDataProduct();
-    fetchedDataProduct.forEach(async (d) => {
-      const data = d.data();
-      data.id = d.id;
-      const sellerName = await dataProduct._fetchUserNameById(data.id_user);
-      // if (data.stok <= 0) {
-      //   products.innerHTML = '';
-      // }
-      products.innerHTML += createAllProducts(data.nama_product, data.foto, data.harga, sellerName.namalengkap, data.deskripsi, data.stok, data.id);
-    });
   },
 };
 
