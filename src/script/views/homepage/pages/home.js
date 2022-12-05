@@ -105,7 +105,7 @@ const Home = {
 				<h2> Aluminium</h2>
 			</div>
 			<div class="body">
-				<img src="#" alt="jenis aluminium">
+				<img src="./assets/img/jenis-aluminium.jpg" alt="jenis aluminium">
 			</div>
 		</div>
 
@@ -117,7 +117,7 @@ const Home = {
 				<h2> Besi & Logam</h2>
 			</div>
 			<div class="body">
-				<img src="#" alt="jenis besi dan logam">
+				<img src="./assets/img/jenis-besi-logam.jpg" alt="jenis besi dan logam">
 			</div>
 		</div>
 
@@ -129,7 +129,7 @@ const Home = {
 				<h2> Elektronik</h2>
 			</div>
 			<div class="body">
-				<img src="#" alt="jenis elektronik">
+				<img src="./assets/img/jenis-elektronik.jpg" alt="jenis elektronik">
 			</div>
 		</div>
     
