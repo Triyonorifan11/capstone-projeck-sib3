@@ -9,9 +9,10 @@ const Home = {
       <h4 class="text-start">Ayo jaga kebersihan Bumi kita dengan mengurangi volume sampah</h3>
     </div>
   </div>
-  <img src="./assets/img/jumbotron.PNG" class="" alt="jumbotron" width="100%">
+  <img src="./assets/img/jumbotron.PNG" class="img-fluid rounded" alt="jumbotron" width="100%">
 </section>
 
+<div class="container rounded">
 <div class="d-grid justify-content-center">
   <h1 class="fw-bold text-center" style="color: #012970;">Mari Jaga Bumi Kita dengan 3R</h1>
 </div>
@@ -42,11 +43,13 @@ const Home = {
     </article>
   </div>
 </section>
+</div>
 
-<div class="container-fluid body bg-white shadow-sm">
+
+<div class="container rounded body bg-white shadow-sm mb-5">
   <div class="row" id="section1">
     <div class="col-md-7 textbox">
-      <h1 class="text-center fw-bold" style="color: #012970;">Ayo Berkontribusi Bersama Kami!</h1>
+      <h1 class="text-center fw-bold fs-2" style="color: #012970;">Ayo Berkontribusi Bersama Kami!</h1>
       <br>
       <p class="text-justify text-center fs-5" id="bio">
       Jadilah bagian dari agen perubahan dalam upaya menyelamatkan lingkungan dengan cara send and order trash melalui langkah yang sangat mudah
@@ -63,8 +66,9 @@ const Home = {
   </div>
 </div>
 
-<section class="bg-white shadow">
-  <div class="container" style="padding: 7rem 0;">
+<div class="container">
+<section class="bg-white shadow rounded">
+  <div class="container" style="padding: 5rem;">
     <div class="d-grid justify-content-center">
       <div class="col-12 container p-3">
         <h1 class="fw-bold text-center" style="color: #012970;">Reforma Trash Project Hadir Untuk Indonesia</h1>
@@ -109,6 +113,8 @@ const Home = {
     </div>
   </div>
 </section>
+</div>
+
 
 <main class="main-container">
   <div class="d-grid justify-content-center">
