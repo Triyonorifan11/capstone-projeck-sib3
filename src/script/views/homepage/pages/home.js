@@ -1,3 +1,4 @@
+/* eslint-disable no-tabs */
 const Home = {
 
   async render() {
@@ -64,6 +65,75 @@ const Home = {
       </a>
     </div>
   </div>
+</div>
+
+<div class="container rounded">
+  <div class="type">
+  <div class="d-grid justify-content-center">
+    <h1 class="fw-bold text-center" style="color: #012970;">Jenis Sampah</h1>
+  </div>
+	<div class="demo-card-wrapper">
+		<div class="demo-card demo-card--step1">
+			<div class="head">
+				<div class="number-box">
+					<span>01</span>
+				</div>
+				<h2> Kertas</h2>
+			</div>
+			<div class="body">
+				<img src="./assets/img/jenis-kertas.jpg" alt="jenis kertas">
+			</div>
+		</div>
+
+		<div class="demo-card demo-card--step2">
+			<div class="head">
+				<div class="number-box">
+					<span>02</span>
+				</div>
+				<h2> Plastik & Botol Kaca</h2>
+			</div>
+			<div class="body">
+				<img src="./assets/img/jenis-plastik.jpg" alt="jenis plastik dan botol kaca">
+			</div>
+		</div>
+
+		<div class="demo-card demo-card--step3">
+			<div class="head">
+				<div class="number-box">
+					<span>03</span>
+				</div>
+				<h2> Aluminium</h2>
+			</div>
+			<div class="body">
+				<img src="#" alt="jenis aluminium">
+			</div>
+		</div>
+
+		<div class="demo-card demo-card--step4">
+			<div class="head">
+				<div class="number-box">
+					<span>04</span>
+				</div>
+				<h2> Besi & Logam</h2>
+			</div>
+			<div class="body">
+				<img src="#" alt="jenis besi dan logam">
+			</div>
+		</div>
+
+		<div class="demo-card demo-card--step5">
+			<div class="head">
+				<div class="number-box">
+					<span>05</span>
+				</div>
+				<h2> Elektronik</h2>
+			</div>
+			<div class="body">
+				<img src="#" alt="jenis elektronik">
+			</div>
+		</div>
+    
+	</div>
 </div>
 
 <div class="container">
