@@ -64,7 +64,7 @@ const formEditProduk = (produk) => `
         <span class="input-group-text" id="basic-addon2">Kg</span>
     </div>
     <div class="mb-3">
-        <label for="jeniBarang" class="form-label">Jenis Sampah</label>
+        <label for="jenisBarang" class="form-label">Jenis Sampah</label>
         <select class="form-select" id="jenisBarang" name="jenisBarang" aria-label="Jenis sampah" required>
             <option selected value="${produk.jenis_barang}">${produk.jenis_barang}</option>
             <option value="Sampah Organik">Sampah Organik</option>
