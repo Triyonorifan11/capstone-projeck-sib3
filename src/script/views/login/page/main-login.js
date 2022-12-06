@@ -109,17 +109,17 @@ const mainLogin = {
                                 <div class="mb-3">
                                     <label for="provinsi" class="form-label">Provinsi <span
                                             class="text-danger">*</span></label>
-                                    <input class="form-control" required name="provinsi" list="datalistOptions"
-                                        id="provinsi" placeholder="Provinsi">
-                                    <!-- https://www.emsifa.com/api-wilayah-indonesia/ -->
+                                    <input class="form-control" required name="provinsi" list="datalistOptions" autocomplete="off" id="provinsi" placeholder="Provinsi">
                                     <datalist id="datalistOptions">
                                     </datalist>
                                 </div>
                                 <div class="mb-3">
                                     <label for="kabupaten" class="form-label">Kabupaten/Kota <span
                                             class="text-danger">*</span></label>
-                                    <input type="text" required name="kabupaten" class="form-control" id="kabupaten"
+                                    <input type="text" autocomplete="off" required name="kabupaten" class="form-control" id="kabupaten" list="kabupatenData"
                                         placeholder="Kabupaten/Kota">
+                                        <datalist id="kabupatenData">
+                                        </datalist>
                                 </div>
                                 <div class="mb-3">
                                     <label for="kecamatan" class="form-label">Kecamatan <span
@@ -176,10 +176,25 @@ const mainLogin = {
 
     await registerUser.init();
     const datalist = document.querySelector('#datalistOptions');
-    fetch('https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json')
-      .then((response) => response.json())
-      .then((provinces) => provinces.forEach((provinsi) => {
-        datalist.innerHTML += `<option value="${provinsi.name}">`;
+    const datalistKab = document.querySelector('#kabupatenData');
+    const inputprovinsi = document.querySelector('#provinsi');
+    fetch('https://proud-erin-parrot.cyclic.app/provinsi')
+      .then((resp) => resp.json())
+      .then((provinsi) => provinsi.rajaongkir.results.forEach((prov) => {
+        datalist.innerHTML += `<option data-idprov="${prov.province_id}" value="${prov.province}">`;
+      }));
+
+    inputprovinsi.addEventListener('keyup', (e) => {
+      e.preventDefault();
+      const idProv = datalist.getAttribute('data-idProv');
+      console.log(inputprovinsi.value);
+      console.log(idProv);
+    });
+
+    fetch('https://proud-erin-parrot.cyclic.app/kota')
+      .then((resp) => resp.json())
+      .then((kabupaten) => kabupaten.rajaongkir.results.forEach((kab) => {
+        datalistKab.innerHTML += `<option data-idkab="${kab.city_id}" value="${kab.city_name}">`;
       }));
   },
 };
