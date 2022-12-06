@@ -37,6 +37,7 @@ const addCheckout = {
       console.log(totalHarga);
       // eslint-disable-next-line no-undef, quotes
       const servicePengiriman = $("#tipePengiriman").find(':selected').attr('service');
+      // ^ mencari option yang selected dan mengambil atribut service
       console.log(servicePengiriman);
 
       const dataCheckout = {

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { initializeApp } from 'firebase/app';
 import {
   getFirestore, doc, setDoc, query, where, limit, collection, getDocs,
@@ -32,9 +33,6 @@ const registerUser = {
     const email = document.querySelector('#emailRegister');
     const emaillogin = document.querySelector('#email');
     const namaLengkap = document.querySelector('#nama_lengkap');
-    const provinsi = document.querySelector('#provinsi');
-    const kabupaten = document.querySelector('#kabupaten');
-    const citiId = document.querySelectorAll('#daftarKota');
     const kecamatan = document.querySelector('#kecamatan');
     const nohpwa = document.querySelector('#no_hp_wa');
     const tgllahir = document.querySelector('#tgl_lahir');
@@ -49,6 +47,7 @@ const registerUser = {
     // for login
     login.addEventListener('submit', async (e) => {
       e.preventDefault();
+
       const dataLogin = {
         emailLogin: escapeHtml(emaillogin.value),
         passwordLogin: escapeHtml(passwordlogin.value),
@@ -58,14 +57,13 @@ const registerUser = {
       await this._loginUser(dataLogin);
     });
 
-    citiId.forEach((dataId) => {
-      const dataid = dataId.getAttribute('data-id');
-      console.log(dataid);
-    });
-
     // for register
     register.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      const provinsi = $('#datalistOptions').find(':selected').val();
+      const cityId = $('#kabupatenData').find(':selected').attr('data-idcity');
+      const city = $('#kabupatenData').find(':selected').val();
 
       if (password.value.length < 6) {
         flassMessage('info', 'Password terlalu pendek', 'Password harus lebih 6 karakter');
@@ -79,18 +77,19 @@ const registerUser = {
           user: escapeHtml(userResgis.value),
           email: escapeHtml(email.value),
           namalengkap: escapeHtml(namaLengkap.value),
-          provinsi: escapeHtml(provinsi.value),
-          kabupaten: escapeHtml(kabupaten.value),
+          provinsi: escapeHtml(provinsi),
+          kabupaten: escapeHtml(city),
           kecamatan: escapeHtml(kecamatan.value),
           no_hp_wa: escapeHtml(nohpwa.value),
           tgl_lahir: escapeHtml(tgllahir.value),
           password: encrypt(escapeHtml(password.value)),
+          city_id: escapeHtml(cityId),
           status: 'Active',
         };
         btnsubmit.classList.add('disabled');
         btnsubmit.innerText = 'loading..';
         console.log(data);
-        // await this._insertData(data);
+        await this._insertData(data);
       }
     });
   },
@@ -166,7 +165,7 @@ const registerUser = {
         flassMessage('success', 'Berhasil Daftar', 'Silahkan Login!');
         setTimeout(() => {
           window.location.reload();
-        }, 5000);
+        }, 1000);
       }
     } catch (error) {
       flassMessage('error', 'Gagal Daftar', `Error: ${error}`);

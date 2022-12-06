@@ -1,3 +1,6 @@
+/* eslint-disable no-undef */
+/* eslint-disable space-infix-ops */
+// eslint-disable-next-line no-undef
 import registerUser from '../../../utils/registerPage';
 
 const mainLogin = {
@@ -109,17 +112,16 @@ const mainLogin = {
                                 <div class="mb-3">
                                     <label for="provinsi" class="form-label">Provinsi <span
                                             class="text-danger">*</span></label>
-                                    <input class="form-control" required name="provinsi" list="datalistOptions" autocomplete="off" id="provinsi" placeholder="Provinsi">
-                                    <datalist id="datalistOptions">
-                                    </datalist>
+                                    <select class="form-select" id="datalistOptions" name="provinsi" aria-label="Pilih Provinsi" required>
+                                    <option data-idprov="null" value="null" disabled selected>Pilih Provinsi</options>
+                                    </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="kabupaten" class="form-label">Kabupaten/Kota <span
                                             class="text-danger">*</span></label>
-                                    <input type="text" autocomplete="off" required name="kabupaten" class="form-control" id="kabupaten" list="kabupatenData"
-                                        placeholder="Kabupaten/Kota">
-                                        <datalist id="kabupatenData">
-                                        </datalist>
+                                    <select class="form-select" id="kabupatenData" name="kabupaten" aria-label="Pilih Kabupaten/Kota" required>
+                                        <option data-idcity="null" value="null" disabled selected>Pilih Kab/Kota</options>
+                                    </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="kecamatan" class="form-label">Kecamatan <span
@@ -176,25 +178,60 @@ const mainLogin = {
 
     const datalist = document.querySelector('#datalistOptions');
     const datalistKab = document.querySelector('#kabupatenData');
-    const inputprovinsi = document.querySelector('#provinsi');
-    fetch('https://proud-erin-parrot.cyclic.app/provinsi')
-      .then((resp) => resp.json())
-      .then((provinsi) => provinsi.rajaongkir.results.forEach((prov) => {
-        datalist.innerHTML += `<option data-idprov="${prov.province_id}" value="${prov.province}">`;
-      }));
+    // const inputprovinsi = document.querySelector('#provinsi');
+    let provinsi = '';
+    let provinsiId = '';
 
-    inputprovinsi.addEventListener('keyup', (e) => {
-      e.preventDefault();
-      const idProv = datalist.getAttribute('data-idProv');
-      console.log(inputprovinsi.value);
-      console.log(idProv);
+    try {
+      const response = await fetch('https://proud-erin-parrot.cyclic.app/provinsi', {
+        method: 'GET',
+        headers: {
+          key: 'a8be5cd808491d7418dd4b76b7884dc6',
+        },
+      });
+      const responseJson = await response.json();
+
+      const dataProvinsi = responseJson.rajaongkir.results;
+      dataProvinsi.forEach((d) => {
+        datalist.innerHTML += `<option data-idprov="${d.province_id}" value="${d.province}">${d.province}</option>`;
+      });
+
+      console.log(responseJson);
+    } catch (error) {
+      console.log(error);
+    }
+
+    datalist.addEventListener('change', async () => {
+    //   provinsi = $('#provinsi').val(); // mengambil value dari input
+    //   provinsiId = $(`#datalistOptions option[value='${provinsi}']`).attr('data-idprov');
+      // ^ mencari atribut pada datalist (<option data-idprov="2" value="dua">) menggunakan bantuan value (DATALIST)
+
+      provinsiId = $('#datalistOptions').find(':selected').attr('data-idprov');
+      provinsi = $('#datalistOptions').find(':selected').val();
+      console.log('prov', provinsi);
+      console.log('provId', provinsiId);
+
+      datalistKab.innerHTML += '<option data-idcity="122" value="Nama Kota">Semarang</option>';
+
+      try {
+        const response = await fetch(`https://proud-erin-parrot.cyclic.app/kota?provId=${provinsiId}`, {
+          method: 'GET',
+          headers: {
+            key: 'a8be5cd808491d7418dd4b76b7884dc6',
+          },
+        });
+        const responseJson = await response.json();
+
+        const dataKota = responseJson.rajaongkir.results;
+        dataKota.forEach((d) => {
+          datalistKab.innerHTML += `<option data-idcity="${d.city_id}" value="${d.city_name}">${d.type} ${d.city_name}</option>`;
+        });
+
+        console.log(responseJson);
+      } catch (error) {
+        console.log(error);
+      }
     });
-
-    fetch('https://proud-erin-parrot.cyclic.app/kota')
-      .then((resp) => resp.json())
-      .then((kabupaten) => kabupaten.rajaongkir.results.forEach((kab) => {
-        datalistKab.innerHTML += `<option data-id="${kab.city_id}" id="daftarKota" value="${kab.city_name}">`;
-      }));
 
     await registerUser.init();
   },
