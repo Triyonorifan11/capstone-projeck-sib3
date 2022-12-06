@@ -148,7 +148,7 @@ const registerUser = {
       if (checkEmail) {
         flassMessage('info', 'Email telah terdaftar', 'Silahkan Login!');
         setTimeout(() => {
-          window.location.reload();
+          location.reload();
         }, 2000);
       } else {
         const nanoid = customAlphabet('1234567890abcdef', 17);
@@ -164,8 +164,8 @@ const registerUser = {
         }
         flassMessage('success', 'Berhasil Daftar', 'Silahkan Login!');
         setTimeout(() => {
-          window.location.reload();
-        }, 1000);
+          location.reload();
+        }, 2000);
       }
     } catch (error) {
       flassMessage('error', 'Gagal Daftar', `Error: ${error}`);
