@@ -92,9 +92,12 @@ const Deskripsi = {
     $('input[id=totalBeli]').change(async function () {
       totalBeli = $(this).val();
       totalBerat = Math.floor(totalBeli) * (Math.floor(dataProduk.berat_product) * 1000);
+
       totalHarga = 0;
+      totalHargaForm.setAttribute('totalHargaNumber', totalHarga);
       totalHarga = (totalBeli * dataProduk.harga) + Math.floor(tipePengiriman.value);
       totalHargaForm.value = `Rp ${formatRupiah(totalHarga.toString())}`;
+
       console.log(totalBeli);
       console.log(totalBerat);
 
@@ -112,7 +115,7 @@ const Deskripsi = {
 
         const data_ongkir = responseJson.rajaongkir.results[0].costs;
         data_ongkir.forEach((d) => {
-          tipePengiriman.innerHTML += `<option value="${d.cost[0].value}" estimate="${d.cost[0].etd}">${d.service} | ${formatRupiah(d.cost[0].value.toString())} | Estimasi ${d.cost[0].etd} hari </option>`;
+          tipePengiriman.innerHTML += `<option value="${d.cost[0].value}" estimate="${d.cost[0].etd}" service="${ekspedisi.toUpperCase()} ${d.service}">${d.service} | ${formatRupiah(d.cost[0].value.toString())} | Estimasi ${d.cost[0].etd} hari </option>`;
         });
 
         console.log(responseJson);
@@ -141,7 +144,7 @@ const Deskripsi = {
         const data_ongkir = responseJson.rajaongkir.results[0].costs;
         data_ongkir.forEach((d) => {
           tipePengiriman.innerHTML += `
-          <option value="${d.cost[0].value}" estimate="${d.cost[0].etd}">${d.service} | ${formatRupiah(d.cost[0].value.toString())} | Estimasi ${d.cost[0].etd} hari </option>`;
+          <option value="${d.cost[0].value}" estimate="${d.cost[0].etd}" service="${ekspedisi.toUpperCase()} ${d.service}">${d.service} | ${formatRupiah(d.cost[0].value.toString())} | Estimasi ${d.cost[0].etd} hari </option>`;
         });
 
         console.log(responseJson);
@@ -153,6 +156,7 @@ const Deskripsi = {
     tipePengiriman.addEventListener("change", () => {
       totalHarga = 0;
       totalHarga = (totalBeli * dataProduk.harga) + Math.floor(tipePengiriman.value);
+      totalHargaForm.setAttribute('totalHargaNumber', totalHarga);
       totalHargaForm.value = `Rp ${formatRupiah(totalHarga.toString())}`;
     });
   },

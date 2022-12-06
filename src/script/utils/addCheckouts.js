@@ -23,6 +23,8 @@ const addCheckout = {
     const totalPesan = document.querySelector('#totalBeli');
     const btnSubmit = document.getElementById('btnCheckout');
     const formAddCheckout = document.getElementById('addCheckout');
+    const totalHargaForm = document.getElementById('totalHarga');
+
     const dataProduk = await dataProduct._fetchDataProductByIdProduk(idProduk);
     const currentStock = dataProduk.stok;
 
@@ -31,14 +33,20 @@ const addCheckout = {
       btnSubmit.innerText = 'Mohon tunggu ...';
       btnSubmit.classList.add('disabled');
 
-      const calculatePrice = Math.floor(dataProduk.harga) * Math.floor(totalPesan.value);
+      const totalHarga = totalHargaForm.getAttribute('totalHargaNumber');
+      console.log(totalHarga);
+      // eslint-disable-next-line no-undef, quotes
+      const servicePengiriman = $("#tipePengiriman").find(':selected').attr('service');
+      console.log(servicePengiriman);
+
       const dataCheckout = {
         id_barang: escapeHtml(idProduk),
         id_buyer: getUserInfo().id,
         id_seller: escapeHtml(idSeller),
         status: 'diminta',
         total_beli: escapeHtml(totalPesan.value),
-        total_harga: calculatePrice,
+        total_harga: escapeHtml(totalHarga.toString()),
+        service: escapeHtml(servicePengiriman),
       };
 
       const calculateNewStock = Math.floor(currentStock) - Math.floor(totalPesan.value);
@@ -58,7 +66,7 @@ const addCheckout = {
       flassMessage('success', 'Berhasil!', 'Pemesanan akan diproses!');
       setTimeout(() => {
         location.reload();
-      }, 2000);
+      }, 1000);
     } catch (error) {
       flassMessage('error', 'Gagal Memesan', `Error= ${error}`);
     }
