@@ -174,7 +174,6 @@ const mainLogin = {
       password.setAttribute('type', type);
     });
 
-    await registerUser.init();
     const datalist = document.querySelector('#datalistOptions');
     const datalistKab = document.querySelector('#kabupatenData');
     const inputprovinsi = document.querySelector('#provinsi');
@@ -194,8 +193,10 @@ const mainLogin = {
     fetch('https://proud-erin-parrot.cyclic.app/kota')
       .then((resp) => resp.json())
       .then((kabupaten) => kabupaten.rajaongkir.results.forEach((kab) => {
-        datalistKab.innerHTML += `<option data-idkab="${kab.city_id}" value="${kab.city_name}">`;
+        datalistKab.innerHTML += `<option data-id="${kab.city_id}" id="daftarKota" value="${kab.city_name}">`;
       }));
+
+    await registerUser.init();
   },
 };
 

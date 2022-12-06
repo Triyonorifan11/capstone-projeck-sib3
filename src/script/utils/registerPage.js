@@ -34,6 +34,7 @@ const registerUser = {
     const namaLengkap = document.querySelector('#nama_lengkap');
     const provinsi = document.querySelector('#provinsi');
     const kabupaten = document.querySelector('#kabupaten');
+    const citiId = document.querySelectorAll('#daftarKota');
     const kecamatan = document.querySelector('#kecamatan');
     const nohpwa = document.querySelector('#no_hp_wa');
     const tgllahir = document.querySelector('#tgl_lahir');
@@ -55,6 +56,11 @@ const registerUser = {
       btnlogin.classList.add('disabled');
       btnlogin.innerText = 'loading..';
       await this._loginUser(dataLogin);
+    });
+
+    citiId.forEach((dataId) => {
+      const dataid = dataId.getAttribute('data-id');
+      console.log(dataid);
     });
 
     // for register
@@ -83,7 +89,8 @@ const registerUser = {
         };
         btnsubmit.classList.add('disabled');
         btnsubmit.innerText = 'loading..';
-        await this._insertData(data);
+        console.log(data);
+        // await this._insertData(data);
       }
     });
   },
