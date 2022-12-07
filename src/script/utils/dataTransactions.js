@@ -27,7 +27,7 @@ const dataTransactions = {
   },
 
   async _fetchDataTransactionsByIdBuyer(idBuyer) {
-    const querySnapshot = await getDocs(query(collection(db, 'checkouts'), where('id_buyer', '==', 'user_fb7f22bc80df706d4')));
+    const querySnapshot = await getDocs(query(collection(db, 'checkouts'), where('id_buyer', '==', `${idBuyer}`)));
     return querySnapshot;
   },
 
