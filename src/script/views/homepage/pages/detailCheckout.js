@@ -3,6 +3,7 @@ import dataAccount from '../../../utils/dataAccounts';
 import dataProduct from '../../../utils/dataProducts';
 import dataTransactions from '../../../utils/dataTransactions';
 import { formatRupiah } from '../../../utils/functions';
+import RekapProdukSeller from '../../../utils/rekapProduk';
 
 /* eslint-disable no-undef */
 const DetailCheckout = {
@@ -55,7 +56,7 @@ const DetailCheckout = {
             </div>
             <div class="mb-3">
                 <h4 for="namaBarang" class="form-label fw-bold">Lokasi</h4>
-                <h5 class="" id="namaBarang">${fetchedDataProduk.nama_product}</h5>
+                <h5 class="" id="namaBarang">${fetchedDataSeller.kabupaten}</h5>
             </div>
             <div class="mb-3">
                 <h4 for="namaBarang" class="form-label fw-bold">Nama Barang</h4>
@@ -67,15 +68,29 @@ const DetailCheckout = {
             </div>
             <div class="mb-3">
                 <h4 for="jeniBarang" class="form-label fw-bold">Total Harga</h4>
-                <h5 class="" id="stokDiminta">Rp${formatRupiah(fetchedDataCheckouts.total_harga.toString())}</h5>
+                <h5 class="" id="stokDiminta">Rp ${formatRupiah(fetchedDataCheckouts.total_harga.toString())}</h5>
             </div>
-            
-        </div>
-
-        <div class="d-grid gap-2 mt-3">
-            <button class="btn btn-secondary" type="submit" id="btnKemasProduk"><i class="bi bi-bag-plus"></i> Kemas Produk</button>
         </div>
     </div>`;
+
+    if (fetchedDataCheckouts.status === 'dikirim') {
+      formSelesaikanCheckout.innerHTML += `
+        <div class="d-grid gap-2 mt-3">
+            <button class="btn btn-success" type="submit" id="btnKonfirmasi"><i class="bi bi-check-circle"></i> Konfirmasi Diterima</button>
+        </div>`;
+
+      const btnKonfirmasi = document.getElementById('btnKonfirmasi');
+
+      formSelesaikanCheckout.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = {
+          status: 'selesai',
+        };
+        btnKonfirmasi.classList.add('disabled');
+        btnKonfirmasi.innerText = 'Loading ...';
+        await RekapProdukSeller._updateStatusCheckOut(data, url.id);
+      });
+    }
   },
 };
 
