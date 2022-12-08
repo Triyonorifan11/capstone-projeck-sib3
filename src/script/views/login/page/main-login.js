@@ -195,8 +195,6 @@ const mainLogin = {
       dataProvinsi.forEach((d) => {
         datalist.innerHTML += `<option data-idprov="${d.province_id}" value="${d.province}">${d.province}</option>`;
       });
-
-      console.log(responseJson);
     } catch (error) {
       console.log(error);
     }
@@ -208,10 +206,6 @@ const mainLogin = {
 
       provinsiId = $('#datalistOptions').find(':selected').attr('data-idprov');
       provinsi = $('#datalistOptions').find(':selected').val();
-      console.log('prov', provinsi);
-      console.log('provId', provinsiId);
-
-      datalistKab.innerHTML += '<option data-idcity="122" value="Nama Kota">Semarang</option>';
 
       try {
         const response = await fetch(`https://proud-erin-parrot.cyclic.app/kota?provId=${provinsiId}`, {
@@ -223,11 +217,11 @@ const mainLogin = {
         const responseJson = await response.json();
 
         const dataKota = responseJson.rajaongkir.results;
+        datalistKab.innerHTML = '';
+        datalistKab.innerHTML += '<option data-idcity="null" value="null" disabled selected>Pilih Kab/Kota</options>';
         dataKota.forEach((d) => {
           datalistKab.innerHTML += `<option data-idcity="${d.city_id}" value="${d.city_name}">${d.type} ${d.city_name}</option>`;
         });
-
-        console.log(responseJson);
       } catch (error) {
         console.log(error);
       }
