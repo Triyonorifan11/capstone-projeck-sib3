@@ -179,7 +179,6 @@ const mainLogin = {
     const datalist = document.querySelector('#datalistOptions');
     const datalistKab = document.querySelector('#kabupatenData');
     // const inputprovinsi = document.querySelector('#provinsi');
-    let provinsi = '';
     let provinsiId = '';
 
     try {
@@ -205,7 +204,6 @@ const mainLogin = {
       // ^ mencari atribut pada datalist (<option data-idprov="2" value="dua">) menggunakan bantuan value (DATALIST)
 
       provinsiId = $('#datalistOptions').find(':selected').attr('data-idprov');
-      provinsi = $('#datalistOptions').find(':selected').val();
 
       try {
         const response = await fetch(`https://proud-erin-parrot.cyclic.app/kota?provId=${provinsiId}`, {

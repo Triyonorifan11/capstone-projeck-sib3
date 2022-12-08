@@ -84,6 +84,7 @@ const registerUser = {
           tgl_lahir: escapeHtml(tgllahir.value),
           password: encrypt(escapeHtml(password.value)),
           city_id: escapeHtml(cityId),
+          city: escapeHtml(city),
           status: 'Active',
         };
         btnsubmit.classList.add('disabled');

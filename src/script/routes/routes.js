@@ -29,6 +29,7 @@ import Checkout from '../views/homepage/pages/checkout';
 import Deskripsi from '../views/homepage/pages/deskripsi';
 import DetailBlog from '../views/homepage/pages/detailBlog';
 import Product from '../views/homepage/pages/product';
+import DetailCheckout from '../views/homepage/pages/detailCheckout';
 
 // login routes
 const loginRoutes = {
@@ -68,6 +69,7 @@ const homepageRoutes = {
   '/product': Product,
   '/deskripsi/:id': Deskripsi,
   '/detailblog/:id': DetailBlog,
+  '/detailcheckout/:id': DetailCheckout,
 };
 
 export {

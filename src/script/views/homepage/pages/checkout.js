@@ -56,9 +56,9 @@ const Checkout = {
       transactionBody.innerHTML += `
       <tr>
       <th scope="row">${counter}</th>
-      <td>${data.id}</td>
+      <td><a href="#/detailcheckout/${data.id}" class="link-primary">${data.id}</a></td>
       <td id='totalBeli' product-id='${data.id_barang}'>${data.total_beli}</td>
-      <td>Rp${formatRupiah(data.total_harga.toString())}</td>
+      <td>Rp ${formatRupiah(data.total_harga.toString())}</td>
       <td><span class="badge ${data.bedge}">${data.status}</span></td>
       </tr>
       `;
