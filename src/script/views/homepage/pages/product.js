@@ -40,7 +40,7 @@ const Product = {
 
   async afterRender() {
     const products = document.querySelector('#products');
-    document.querySelector('#navHome').classList.add('active');
+    document.querySelector('#navProduk').classList.add('active');
     const fetchedDataProduct = await dataProduct._fetchAllDataProduct();
     fetchedDataProduct.forEach(async (d) => {
       const data = d.data();
