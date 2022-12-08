@@ -49,7 +49,7 @@ const Product = {
       // if (data.stok <= 0) {
       //   products.innerHTML = '';
       // }
-      products.innerHTML += createAllProducts(data.nama_product, data.foto, data.harga, sellerName.namalengkap, data.deskripsi, data.stok, data.id);
+      products.innerHTML += createAllProducts(data.nama_product, data.foto, data.harga, sellerName.namalengkap, data.deskripsi, data.stok, data.id, sellerName.kabupaten);
     });
   },
 };
