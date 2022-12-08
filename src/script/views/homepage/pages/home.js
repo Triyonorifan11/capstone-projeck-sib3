@@ -132,6 +132,18 @@ const Home = {
 				<img src="./assets/img/jenis-elektronik.jpg" alt="jenis elektronik">
 			</div>
 		</div>
+
+    <div class="demo-card demo-card--step6">
+			<div class="head">
+				<div class="number-box">
+					<span>06</span>
+				</div>
+				<h2> Organik</h2>
+			</div>
+			<div class="body">
+				<img src="./assets/img/jenis-organik.jpg" alt="jenis organik">
+			</div>
+		</div>
     
 	</div>
 </div>

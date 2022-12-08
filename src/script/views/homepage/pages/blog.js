@@ -17,14 +17,6 @@ const Blog = {
             <h1 class="fw-bold text-center" style="color: #012970;">Blog</h1>
           </div>
 
-          <div class="col-sm-12 filter-group-wrapper">
-            <div class="filter-group">
-              <button class="filter-button" id="all-articles">All</button>
-              <button class="filter-button" id="artikel">Artikel</button>
-              <button class="filter-button" id="berita">Berita</button>
-              <button class="filter-button" id="blogs">Blogs</button>
-            </div>
-          </div>
         </div>
       </header>
     </div>
