@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import {
   doc, getDoc, getFirestore, updateDoc,
 } from 'firebase/firestore';
@@ -30,13 +31,17 @@ const profileSeller = {
     const fullname = document.getElementById('fullName');
     fullname.value = temp.namalengkap;
 
-    document.getElementById('provinsi').innerText = temp.provinsi;
-    const prov = document.getElementById('edit_provinsi');
-    prov.value = temp.provinsi;
+    const prov = document.getElementById('provinsi');
+    prov.innerText = temp.provinsi;
+    $('#datalistOptions').find(':selected').text(temp.provinsi);
+    // const prov = document.getElementById('edit_provinsi');
+    // prov.value = temp.provinsi;
 
-    document.getElementById('kabupaten').innerText = temp.kabupaten;
-    const kab = document.getElementById('edit_kabupaten');
-    kab.value = temp.kabupaten;
+    const kota = document.getElementById('kabupaten');
+    kota.innerText = temp.kabupaten;
+    $('#kabupatenData').find(':selected').text(temp.kabupaten);
+    // const kab = document.getElementById('edit_kabupaten');
+    // kab.value = temp.kabupaten;
 
     document.getElementById('kecamatan').innerText = temp.kecamatan;
     const kec = document.getElementById('edit_kecamatan');
@@ -82,13 +87,17 @@ const profileSeller = {
 
     const submitEdit = document.getElementById('editProfile');
     submitEdit.addEventListener('submit', async (e) => {
+      const provinsi = $('#datalistOptions').find(':selected').val();
+      const cityId = $('#kabupatenData').find(':selected').attr('data-idcity');
+      const city = $('#kabupatenData').find(':selected').val();
       e.preventDefault();
       const data = {
         namalengkap: escapeHtml(fullname.value),
-        provinsi: escapeHtml(prov.value),
-        kabupaten: escapeHtml(kab.value),
+        provinsi: escapeHtml(provinsi),
+        kabupaten: escapeHtml(city),
         kecamatan: escapeHtml(kec.value),
         no_hp_wa: escapeHtml(noHp.value),
+        city_id: escapeHtml(cityId),
       };
       data.id = getUserInfo().id;
       await this._updateProfile(data);

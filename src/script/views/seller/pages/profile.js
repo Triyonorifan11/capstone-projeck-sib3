@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import profileSeller from '../../../utils/profile-seller';
 
 const Profile = {
@@ -110,20 +111,20 @@ const Profile = {
                     </div>
 
                     <div class="row mb-3">
-                      <label for="edit_provinsi" class="col-md-4 col-lg-3 col-form-label">Provinsi</label>
+                      <label for="provinsi" class="col-md-4 col-lg-3 form-label">Provinsi</label>
                       <div class="col-md-8 col-lg-9">
-                        <input class="form-control" required name="provinsi" list="datalistOptions" autocomplete="off"
-                                        id="edit_provinsi" placeholder="Provinsi">
-                                    <!-- https://www.emsifa.com/api-wilayah-indonesia/ -->
-                                    <datalist id="datalistOptions">
-                                    </datalist>
-                      </div>
+                        <select class="form-select" id="datalistOptions" name="provinsi" aria-label="Pilih Provinsi" required>
+                          <option data-idprov="null" value="null" disabled selected>Pilih Provinsi</options>
+                        </select>
+                      </div>  
                     </div>
-
+                    
                     <div class="row mb-3">
-                      <label for="kabupaten" class="col-md-4 col-lg-3 col-form-label">Kabupaten</label>
+                      <label for="kabupaten" class="col-md-4 col-lg-3 form-label">Kabupaten/Kota</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="kabupaten" type="text" class="form-control" autocomplete="off" id="edit_kabupaten" value="Kota Surabaya">
+                        <select class="form-select" id="kabupatenData" name="kabupaten" aria-label="Pilih Kabupaten/Kota" required>
+                          <option data-idcity="null" value="null" disabled selected>Pilih Kab/Kota</options>
+                        </select>
                       </div>
                     </div>
 
@@ -198,12 +199,55 @@ const Profile = {
 
   async afterRender() {
     document.querySelector('#navProfile').classList.remove('collapsed');
+
     const datalist = document.querySelector('#datalistOptions');
-    fetch('https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json')
-      .then((response) => response.json())
-      .then((provinces) => provinces.forEach((provinsi) => {
-        datalist.innerHTML += `<option value="${provinsi.name}">`;
-      }));
+    const datalistKab = document.querySelector('#kabupatenData');
+    // const inputprovinsi = document.querySelector('#provinsi');
+    let provinsiId = '';
+
+    try {
+      const response = await fetch('https://proud-erin-parrot.cyclic.app/provinsi', {
+        method: 'GET',
+        headers: {
+          key: 'a8be5cd808491d7418dd4b76b7884dc6',
+        },
+      });
+      const responseJson = await response.json();
+
+      const dataProvinsi = responseJson.rajaongkir.results;
+      dataProvinsi.forEach((d) => {
+        datalist.innerHTML += `<option data-idprov="${d.province_id}" value="${d.province}">${d.province}</option>`;
+      });
+    } catch (error) {
+      console.log(error);
+    }
+
+    datalist.addEventListener('change', async () => {
+    //   provinsi = $('#provinsi').val(); // mengambil value dari input
+    //   provinsiId = $(`#datalistOptions option[value='${provinsi}']`).attr('data-idprov');
+      // ^ mencari atribut pada datalist (<option data-idprov="2" value="dua">) menggunakan bantuan value (DATALIST)
+
+      provinsiId = $('#datalistOptions').find(':selected').attr('data-idprov');
+
+      try {
+        const response = await fetch(`https://proud-erin-parrot.cyclic.app/kota?provId=${provinsiId}`, {
+          method: 'GET',
+          headers: {
+            key: 'a8be5cd808491d7418dd4b76b7884dc6',
+          },
+        });
+        const responseJson = await response.json();
+
+        const dataKota = responseJson.rajaongkir.results;
+        datalistKab.innerHTML = '';
+        datalistKab.innerHTML += '<option data-idcity="null" value="null" disabled selected>Pilih Kab/Kota</options>';
+        dataKota.forEach((d) => {
+          datalistKab.innerHTML += `<option data-idcity="${d.city_id}" value="${d.city_name}">${d.type} ${d.city_name}</option>`;
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    });
     await profileSeller.init();
   },
 };
