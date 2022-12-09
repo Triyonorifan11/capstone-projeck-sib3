@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { initializeApp } from 'firebase/app';
 import {
   getFirestore, doc, setDoc, query, where, limit, collection, getDocs,
@@ -28,8 +29,6 @@ const registerUserInAdmin = {
     const email = document.querySelector('#emailRegister');
 
     const namaLengkap = document.querySelector('#nama_lengkap');
-    const provinsi = document.querySelector('#provinsi');
-    const kabupaten = document.querySelector('#kabupaten');
     const kecamatan = document.querySelector('#kecamatan');
     const nohpwa = document.querySelector('#no_hp_wa');
     const tgllahir = document.querySelector('#tgl_lahir');
@@ -43,6 +42,10 @@ const registerUserInAdmin = {
     register.addEventListener('submit', async (e) => {
       e.preventDefault();
 
+      const provinsi = $('#datalistOptions').find(':selected').val();
+      const cityId = $('#kabupatenData').find(':selected').attr('data-idcity');
+      const city = $('#kabupatenData').find(':selected').val();
+
       if (password.value.length < 6) {
         flassMessage('info', 'Password terlalu pendek', 'Password harus lebih 6 karakter');
         return;
@@ -55,8 +58,9 @@ const registerUserInAdmin = {
           user: userResgis.value,
           email: escapeHtml(email.value),
           namalengkap: escapeHtml(namaLengkap.value),
-          provinsi: escapeHtml(provinsi.value),
-          kabupaten: escapeHtml(kabupaten.value),
+          provinsi: escapeHtml(provinsi),
+          kabupaten: escapeHtml(city),
+          city_id: escapeHtml(cityId),
           kecamatan: escapeHtml(kecamatan.value),
           no_hp_wa: escapeHtml(nohpwa.value),
           tgl_lahir: escapeHtml(tgllahir.value),

@@ -94,17 +94,16 @@ const AccountsAdmin = {
                                 <div class="mb-3">
                                     <label for="provinsi" class="form-label">Provinsi <span
                                             class="text-danger">*</span></label>
-                                    <input class="form-control" required name="provinsi" list="datalistOptions"
-                                        id="provinsi" placeholder="Provinsi">
-                                    <!-- https://www.emsifa.com/api-wilayah-indonesia/ -->
-                                    <datalist id="datalistOptions">
-                                    </datalist>
+                                    <select class="form-select" id="datalistOptions" name="provinsi" aria-label="Pilih Provinsi" required>
+                                    <option data-idprov="null" value="null" disabled selected>Pilih Provinsi</options>
+                                    </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="kabupaten" class="form-label">Kabupaten/Kota <span
                                             class="text-danger">*</span></label>
-                                    <input type="text" required name="kabupaten" class="form-control" id="kabupaten"
-                                        placeholder="Kabupaten/Kota">
+                                    <select class="form-select" id="kabupatenData" name="kabupaten" aria-label="Pilih Kabupaten/Kota" required>
+                                        <option data-idcity="null" value="null" disabled selected>Pilih Kab/Kota</options>
+                                    </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="kecamatan" class="form-label">Kecamatan <span
@@ -169,9 +168,9 @@ const AccountsAdmin = {
       const data = d.data();
       data.id = d.id;
       if (data.user.toLowerCase() === 'seller') {
-        bodySeller.innerHTML += `<tr>
+        bodySeller.innerHTML += `<tr class="profile-card">
         <th scope="row">${numberCountSeller}</th>
-        <td><img src="${data.fotoprofile}" class="rounded-circle img-fluid" alt="profilepic" style="max-width: 40px;"></td>
+        <td><img src="" class="rounded-circle img-fluid" alt="Profile" style="max-width: 40px;" id='profilepic${data.id}'></td>
         <td>${data.namalengkap}</td>
         <td>${data.no_hp_wa}</td>
         <td>${data.email}</td>
@@ -181,7 +180,7 @@ const AccountsAdmin = {
       } if (data.user.toLowerCase() === 'buyer') {
         bodyBuyer.innerHTML += `<tr>
         <th scope="row">${numberCountBuyer}</th>
-        <td><img src="${data.fotoprofile}" class="rounded-circle img-fluid" alt="profilepic" style="max-width: 40px;"></td>
+        <td><img src="" class="rounded-circle img-fluid" alt="profilepic" style="max-width: 40px;" id='profilepic${data.id}'></td>
         <td>${data.namalengkap}</td>
         <td>${data.no_hp_wa}</td>
         <td>${data.email}</td>
@@ -189,16 +188,65 @@ const AccountsAdmin = {
       </tr>`;
         numberCountBuyer += 1;
       }
+      const profilepic = `profilepic${data.id}`;
+      if (data.fotoprofil) {
+        document.getElementById(profilepic).setAttribute('src', data.fotoprofile);
+      } else {
+        document.getElementById(profilepic).setAttribute('src', '../../assets/img/profile-img.png');
+      }
     });
 
     // register
-    await registerUserInAdmin.init();
     const datalist = document.querySelector('#datalistOptions');
-    fetch('https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json')
-      .then((response) => response.json())
-      .then((provinces) => provinces.forEach((provinsi) => {
-        datalist.innerHTML += `<option value="${provinsi.name}">`;
-      }));
+    const datalistKab = document.querySelector('#kabupatenData');
+    // const inputprovinsi = document.querySelector('#provinsi');
+    let provinsiId = '';
+
+    try {
+      const response = await fetch('https://proud-erin-parrot.cyclic.app/provinsi', {
+        method: 'GET',
+        headers: {
+          key: 'a8be5cd808491d7418dd4b76b7884dc6',
+        },
+      });
+      const responseJson = await response.json();
+
+      const dataProvinsi = responseJson.rajaongkir.results;
+      dataProvinsi.forEach((d) => {
+        datalist.innerHTML += `<option data-idprov="${d.province_id}" value="${d.province}">${d.province}</option>`;
+      });
+    } catch (error) {
+      console.log(error);
+    }
+
+    datalist.addEventListener('change', async () => {
+    //   provinsi = $('#provinsi').val(); // mengambil value dari input
+    //   provinsiId = $(`#datalistOptions option[value='${provinsi}']`).attr('data-idprov');
+      // ^ mencari atribut pada datalist (<option data-idprov="2" value="dua">) menggunakan bantuan value (DATALIST)
+
+      provinsiId = $('#datalistOptions').find(':selected').attr('data-idprov');
+
+      try {
+        const response = await fetch(`https://proud-erin-parrot.cyclic.app/kota?provId=${provinsiId}`, {
+          method: 'GET',
+          headers: {
+            key: 'a8be5cd808491d7418dd4b76b7884dc6',
+          },
+        });
+        const responseJson = await response.json();
+
+        const dataKota = responseJson.rajaongkir.results;
+        datalistKab.innerHTML = '';
+        datalistKab.innerHTML += '<option data-idcity="null" value="null" disabled selected>Pilih Kab/Kota</options>';
+        dataKota.forEach((d) => {
+          datalistKab.innerHTML += `<option data-idcity="${d.city_id}" value="${d.city_name}">${d.type} ${d.city_name}</option>`;
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    });
+
+    await registerUserInAdmin.init();
 
     // delete
     await deleteAccount.init();
