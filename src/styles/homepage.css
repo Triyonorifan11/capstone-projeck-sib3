@@ -719,14 +719,20 @@ footer .container .copyright p {
   border-color: #ce43eb;
 }
 .type .demo-card--step4 {
-  background-color: #4d92eb;
+  background-color: #5f84b5;
 }
 .type .demo-card--step4 .head::after {
-  border-color: #4d92eb;
+  border-color: #5f84b5;
 }
 .type .demo-card--step5 {
-  background-color: #46b8e9;
+  background-color: #5146e9;
 }
 .type .demo-card--step5 .head::after {
-  border-color: #46b8e9;
+  border-color: #5146e9;
+}
+.type .demo-card--step6 {
+  background-color: #46e98f;
+}
+.type .demo-card--step6 .head::after {
+  border-color: #46e98f;
 }

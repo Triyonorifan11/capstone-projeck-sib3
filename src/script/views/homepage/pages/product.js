@@ -4,16 +4,17 @@ import createAllProducts from '../templates/displayProducts';
 const Product = {
 
   async render() {
-    return `<section class="mb-5 position-relative">
-  <div class="col-sm-10 col-md-6 position-absolute top-50 start-0 translate-middle-y"
+    return `
+    <section class="mb-5 position-relative">
+      <div class="col-sm-10 col-md-6 position-absolute top-50 start-0 translate-middle-y"
     style="height: 50%;color: #012970;">
-    <div class="col-12 col-sm-12 col-lg-9 container p-3">
-      <h1 class="fw-bold">Reforma Trash Project</h1>
-      <h4 class="text-start">Ayo jaga kebersihan Bumi kita dengan mengurangi volume sampah</h3>
-    </div>
-  </div>
-  <img src="./assets/img/jumbotron.PNG" class="" alt="jumbotron" width="100%">
-</section>
+        <div class="col-12 col-sm-12 col-lg-9 container p-3">
+          <h1 class="fw-bold">Reforma Trash Project</h1>
+          <h4 class="text-start">Ayo jaga kebersihan Bumi kita dengan mengurangi volume sampah</h3>
+        </div>
+      </div>
+      <img src="./assets/img/jumbotron-small.png" class="" alt="jumbotron" width="100%">
+    </section>
 
 <main class="main-container">
     <section class="container pb-3" style="margin: 1rem auto;">
