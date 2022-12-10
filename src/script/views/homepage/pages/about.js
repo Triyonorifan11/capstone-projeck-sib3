@@ -1,5 +1,4 @@
 const About = {
-
   async render() {
     return `
     <div class="container-fluid body">
@@ -126,9 +125,9 @@ const About = {
                     <h4><span> Muhammad Syarif Al Husein</span></h4>
                     <h5>📍Bandar Lampung, Lampung, Indonesia</h5>
                     <div class="icons">
-                      <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/syarif.alhusein/?next=%2F" target="_blank"><i class="fa fa-instagram"></i></a>
                       <a href="mailto:muhammadsyarifalhusein@gmail.com"><i class="fa fa-envelope address"></i></a>
-                      <a href="https://www.linkedin.com/in/muhammad-syarif-al-husein-355792243/"> <i class="bi bi-linkedin"></i></a>
+                      <a href="https://www.linkedin.com/in/muhammad-syarif-al-husein-355792243/" target="_blank> <i class="bi bi-linkedin"></i></a>
                     </div>
                   </figcaption>
                 </figure>
@@ -142,7 +141,7 @@ const About = {
   },
 
   async afterRender() {
-    document.querySelector('#navAbout').classList.add('active');
+    document.querySelector("#navAbout").classList.add("active");
   },
 };
 
