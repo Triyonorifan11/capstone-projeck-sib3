@@ -83,7 +83,7 @@ const About = {
                   <div class="image"><img src="./assets/img/lkafoto.jpg" alt="Luthfi Kamal Ananda" title="Luthfi Kamal Ananda" />
                     <p>
                       Mahasiswa Universitas Dian Nuswantoro Semarang. Program Studi Teknik Informatika Angkatan tahun 2020 dan mengikuti
-                      progra mKampus Merdeka Studi Independen Batch 3
+                      program Kampus Merdeka Studi Independen Batch 3
                     </p>
                   </div>
                   <figcaption>
@@ -100,19 +100,15 @@ const About = {
                 <figure class="member">
                   <div class="image"><img src="./assets/img/hymfoto.jpg" alt="sample80" />
                     <p>
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                      labore
-                      et
-                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                      aliquip
-                      ex ea commodo consequat."
+                    Mahasiswa Universitas Lampung. Program studi Teknik Informatika Angkatan tahun 2020 dan mengikuti
+                    program Kampus Merdeka Studi Independen Batch 3
                     </p>
                   </div>
                   <figcaption>
                     <h4><span> Hesti Yuana Mahardika</span></h4>
-                    <h5>📍Sukamaju Street, Semarang, Indonesia</h5>
+                    <h5>📍Natar, Lampung Selatan, Lampung</h5>
                     <div class="icons">
-                      <a href="#"><i class="fa fa-instagram"></i></a>
+                      <a href="https://instagram.com/hestiyuanam"><i class="fa fa-instagram"></i></a>
                       <a href="mailto:hestiyuana9@gmail.com"><i class="fa fa-envelope address"></i></a>
                       <a href="https://www.linkedin.com/in/hesti-yuana-mahardika-b5aa21250/"> <i class="bi bi-linkedin"></i></a>
                     </div>
@@ -122,12 +118,8 @@ const About = {
                 <figure class="member">
                   <div class="image"><img src="./assets/img/msahfoto.png" alt="sample79" />
                     <p>
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                      labore
-                      et
-                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                      aliquip
-                      ex ea commodo consequat."
+                    Mahasiswa Universitas Lampung. Program studi Teknik Informatika Angkatan tahun 2020 dan mengikuti
+                    program Kampus Merdeka Studi Independen Batch 3
                     </p>
                   </div>
                   <figcaption>
