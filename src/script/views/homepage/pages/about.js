@@ -74,35 +74,31 @@ const About = {
                     <div class="icons">
                       <a href="https://www.instagram.com/t_riyo.id/" target="_blank"><i class="fa fa-instagram"></i></a>
                       <a href="mailto:triyonorifan01@gmail.com" target="_blank"><i class="fa fa-envelope address"></i></a>
-                      <a href="wa.me/6285931011450" target="blank"><i class="fa fa-phone address"></i></a>
+                      <a href="https://www.linkedin.com/in/triyono-rifan-a19142224/" target="blank"><i class="bi bi-linkedin"></i></a>
                     </div>
                   </figcaption>
                 </figure>
 
                 <figure class="member">
-                  <div class="image"><img src="./assets/img/mudah.png" alt="sample79" />
+                  <div class="image"><img src="./assets/img/lkafoto.jpg" alt="Luthfi Kamal Ananda" title="Luthfi Kamal Ananda" />
                     <p>
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                      labore
-                      et
-                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                      aliquip
-                      ex ea commodo consequat."
+                      Mahasiswa Universitas Dian Nuswantoro Semarang. Program Studi Teknik Informatika Angkatan tahun 2020 dan mengikuti
+                      progra mKampus Merdeka Studi Independen Batch 3
                     </p>
                   </div>
                   <figcaption>
                     <h4><span>Luthfi Kamal Ananda</span></h4>
-                    <h5>📍Sukamaju Street, Semarang, Indonesia</h5>
+                    <h5>📍Ngaliyan, Semarang, Jawa Tengah</h5>
                     <div class="icons">
-                      <a href="#"><i class="fa fa-instagram"></i></a>
-                      <a href="mailto:hestiyuana9@gmail.com"><i class="fa fa-envelope address"></i></a>
-                      <a href="#"> <i class="fa fa-phone address"></i></a>
+                      <a href="https://www.instagram.com/luthfikamalananda/"><i class="fa fa-instagram"></i></a>
+                      <a href="mailto:luthfi_kamal_ananda@yahoo.com"><i class="fa fa-envelope address"></i></a>
+                      <a href="https://www.linkedin.com/in/luthfi-ananda-224ab2256/"> <i class="bi bi-linkedin"></i></a>
                     </div>
                   </figcaption>
                 </figure>
 
                 <figure class="member">
-                  <div class="image"><img src="./assets/img/mudah.png" alt="sample80" />
+                  <div class="image"><img src="./assets/img/hymfoto.jpg" alt="sample80" />
                     <p>
                       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                       labore
@@ -118,13 +114,13 @@ const About = {
                     <div class="icons">
                       <a href="#"><i class="fa fa-instagram"></i></a>
                       <a href="mailto:hestiyuana9@gmail.com"><i class="fa fa-envelope address"></i></a>
-                      <a href="#"> <i class="fa fa-phone address"></i></a>
+                      <a href="https://www.linkedin.com/in/hesti-yuana-mahardika-b5aa21250/"> <i class="bi bi-linkedin"></i></a>
                     </div>
                   </figcaption>
                 </figure>
 
                 <figure class="member">
-                  <div class="image"><img src="./assets/img/mudah.png" alt="sample79" />
+                  <div class="image"><img src="./assets/img/msahfoto.png" alt="sample79" />
                     <p>
                       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                       labore
@@ -140,7 +136,7 @@ const About = {
                     <div class="icons">
                       <a href="#"><i class="fa fa-instagram"></i></a>
                       <a href="mailto:hestiyuana9@gmail.com"><i class="fa fa-envelope address"></i></a>
-                      <a href="#"> <i class="fa fa-phone address"></i></a>
+                      <a href="https://www.linkedin.com/in/muhammad-syarif-al-husein-355792243/"> <i class="bi bi-linkedin"></i></a>
                     </div>
                   </figcaption>
                 </figure>
