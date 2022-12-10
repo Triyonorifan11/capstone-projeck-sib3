@@ -73,8 +73,12 @@ const formEditProduk = (produk) => `
         <select class="form-select" id="jenisBarang" name="jenisBarang" aria-label="Jenis sampah" required>
             <option selected value="${produk.jenis_barang}">${produk.jenis_barang}</option>
             <option value="Sampah Organik">Sampah Organik</option>
-            <option value="Sampah Anorganik">Sampah Anorganik</option>
-            <option value="Sampah B3">Sampah B3</option>
+            <option value="Sampah Kaca">Sampah Kaca</option>
+            <option value="Sampah Limbah">Sampah Limbah</option>
+            <option value="Sampah Aluminium">Sampah Aluminium</option>
+            <option value="Sampah Besi dan Logam">Sampah Besi dan Logam</option>
+            <option value="Sampah Elektronik">Sampah Elektronik</option>
+            <option value="Sampah Plastik">Sampah Plastik</option>
         </select>
     </div>
     <label for="stokBarang" class="form-label">Stok</label>
