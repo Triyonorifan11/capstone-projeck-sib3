@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import dataAccount from '../../../utils/dataAccounts';
 import dataProduct from '../../../utils/dataProducts';
+import dataTransactions from '../../../utils/dataTransactions';
 
 /* eslint-disable no-undef */
 const DashboardAdmin = {
@@ -123,11 +124,13 @@ const DashboardAdmin = {
     const arrAccount = [];
     fetchedDataAccount.forEach((d) => {
       const data = d.data();
-      data.id = d.id;
       arrAccount.push(data);
       // console.log(data);
     });
-    console.log(arrAccount);
+    const totalAkunContainer = document.getElementById('totalAkun');
+    totalAkunContainer.innerText = `${arrAccount.length} Orang`;
+
+    // diagram akun
     let jumlahBuyer = 0;
     let jumlahSeller = 0;
     arrAccount.forEach((d) => {
@@ -137,18 +140,18 @@ const DashboardAdmin = {
         jumlahSeller += 1;
       }
     });
-    console.log(jumlahBuyer, 'buyer');
-    console.log(jumlahSeller, 'seller');
 
     // barang
     const fetchedDataBarang = await dataProduct._fetchAllDataProduct();
     const arrBarang = [];
     fetchedDataBarang.forEach((d) => {
       const data = d.data();
-      data.id = d.id;
       arrBarang.push(data);
-      // console.log(data);
     });
+    const totalBarangContainer = document.getElementById('totalBarang');
+    totalBarangContainer.innerText = `${arrBarang.length} Produk`;
+
+    // diagram barang
     let oraganik = 0;
     let kaca = 0;
     let limbah = 0;
@@ -173,8 +176,16 @@ const DashboardAdmin = {
         plastik += 1;
       }
     });
-    console.log(jumlahBuyer, 'buyer');
-    console.log(jumlahSeller, 'seller');
+
+    // checkout
+    const fetchedDataCheckout = await dataTransactions._fetchAllDataTransactions();
+    const arrCheckout = [];
+    fetchedDataCheckout.forEach((d) => {
+      const data = d.data();
+      arrCheckout.push(data);
+    });
+    const totalCheckoutContainer = document.getElementById('totalCheckout');
+    totalCheckoutContainer.innerText = `${arrCheckout.length} Checkout`;
 
     echarts.init(document.querySelector('#diagramAkun')).setOption({
       tooltip: {
