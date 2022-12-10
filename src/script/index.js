@@ -5,14 +5,17 @@ import HomepageApp from './views/homepage/app';
 import swRegister from './utils/sw-register';
 
 const dashboardlink = document.getElementById('dashboardlink');
-const checkoutNav = document.getElementById('checkout');
+const nameNavbar = document.getElementById('navbarDropdown');
+const checkoutNavbar = document.getElementById('checkout');
 function isLogin() {
   const userRT = localStorage.getItem('user_RTproject');
   const data = JSON.parse(userRT);
   if (!userRT) {
     dashboardlink.innerHTML = 'Login';
     dashboardlink.href = './login.html';
-    checkoutNav.setAttribute('class', '.d-none');
+    // dashboardlink.setAttribute('style', 'display:none');
+    nameNavbar.setAttribute('style', 'display:none');
+    checkoutNavbar.setAttribute('style', 'display:none');
   } else if ((data.user !== 'seller') || (data.user !== 'admin') || data.user !== 'buyer') {
     dashboardlink.href = './login.html';
     dashboardlink.innerHTML = 'Login';
@@ -22,14 +25,14 @@ function isLogin() {
     if (data.user === 'seller') {
       window.location.href = 'seller/dashboard';
     } else if (data.user === 'buyer') {
-      dashboardlink.innerHTML = 'Home';
-      // dashboardlink.href = './';
+      dashboardlink.setAttribute('style', 'display:none');
+      nameNavbar.innerText = `${data.namalengkap.split(' ')[0]}`;
     } else if (data.user === 'admin') {
       window.location.href = 'admin/';
     } else {
       dashboardlink.innerHTML = 'Login';
       dashboardlink.href = './login.html';
-      checkoutNav.setAttribute('class', '.d-none');
+      // dashboardlinkParent.setAttribute('style', 'display:none');
     }
   }
 }

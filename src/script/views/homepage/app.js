@@ -20,8 +20,18 @@ class HomepageApp {
     }, 250);
   }
 
+  _logoutHomepage() {
+    const logoutButton = document.getElementById('logoutButton');
+    logoutButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      localStorage.removeItem('user_RTproject');
+      window.location.href = '../';
+    });
+  }
+
   async renderPage() {
     this._loaderActive();
+    this._logoutHomepage();
     try {
       const url = UrlParser.parseActiveUrlWithCombiner();
       const page = homepageRoutes[url];
