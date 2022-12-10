@@ -189,7 +189,7 @@ const AccountsAdmin = {
         numberCountBuyer += 1;
       }
       const profilepic = `profilepic${data.id}`;
-      if (data.fotoprofil) {
+      if (data.fotoprofile) {
         document.getElementById(profilepic).setAttribute('src', data.fotoprofile);
       } else {
         document.getElementById(profilepic).setAttribute('src', '../../assets/img/profile-img.png');

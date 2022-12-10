@@ -1,31 +1,36 @@
 import { formatRupiah } from '../../../utils/functions';
 const formEditAkun = (data) => `
 <div class="row">
-<div class="col-md-6">
-    <img src="${data.fotoprofile}" alt="${data.namalengkap}" title="foto data ${data.namalengkap}" class="rounded" style="object-fit: cover;width: 80%;">
+<div class="col-md-4 ">
+    <img src="" alt="${data.namalengkap}" title="foto data ${data.namalengkap}" id="profilepic" class="rounded" style="object-fit: cover;width: 80%;">
 </div>
-<div class="col-md-6">
+<div class="col-md-8">
     <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nama Lengkap</label>
     <div class="mb-3">
         <input name="fullName" type="text" class="form-control" autocomplete="off" id="fullName" value="${data.namalengkap}" required>
     </div>
-    <label for="edit_provinsi" class="col-md-4 col-lg-3 col-form-label">Provinsi</label>
+
+    <label for="provinsi" class="col-md-4 col-lg-3 form-label">Provinsi</label>
     <div class="input-group mb-3">
-        <input class="form-control" required name="provinsi" list="datalistOptions" autocomplete="off" required
-                                        id="edit_provinsi" placeholder="Provinsi" value="${data.provinsi}">
-                                    <datalist id="datalistOptions">
-                                    </datalist>
-    </div>
-    <label for="kabupaten" class="col-md-4 col-lg-3 col-form-label">Kabupaten</label>
+        <select class="form-select" id="datalistOptions" name="provinsi" aria-label="Pilih Provinsi" required>
+        <option data-idprov="null" value="null" disabled selected>Pilih Provinsi</options>
+        </select>
+    </div>  
+      
+    <label for="kabupaten" class="col-md-4 col-lg-3 form-label">Kabupaten/Kota</label>
     <div class="input-group mb-3">
-        <input name="kabupaten" type="text" class="form-control" autocomplete="off" id="edit_kabupaten" value="${data.kabupaten}" required>
+        <select class="form-select" id="kabupatenData" name="kabupaten" aria-label="Pilih Kabupaten/Kota" required>
+        <option data-idcity="null" value="null" disabled selected>Pilih Kab/Kota</options>
+        </select>
     </div>
+
     <label for="kecamatan" class="col-md-4 col-lg-3 col-form-label">Kecamatan</label>
     <div class="input-group mb-3">
         <input name="kecamatan" type="text" class="form-control" autocomplete="off" id="edit_kecamatan" value="${data.kecamatan}" required>
     </div>
+
     <div class="mb-3">
-        <label for="nomorhp" class="col-md-4 col-lg-3 col-form-label">Nomor Hp/WhatsApp</label>
+        <label for="nomorhp" class="col-md-4 col-lg-3 col-form-label">Nomor Hp</label>
         <input name="nomorhp" type="text" class="form-control" autocomplete="off" id="nomorhp" value="${data.no_hp_wa}">
     </div>
     <div class="my-3">
