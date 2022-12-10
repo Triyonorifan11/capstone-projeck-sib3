@@ -124,10 +124,10 @@ const About = {
                   </div>
                   <figcaption>
                     <h4><span> Muhammad Syarif Al Husein</span></h4>
-                    <h5>📍Sukamaju Street, Semarang, Indonesia</h5>
+                    <h5>📍Bandar Lampung, Lampung, Indonesia</h5>
                     <div class="icons">
                       <a href="#"><i class="fa fa-instagram"></i></a>
-                      <a href="mailto:hestiyuana9@gmail.com"><i class="fa fa-envelope address"></i></a>
+                      <a href="mailto:muhammadsyarifalhusein@gmail.com"><i class="fa fa-envelope address"></i></a>
                       <a href="https://www.linkedin.com/in/muhammad-syarif-al-husein-355792243/"> <i class="bi bi-linkedin"></i></a>
                     </div>
                   </figcaption>
