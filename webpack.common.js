@@ -6,7 +6,6 @@ module.exports = {
   entry: {
     admin: path.resolve(__dirname, 'src/script/admin.js'),
     sellerDashboard: path.resolve(__dirname, 'src/script/seller-dashboard.js'),
-    buyer: path.resolve(__dirname, 'src/script/buyer.js'),
     login: path.resolve(__dirname, 'src/script/login.js'),
     app: path.resolve(__dirname, 'src/script/index.js'),
     sw: path.resolve(__dirname, 'src/script/sw.js'),
@@ -55,11 +54,6 @@ module.exports = {
       filename: 'seller/dashboard/index.html',
       template: path.resolve(__dirname, 'src/templates/seller/dashboard/index.html'),
       chunks: ['sellerDashboard'],
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'buyer/index.html',
-      template: path.resolve(__dirname, 'src/templates/buyer/index.html'),
-      chunks: ['buyer'],
     }),
     new CopyWebpackPlugin({
       patterns: [
